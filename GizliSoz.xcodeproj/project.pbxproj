@@ -163,10 +163,10 @@
 			isa = PBXGroup;
 			children = (
 				187C2BD9291674D40036F43A /* AppDelegate.swift */,
-				187C2BE2291674D70036F43A /* Assets.xcassets */,
 				187C2BE4291674D70036F43A /* LaunchScreen.storyboard */,
 				187C2BE7291674D70036F43A /* Info.plist */,
 				187C2C51291963730036F43A /* BuildConfig.swift */,
+				187C2C042916EB4E0036F43A /* Resources */,
 				187C2C3C2917E4BB0036F43A /* Classes */,
 				187C2BEF2916A7580036F43A /* Screens */,
 			);
@@ -226,6 +226,7 @@
 		187C2C042916EB4E0036F43A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				187C2BE2291674D70036F43A /* Assets.xcassets */,
 				187C2C0F2916FB870036F43A /* Fonts */,
 				187C2C052916EB650036F43A /* AppImage.swift */,
 				187C2C0A2916F74E0036F43A /* AppColor.swift */,
@@ -292,7 +293,6 @@
 		187C2C3C2917E4BB0036F43A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				187C2C042916EB4E0036F43A /* Resources */,
 				187C2BED2916A7460036F43A /* Extension */,
 				187C2BEE2916A74E0036F43A /* Base */,
 				187C2BF02916A76B0036F43A /* AppComponents */,

@@ -6,18 +6,53 @@
 //
 
 import Foundation
+import os
 
 final class AppLogger {
     
     private static var enableLogType: [LogType] = [
-//        .api, .api_mock,
+        .api, .api_mock,
         .storage
     ]
     
     static func log(_ type: LogType, _ message: Any) {
-        if BuildConfig.loggingEnabled && Self.enableLogType.contains(type) {
-            print("AppLogger> \(type.rawValue):",message)
-        }
+        guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
+        guard let message = message as? String else { return }
+        let log = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: type.rawValue)
+        )
+        log.notice("\(message, privacy: .public)")
+    }
+    
+    static func warning(_ type: LogType, _ message: Any) {
+        guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
+        guard let message = message as? String else { return }
+        let log = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: type.rawValue)
+        )
+        log.warning("\(message, privacy: .public)")
+    }
+    
+    static func error(_ type: LogType, _ message: Any) {
+        guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
+        guard let message = message as? String else { return }
+        let log = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: type.rawValue)
+        )
+        log.error("\(message, privacy: .public)")
+    }
+    
+    static func critical(_ type: LogType, _ message: Any) {
+        guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
+        guard let message = message as? String else { return }
+        let log = Logger(
+            subsystem: Bundle.main.bundleIdentifier!,
+            category: String(describing: type.rawValue)
+        )
+        log.critical("\(message, privacy: .public)")
     }
 }
 
