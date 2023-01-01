@@ -36,6 +36,26 @@ final class KeyboardLogic {
         }
     }
     
+    /// Строит точки для дополнительных кнопок
+    /// - Parameters:
+    ///   - radius: Радиус круга
+    /// - Returns: Возвращает массив координат точек на круге
+    static func get4AdditionalPositions(radius: CGFloat) -> [CGPoint] {
+        return (1...4).map { index in
+            var corner: CGFloat = 180
+            if index == 1 {
+                corner += 45
+            } else if index == 2 {
+                corner += 65
+            } else if index == 3 {
+                corner += 115
+            }else {
+                corner += 135
+            }
+            return getPosition(radius: radius, corner: corner)
+        }
+    }
+    
     /// Определяет входит ли точка в пределы view
     /// - Parameters:
     ///   - view: входная view

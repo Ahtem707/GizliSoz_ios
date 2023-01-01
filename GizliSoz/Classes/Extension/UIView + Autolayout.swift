@@ -328,8 +328,8 @@ extension UIView {
     
     /// Установка зависимости соотношения сторон
     @discardableResult
-    func pinRatio() -> NSLayoutConstraint {
-        return self.widthAnchor.constraint(equalTo: self.heightAnchor).activate()
+    func pinRatio(value: CGFloat = 0) -> NSLayoutConstraint {
+        return self.widthAnchor.constraint(equalTo: self.heightAnchor, constant: value).activate()
     }
     
     /// Установка и активация констрейнтов относительно родительской View

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1820F424292A602B00D33069 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820F423292A602B00D33069 /* KeyboardView.swift */; };
 		1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844642A29393AAF00A2C540 /* AnimateStack.swift */; };
+		184E29C82960BAE400B54C63 /* AdditionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E29C72960BAE400B54C63 /* AdditionalCell.swift */; };
 		185B5DAB293C9F36001B726D /* KeyboardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B5DAA293C9F36001B726D /* KeyboardLogic.swift */; };
 		185B5DAD293CA00F001B726D /* KeyboardGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B5DAC293CA00F001B726D /* KeyboardGestureRecognizer.swift */; };
 		187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2BD9291674D40036F43A /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 /* Begin PBXFileReference section */
 		1820F423292A602B00D33069 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		1844642A29393AAF00A2C540 /* AnimateStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateStack.swift; sourceTree = "<group>"; };
+		184E29C72960BAE400B54C63 /* AdditionalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCell.swift; sourceTree = "<group>"; };
 		185B5DA3293C8FDF001B726D /* GizliSoz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GizliSoz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185B5DAA293C9F36001B726D /* KeyboardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLogic.swift; sourceTree = "<group>"; };
 		185B5DAC293CA00F001B726D /* KeyboardGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGestureRecognizer.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				187C2C372917C65C0036F43A /* KeyboardCell.swift */,
+				184E29C72960BAE400B54C63 /* AdditionalCell.swift */,
 				1820F423292A602B00D33069 /* KeyboardView.swift */,
 				185B5DAA293C9F36001B726D /* KeyboardLogic.swift */,
 				185B5DAC293CA00F001B726D /* KeyboardGestureRecognizer.swift */,
@@ -446,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184E29C82960BAE400B54C63 /* AdditionalCell.swift in Sources */,
 				187C2BFD2916B0160036F43A /* MainBuilder.swift in Sources */,
 				187C2C0D2916F7D50036F43A /* UIColor.swift in Sources */,
 				187C2BFB2916AB860036F43A /* MainViewModel.swift in Sources */,

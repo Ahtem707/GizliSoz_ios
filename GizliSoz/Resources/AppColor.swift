@@ -31,5 +31,6 @@ enum AppColor {
         static let normal = UIColor(0xFFFFFF)
         static let select = UIColor(0x2DCD34)
         static let line = UIColor(0x2DCD34)
+        static let counter = UIColor(0xFD7E13)
     }
 }

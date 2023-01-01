@@ -40,12 +40,14 @@ final class KeyboardView: UIView {
     private var shuffleCell = KeyboardCell()
     private var cells: [KeyboardCell] = []
     private var selectedCells: [KeyboardCell] = []
+    private var additionalButtons: [AdditionalCell] = []
     
     private var lastPoint: CGPoint?
     private var cellSize: CGFloat = 0
     private var diameter: CGFloat = 0
     private var viewCenter: CGPoint = CGPoint()
     private var cellsPositions: [CGPoint] = []
+    private var additionalPositions: [CGPoint] = []
     private var isSetupLayouts: Bool = false
     private var isShuffleAnimation: Bool = false
     
@@ -53,6 +55,7 @@ final class KeyboardView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         setupLayouts()
+        backgroundColor = .yellow
     }
 }
 
@@ -71,7 +74,8 @@ extension KeyboardView {
     private func setParameters() {
         
         let viewWidth = bounds.width
-        viewCenter = CGPoint(x: viewWidth/2, y: viewWidth/2)
+        let viewHeight = bounds.height
+        viewCenter = CGPoint(x: viewWidth/2, y: viewHeight - viewWidth/2)
         
         // Ступенчатая установка размеров
         switch cells.count {
@@ -92,6 +96,8 @@ extension KeyboardView {
         // Инициализация позиций ячеек
         cells.shuffle()
         cellsPositions = KeyboardLogic.getPositions(radius: diameter/2, count: cells.count)
+        
+        additionalPositions = KeyboardLogic.get4AdditionalPositions(radius: diameter/2 + cellSize, centerBetween: 10)
     }
     
     /// Установить стартовую позицию для всех ячейек
@@ -102,14 +108,21 @@ extension KeyboardView {
         shuffleCell.frame.origin.x = viewCenter.x - cellSize / 2
         shuffleCell.frame.origin.y = viewCenter.y - cellSize / 2
         
-        var i = 0
-        while i < self.cells.count {
+        for i in 0..<cells.count {
             cells[i].frame.size.width = cellSize
             cells[i].frame.size.height = cellSize
             cells[i].layer.cornerRadius = cellSize / 2
             cells[i].frame.origin.x = viewCenter.x - cellSize / 2
             cells[i].frame.origin.y = viewCenter.y - cellSize / 2
-            i += 1
+        }
+        
+        for i in 0..<additionalButtons.count {
+            let cellSize = self.cellSize * 0.7
+            additionalButtons[i].frame.size.width = cellSize
+            additionalButtons[i].frame.size.height = cellSize
+            additionalButtons[i].layer.cornerRadius = cellSize / 2
+            additionalButtons[i].frame.origin.x = viewCenter.x - cellSize / 2
+            additionalButtons[i].frame.origin.y = viewCenter.y - cellSize / 2
         }
     }
     
@@ -158,19 +171,30 @@ extension KeyboardView {
         UIView.animate(
             withDuration: appearance.animateDuration,
             animations: {
-                var i = 0
-                while i < self.cells.count {
+                for i in 0..<self.cells.count {
                     let nowX = self.viewCenter.x + self.cellsPositions[i].x - self.cellSize / 2
                     let nowY = self.viewCenter.y + self.cellsPositions[i].y - self.cellSize / 2
-                    
+
                     self.cells[i].alpha = 1
                     self.cells[i].frame.size.width = self.cellSize
                     self.cells[i].frame.size.height = self.cellSize
                     self.cells[i].layer.cornerRadius = self.cellSize / 2
                     self.cells[i].frame.origin.x = nowX
                     self.cells[i].frame.origin.y = nowY
-                    i += 1
                 }
+                
+                for i in 0..<self.additionalButtons.count {
+                    let cellSize = self.cellSize * 0.7
+                    let nowX = self.viewCenter.x + self.additionalPositions[i].x - cellSize / 2
+                    let nowY = self.viewCenter.y + self.additionalPositions[i].y - cellSize / 2
+                    
+                    self.additionalButtons[i].frame.size.width = cellSize
+                    self.additionalButtons[i].frame.size.height = cellSize
+                    self.additionalButtons[i].layer.cornerRadius = cellSize / 2
+                    self.additionalButtons[i].frame.origin.x = nowX
+                    self.additionalButtons[i].frame.origin.y = nowY
+                }
+                
             },
             completion: { _ in
                 self.isShuffleAnimation = false
@@ -210,6 +234,16 @@ extension KeyboardView {
         if gesture.state == .began && KeyboardLogic.hoverZone(view: shuffleCell, point: point) {
             shuffleHandlePan()
             return
+        }
+        
+        // Обработать нажатие для дополнительных кнопок и выйти
+        if gesture.state == .began {
+            for cell in additionalButtons {
+                if KeyboardLogic.hoverZone(view: cell, point: point) {
+                    additionalHandlePan(cell.type)
+                    return
+                }
+            }
         }
         
         // Получить список не выбранных ячеек
@@ -259,6 +293,19 @@ extension KeyboardView {
         cells.shuffle()
         cellsPositions = KeyboardLogic.getPositions(radius: diameter/2, count: cells.count)
         moveCharsCells()
+    }
+    
+    private func additionalHandlePan(_ type: AdditionalCellBuilder.Types) {
+        switch type {
+        case .hint:
+            print("myLog: ",type)
+        case .hammer:
+            print("myLog: ",type)
+        case .word:
+            print("myLog: ",type)
+        case .sound:
+            print("myLog: ",type)
+        }
     }
     
     /// Завершение составление слова
@@ -328,9 +375,22 @@ extension KeyboardView: LevelKeyboardViewDelegate {
             cells.append(cell)
         }
         
+        // Генерация ячеек дополнительных кнопок
+        let additionalCells = AdditionalCellBuilder.Types.allCases
+        additionalCells.forEach { button in
+            let cell = AdditionalCell()
+            cell.type = button
+            cell.counter = nil
+            cell.isActive = false
+            additionalButtons.append(cell)
+        }
+        
         // Добавление ячеек на view
         addSubview(shuffleCell)
         cells.forEach { cell in
+            insertSubview(cell, at: 0)
+        }
+        additionalButtons.forEach { cell in
             insertSubview(cell, at: 0)
         }
         insertSubview(linesView, at: 0)
