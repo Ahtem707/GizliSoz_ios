@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        Storage.appStart()
+        AppStorage.appStart()
+        AppStorage.userLoginCount += 1
         
         window = UIWindow(frame: UIScreen.main.bounds)
         

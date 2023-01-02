@@ -7,20 +7,22 @@
 
 import Foundation
 
-final class Storage {
+final class AppStorage {
     
-    static var share: Storage?
+    static var share: AppStorage!
     
     static func appStart() {
-        Storage.share = Storage()
-        Storage.share?.fetchLevels()
+        AppStorage.share = AppStorage()
+        AppStorage.share.fetchLevels()
     }
     
-    var levels: [LevelResponse] = []
-    var currentLevelIndex: Int = 1
-    var currentLevel: LevelResponse? {
-        guard currentLevelIndex > 0,
-              levels.count >= currentLevelIndex
+    @UserDefault("userLoginCount", 0)
+    static var userLoginCount: Int
+    
+    static var levels: [LevelResponse] = []
+    static var currentLevelIndex: Int = 1
+    static var currentLevel: LevelResponse? {
+        guard currentLevelIndex > 0 && levels.count >= currentLevelIndex
         else {
             AppLogger.critical(.logic, "Неправильно выставленный уровень")
             return nil
@@ -29,6 +31,13 @@ final class Storage {
         return levels[currentLevelIndex - 1]
     }
     
+    // User value
+    @UserDefault("hintCount", 5)
+    static var hintCount: Int
+    
+    @UserDefault("hammerCount", 5)
+    static var hammerCount: Int
+    
     // MARK: - Fetch functions
     
     /// Загрузка данных уровней
@@ -36,7 +45,7 @@ final class Storage {
         API.Levels.getLevels.request([LevelResponse].self) { result in
             switch result {
             case .success(let data):
-                self.levels = data
+                Self.levels = data
             case .failure(let error):
                 AppLogger.log(.storage, error)
             }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1820F424292A602B00D33069 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820F423292A602B00D33069 /* KeyboardView.swift */; };
+		1842E0262963823A000E95F4 /* AppStorageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E0252963823A000E95F4 /* AppStorageExtension.swift */; };
 		1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844642A29393AAF00A2C540 /* AnimateStack.swift */; };
 		184E29C82960BAE400B54C63 /* AdditionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E29C72960BAE400B54C63 /* AdditionalCell.swift */; };
 		185B5DAB293C9F36001B726D /* KeyboardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B5DAA293C9F36001B726D /* KeyboardLogic.swift */; };
@@ -55,12 +56,13 @@
 		187C2C5029194E1E0036F43A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C4F29194E1E0036F43A /* Data.swift */; };
 		187C2C52291963730036F43A /* BuildConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C51291963730036F43A /* BuildConfig.swift */; };
 		187C2C542919670C0036F43A /* CrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C532919670C0036F43A /* CrossView.swift */; };
-		187C2C572919792A0036F43A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C562919792A0036F43A /* Storage.swift */; };
+		187C2C572919792A0036F43A /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C562919792A0036F43A /* AppStorage.swift */; };
 		187C2C5D29199FBD0036F43A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C5C29199FBD0036F43A /* Array.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1820F423292A602B00D33069 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		1842E0252963823A000E95F4 /* AppStorageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageExtension.swift; sourceTree = "<group>"; };
 		1844642A29393AAF00A2C540 /* AnimateStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateStack.swift; sourceTree = "<group>"; };
 		184E29C72960BAE400B54C63 /* AdditionalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCell.swift; sourceTree = "<group>"; };
 		185B5DA3293C8FDF001B726D /* GizliSoz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GizliSoz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +112,7 @@
 		187C2C4F29194E1E0036F43A /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		187C2C51291963730036F43A /* BuildConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfig.swift; sourceTree = "<group>"; };
 		187C2C532919670C0036F43A /* CrossView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossView.swift; sourceTree = "<group>"; };
-		187C2C562919792A0036F43A /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		187C2C562919792A0036F43A /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		187C2C5C29199FBD0036F43A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -362,7 +364,8 @@
 		187C2C552919791C0036F43A /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				187C2C562919792A0036F43A /* Storage.swift */,
+				187C2C562919792A0036F43A /* AppStorage.swift */,
+				1842E0252963823A000E95F4 /* AppStorageExtension.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -472,12 +475,13 @@
 				187C2C012916B3910036F43A /* UIView + Autolayout.swift in Sources */,
 				187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */,
 				187C2BF22916A7AE0036F43A /* BaseViewController.swift in Sources */,
-				187C2C572919792A0036F43A /* Storage.swift in Sources */,
+				187C2C572919792A0036F43A /* AppStorage.swift in Sources */,
 				187C2C362917C4670036F43A /* UITableViewCell.swift in Sources */,
 				187C2BF72916AA420036F43A /* MainViewController.swift in Sources */,
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
 				187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */,
 				187C2C282916FBD80036F43A /* AppFont.swift in Sources */,
+				1842E0262963823A000E95F4 /* AppStorageExtension.swift in Sources */,
 				187C2C2B2917BC5F0036F43A /* LevelProtocols.swift in Sources */,
 				187C2C092916F0CF0036F43A /* AppNavigationController.swift in Sources */,
 				187C2C342917C0790036F43A /* CrossCell.swift in Sources */,
