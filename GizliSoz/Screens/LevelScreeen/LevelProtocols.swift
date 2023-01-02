@@ -8,11 +8,11 @@
 import Foundation
 
 protocol LevelViewModelProtocol: AnyObject {
-    
+    /// Выключаем режим открытия ячейки молотком
+    func turnOffHammerFromView()
 }
 
 protocol LevelViewControllerDelegate: AnyObject {
-    
     /// Успешное завершение уровня
     func levelComplete()
 }
@@ -39,20 +39,40 @@ protocol LevelCrossViewDelegate: AnyObject {
     /// - Returns: Возвращает true если есть что отрыть
     func openRandom() -> Bool
     
-    /// Запускает возможность ручного открытия ячейки,
+    /// Запускает или блокирует возможность ручного открытия ячейки,
     /// требует замыкание openByPressingClosure
-    func openByPressing()
+    /// - Parameter value: устанавливает конкретное значение
+    /// - Returns: требует замыкание openByPressingClosure
+    func openByPressing(valueIfNeeded: Bool?) -> Bool
 }
 
 protocol LevelKeyboardViewModelProtocol: AnyObject {
+    /// Выключаем режим открытия ячейки молотком
+    func turnOffHammerFromKeyboardView()
+    
     /// Завершение составление слова
-    func workComplete(word: [String])
+    func wordComplete(word: [String])
+    
+    /// Обработка нажатия подсказки
+    func hintHandle()
+    
+    /// Обработка нажатия молотка
+    func hammerHandle()
+    
+    /// Обработка нажатия озвучки
+    func soundHandle()
 }
 
 protocol LevelKeyboardViewDelegate: AnyObject {
     /// Инициализация
     /// - Parameter input: Входные данные
     func initialize(input: KeyboardViewBuilder.Input)
+    
+    /// Установить состояние для дополнительных кнопок
+    func setAdditionalStatus(type: AdditionalCellBuilder.Types, isActive: Bool, counter: String?)
+    
+    /// Установить состояние выбора для дополнительных кнопок
+    func setAdditionalSelected(type: AdditionalCellBuilder.Types, isSelected: Bool)
     
     /// Очистка клавиатуры
     func clear()

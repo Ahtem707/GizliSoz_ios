@@ -13,8 +13,16 @@ final class LevelViewModel: BaseViewModel {
     weak var crossDelegate: LevelCrossViewDelegate?
     weak var keyboardDelegate: LevelKeyboardViewDelegate?
     
+    private var hintCount = 5
+    private var hammerCount = 5
+    private var bonusWords: [String] = []
+    private var sound = false
+    
+    private var openWords = 0
+    
     func initialize() {
-        guard let level = Storage.share?.levels.first else { return }
+        // Получаем текущий уровень
+        guard let level = Storage.share?.currentLevel else { return }
         
         let words: [CrossViewBuilder.Word] = level.words.map { word, wordData in
             
@@ -52,17 +60,37 @@ final class LevelViewModel: BaseViewModel {
         
         // Отправляем данные в KeyboardView
         keyboardDelegate?.initialize(input: keyboardViewInput)
+        
+        // Устанавливаем состояние дополнительных кнопок
+        keyboardDelegate?.setAdditionalStatus(type: .hint, isActive: hintCount != 0, counter: "\(hintCount)")
+        keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: hammerCount != 0, counter: "\(hammerCount)")
+        keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWords.count != 0, counter: "\(bonusWords.count)")
+        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: sound, counter: nil)
     }
 }
 
-// MARK: - MainViewModelProtocol
-extension LevelViewModel: LevelViewModelProtocol {
-    
+// MARK: - Private methods
+extension LevelViewModel {
+    private func turnOffHammer() {
+        let result = crossDelegate?.openByPressing(valueIfNeeded: false) ?? false
+        keyboardDelegate?.setAdditionalSelected(type: .hammer, isSelected: result)
+    }
 }
 
+// MARK: - LevelViewModelProtocol
+extension LevelViewModel: LevelViewModelProtocol {
+    func turnOffHammerFromView() {
+        turnOffHammer()
+    }
+}
+
+// MARK: - LevelCrossViewModelProtocol
 extension LevelViewModel: LevelCrossViewModelProtocol {
+    
     func openByPressingClosure() {
-        
+        hammerCount -= 1
+        keyboardDelegate?.setAdditionalSelected(type: .hammer, isSelected: false)
+        keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: hammerCount != 0, counter: "\(hammerCount)")
     }
     
     func wordsCompleted() {
@@ -70,12 +98,52 @@ extension LevelViewModel: LevelCrossViewModelProtocol {
     }
 }
 
+// MARK: - LevelKeyboardViewModelProtocol
 extension LevelViewModel: LevelKeyboardViewModelProtocol {
-    func workComplete(word: [String]) {
+    
+    func turnOffHammerFromKeyboardView() {
+        turnOffHammer()
+    }
+    
+    func wordComplete(word: [String]) {
         let word = word.reduce("", {$0 + $1})
-        let result = crossDelegate?.openWord(word: word)
-        if result ?? false {
-            print("success open word, increment counter")
+        if crossDelegate?.openWord(word: word) ?? false {
+            openWords += 1
+        } else {
+            // Получаем текущий уровень
+            guard let level = Storage.share?.currentLevel else { return }
+            
+            if level.bonusWords.contains(where: { $0 == word }) &&
+                !bonusWords.contains(where: { $0 == word }) {
+                bonusWords.append(word)
+                keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWords.count != 0, counter: "\(bonusWords.count)")
+            }
         }
+    }
+    
+    func hintHandle() {
+        if hintCount > 0 {
+            let result = crossDelegate?.openRandom() ?? false
+            if result {
+                hintCount -= 1
+                keyboardDelegate?.setAdditionalStatus(type: .hint, isActive: hintCount != 0, counter: "\(hintCount)")
+            }
+        } else {
+            keyboardDelegate?.setAdditionalStatus(type: .hint, isActive: false, counter: nil)
+        }
+    }
+    
+    func hammerHandle() {
+        if hammerCount > 0 {
+            let result = crossDelegate?.openByPressing(valueIfNeeded: nil) ?? false
+            keyboardDelegate?.setAdditionalSelected(type: .hammer, isSelected: result)
+            
+        } else {
+            keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: false, counter: nil)
+        }
+    }
+    
+    func soundHandle() {
+        print("Запуск музыки")
     }
 }

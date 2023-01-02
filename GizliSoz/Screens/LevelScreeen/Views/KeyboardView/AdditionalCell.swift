@@ -15,7 +15,8 @@ class AdditionalCellBuilder {
     }
     
     struct Appearance {
-        let background = AppColor.Cell.normal
+        let backgroundNormal = AppColor.Cell.normal
+        let backgroundSelected = AppColor.Cell.select
         let hintEnableImage = AppImage.hintEnable
         let hintDisableImage = AppImage.hintDisable
         let hammerEnableImage = AppImage.hammerEnable
@@ -31,7 +32,7 @@ class AdditionalCellBuilder {
     enum Types: CaseIterable {
         case hint
         case hammer
-        case word
+        case bonusWords
         case sound
     }
 }
@@ -56,7 +57,7 @@ final class AdditionalCell: UIView {
                 backImage.image = appearance.hintEnableImage
             case .hammer:
                 backImage.image = appearance.hammerEnableImage
-            case .word:
+            case .bonusWords:
                 backImage.image = appearance.wordsImage
             case .sound:
                 backImage.image = appearance.soundEnableImage
@@ -65,7 +66,7 @@ final class AdditionalCell: UIView {
     }
     var counter: String? {
         didSet {
-            if let counter = counter {
+            if let counter = counter, counter != "", counter != "0" {
                 counterView.isHidden = false
                 counterLabel.text = counter
             } else {
@@ -81,11 +82,16 @@ final class AdditionalCell: UIView {
                 backImage.image = isActive ? appearance.hintEnableImage : appearance.hintDisableImage
             case .hammer:
                 backImage.image = isActive ? appearance.hammerEnableImage : appearance.hammerDisableImage
-            case .word:
+            case .bonusWords:
                 backImage.image = isActive ? appearance.wordsImage : appearance.wordsImage
             case .sound:
                 backImage.image = isActive ? appearance.soundEnableImage : appearance.soundDisableImage
             }
+        }
+    }
+    var isSelected: Bool = false {
+        didSet {
+            backgroundColor = isSelected ? appearance.backgroundSelected : appearance.backgroundNormal
         }
     }
     
@@ -128,7 +134,7 @@ extension AdditionalCell {
     }
     
     private func setupAppearance() {
-        backgroundColor = appearance.background
+        backgroundColor = appearance.backgroundNormal
         counterView.backgroundColor = appearance.counterBackground
         counterLabel.font = appearance.counterLabelFont
         counterLabel.textColor = appearance.counterLabelColor

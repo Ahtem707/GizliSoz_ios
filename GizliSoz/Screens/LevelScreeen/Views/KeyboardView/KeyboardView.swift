@@ -55,7 +55,6 @@ final class KeyboardView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         setupLayouts()
-        backgroundColor = .yellow
     }
 }
 
@@ -97,7 +96,7 @@ extension KeyboardView {
         cells.shuffle()
         cellsPositions = KeyboardLogic.getPositions(radius: diameter/2, count: cells.count)
         
-        additionalPositions = KeyboardLogic.get4AdditionalPositions(radius: diameter/2 + cellSize, centerBetween: 10)
+        additionalPositions = KeyboardLogic.get4AdditionalPositions(radius: diameter/2 + cellSize)
     }
     
     /// Установить стартовую позицию для всех ячейек
@@ -230,6 +229,11 @@ extension KeyboardView {
             return
         }
         
+        // Выключить режим молотка
+        if gesture.state == .began {
+            viewModel?.turnOffHammerFromKeyboardView()
+        }
+        
         // Обработать нажатие для кнопки перемешивания и выйти
         if gesture.state == .began && KeyboardLogic.hoverZone(view: shuffleCell, point: point) {
             shuffleHandlePan()
@@ -298,20 +302,20 @@ extension KeyboardView {
     private func additionalHandlePan(_ type: AdditionalCellBuilder.Types) {
         switch type {
         case .hint:
-            print("myLog: ",type)
+            viewModel?.hintHandle()
         case .hammer:
-            print("myLog: ",type)
-        case .word:
-            print("myLog: ",type)
+            viewModel?.hammerHandle()
+        case .bonusWords:
+            break
         case .sound:
-            print("myLog: ",type)
+            viewModel?.soundHandle()
         }
     }
     
     /// Завершение составление слова
     private func wordComplete() {
         let word = selectedCells.compactMap { $0.text }
-        viewModel?.workComplete(word: word)
+        viewModel?.wordComplete(word: word)
     }
     
     /// Вернуть все переменные в изначальное состояние
@@ -397,6 +401,16 @@ extension KeyboardView: LevelKeyboardViewDelegate {
         
         // Инициализация обработчика
         gestureInit()
+    }
+    
+    func setAdditionalStatus(type: AdditionalCellBuilder.Types, isActive: Bool, counter: String?) {
+        let button = additionalButtons.first { $0.type == type }
+        button?.isActive = isActive
+        button?.counter = counter
+    }
+    
+    func setAdditionalSelected(type: AdditionalCellBuilder.Types, isSelected: Bool) {
+        additionalButtons.first { $0.type == type }?.isSelected = isSelected
     }
     
     func clear() {

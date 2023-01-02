@@ -61,5 +61,6 @@ extension AppLogger {
     enum LogType: String {
         case api, api_mock
         case storage
+        case logic
     }
 }

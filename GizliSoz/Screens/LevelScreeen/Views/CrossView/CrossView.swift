@@ -204,7 +204,13 @@ extension CrossView: LevelCrossViewDelegate {
         return true
     }
     
-    func openByPressing() {
-        openByPressingPermission = true
+    func openByPressing(valueIfNeeded: Bool?) -> Bool {
+        if let value = valueIfNeeded {
+            openByPressingPermission = value
+            return value
+        } else {
+            openByPressingPermission = !openByPressingPermission
+            return openByPressingPermission
+        }
     }
 }

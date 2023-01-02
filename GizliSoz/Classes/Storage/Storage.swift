@@ -16,10 +16,22 @@ final class Storage {
         Storage.share?.fetchLevels()
     }
     
-    /// Загрузка данных уровней
     var levels: [LevelResponse] = []
+    var currentLevelIndex: Int = 1
+    var currentLevel: LevelResponse? {
+        guard currentLevelIndex > 0,
+              levels.count >= currentLevelIndex
+        else {
+            AppLogger.critical(.logic, "Неправильно выставленный уровень")
+            return nil
+        }
+        
+        return levels[currentLevelIndex - 1]
+    }
     
     // MARK: - Fetch functions
+    
+    /// Загрузка данных уровней
     private func fetchLevels() {
         API.Levels.getLevels.request([LevelResponse].self) { result in
             switch result {

@@ -61,7 +61,15 @@ extension LevelViewController {
     }
     
     private func setupAction() {
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(viewTap))
+        view.addGestureRecognizer(tap)
+    }
+}
+
+// MARK: - Actions
+extension LevelViewController {
+    @objc private func viewTap() {
+        viewModel.turnOffHammerFromView()
     }
 }
 
