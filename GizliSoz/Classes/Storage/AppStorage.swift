@@ -19,9 +19,9 @@ final class AppStorage {
     @UserDefault("userLoginCount", 0)
     static var userLoginCount: Int
     
-    static var levels: [LevelResponse] = []
+    static var levels: [LevelResponse.Content] = []
     static var currentLevelIndex: Int = 1
-    static var currentLevel: LevelResponse? {
+    static var currentLevel: LevelResponse.Content? {
         guard currentLevelIndex > 0 && levels.count >= currentLevelIndex
         else {
             AppLogger.critical(.logic, "Неправильно выставленный уровень")
@@ -38,16 +38,22 @@ final class AppStorage {
     @UserDefault("hammerCount", 5)
     static var hammerCount: Int
     
+    @UserDefault("voiceActorIsActive", true)
+    static var voiceActorIsActive: Bool
+    
+    @UserDefault("voiceActor", "default")
+    static var voiceActor: String
+    
     // MARK: - Fetch functions
     
     /// Загрузка данных уровней
     private func fetchLevels() {
-        API.Levels.getLevels.request([LevelResponse].self) { result in
+        API.Levels.getLevels.request(LevelResponse.self) { result in
             switch result {
             case .success(let data):
-                Self.levels = data
+                Self.levels = data.content ?? []
             case .failure(let error):
-                AppLogger.log(.storage, error)
+                AppLogger.log(.storage, error.localizedDescription)
             }
         }
     }

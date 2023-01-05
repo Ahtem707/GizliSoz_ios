@@ -165,11 +165,11 @@ extension CrossView: LevelCrossViewDelegate {
         }
     }
     
-    func openWord(word: String) -> Bool {
-        guard let input = self.input else { return false }
+    func openWord(word: String) -> Int? {
+        guard let input = self.input else { return nil }
         
         // Получить идентификатор слова
-        guard let wordId = input.words.first(where: { $0.word == word })?.id else { return false }
+        guard let wordId = input.words.first(where: { $0.word == word })?.id else { return nil }
         
         // Получить ячейки которые входят в искомое слово
         let cells = cells.filter { $0.wordsId.contains(wordId) }
@@ -180,7 +180,7 @@ extension CrossView: LevelCrossViewDelegate {
         // Проверка состояния открытых слов
         checkWords()
         
-        return true
+        return wordId
     }
     
     func openRandom() -> Bool {

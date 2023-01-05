@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias RequestClosure<T> = (Result<T, NSError>) -> Void
+typealias RequestClosure<T> = (Result<T, Error>) -> Void
 
 public enum HTTPMethod: String {
     case options = "OPTIONS"
@@ -23,34 +23,39 @@ public enum HTTPMethod: String {
 
 final class API {
     
-    private static let endpointURL: URL = URL(string: BuildConfig.baseUrl)!
-    private static let isMock: Bool = true
+    private static let isMock: Bool = false
     
     static func request<T: Codable>(_ type: T.Type, target: Target, completion: @escaping RequestClosure<T>) {
         if isMock {
             API.sampleData(target: target, completion: completion)
         } else {
             let request = API.makeRequest(target)
+            guard let request = request else {
+                completion(.failure(AppError.urlMakeFailed))
+                return
+            }
             API.requestExecute(request: request, completion: completion)
         }
     }
     
-    static func makeRequest(_ target: Target) -> URLRequest {
-        var url = API.endpointURL.appendingPathComponent(target.path)
+    static func makeRequest(_ target: Target) -> URLRequest? {
+        var urlString = BuildConfig.baseUrl
+        urlString.append(target.path)
         if !target.query.isEmpty {
-            var queryString = "?"
+            urlString.append("?")
             target.query.forEach { key, value in
-                queryString += key + "=" + value + ","
+                urlString.append(key + "=" + "\(value)" + "&")
             }
-            queryString.removeLast()
-            url = url.appendingPathComponent(queryString)
+            urlString.removeLast()
         }
+        
+        guard let url = URL(string: urlString) else { return nil }
         
         var request = URLRequest(url: url)
         request.httpMethod = target.method.rawValue
         request.httpBody = target.body
         target.headers.forEach { key, value in
-            request.addValue(value, forHTTPHeaderField: key)
+            request.addValue("\(value)", forHTTPHeaderField: key)
         }
         return request
     }

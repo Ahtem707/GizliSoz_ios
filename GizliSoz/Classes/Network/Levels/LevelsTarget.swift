@@ -11,6 +11,7 @@ extension API {
     enum Levels: Target {
         
         case getLevels
+        case getWordSound(_ input: LevelSoundRequest)
         
         // MARK: - Internal
         
@@ -18,6 +19,8 @@ extension API {
             switch self {
             case .getLevels:
                 return "crosswords"
+            case .getWordSound:
+                return "wordSound"
             }
         }
         
@@ -25,12 +28,20 @@ extension API {
             return .get
         }
         
-        var headers: [String : String] {
+        var headers: [String : Any] {
             return [:]
         }
         
-        var query: [String : String] {
-            return [:]
+        var query: [String : Any] {
+            switch self {
+            case .getLevels:
+                return [:]
+            case .getWordSound(let input):
+                return [
+                    "wordId" : input.wordId,
+                    "voiceActor" : input.voiceActor
+                ]
+            }
         }
         
         var body: Data {
@@ -41,6 +52,8 @@ extension API {
             switch self {
             case .getLevels:
                 return Data.json(fileName: "levels", with: .json)
+            case .getWordSound:
+                return Data.json(fileName: "wordSound", with: .json)
             }
         }
     }

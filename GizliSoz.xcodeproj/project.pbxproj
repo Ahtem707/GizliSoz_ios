@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1820F424292A602B00D33069 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820F423292A602B00D33069 /* KeyboardView.swift */; };
+		183B1D552966D7E800D80509 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D542966D7E800D80509 /* AppError.swift */; };
 		1842E0262963823A000E95F4 /* AppStorageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E0252963823A000E95F4 /* AppStorageExtension.swift */; };
 		1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844642A29393AAF00A2C540 /* AnimateStack.swift */; };
 		184E29C82960BAE400B54C63 /* AdditionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E29C72960BAE400B54C63 /* AdditionalCell.swift */; };
@@ -58,10 +59,15 @@
 		187C2C542919670C0036F43A /* CrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C532919670C0036F43A /* CrossView.swift */; };
 		187C2C572919792A0036F43A /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C562919792A0036F43A /* AppStorage.swift */; };
 		187C2C5D29199FBD0036F43A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C5C29199FBD0036F43A /* Array.swift */; };
+		18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F5296443EB006F17CD /* SoundPlayer.swift */; };
+		18BC84F829644A09006F17CD /* LevelSoundRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F729644A09006F17CD /* LevelSoundRequest.swift */; };
+		18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F929645749006F17CD /* LevelSoundResponse.swift */; };
+		18BC84FE2964A0B3006F17CD /* wordSound.json in Resources */ = {isa = PBXBuildFile; fileRef = 18BC84FD2964A0B3006F17CD /* wordSound.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1820F423292A602B00D33069 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		183B1D542966D7E800D80509 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		1842E0252963823A000E95F4 /* AppStorageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageExtension.swift; sourceTree = "<group>"; };
 		1844642A29393AAF00A2C540 /* AnimateStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateStack.swift; sourceTree = "<group>"; };
 		184E29C72960BAE400B54C63 /* AdditionalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCell.swift; sourceTree = "<group>"; };
@@ -114,6 +120,10 @@
 		187C2C532919670C0036F43A /* CrossView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossView.swift; sourceTree = "<group>"; };
 		187C2C562919792A0036F43A /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		187C2C5C29199FBD0036F43A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		18BC84F5296443EB006F17CD /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		18BC84F729644A09006F17CD /* LevelSoundRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoundRequest.swift; sourceTree = "<group>"; };
+		18BC84F929645749006F17CD /* LevelSoundResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoundResponse.swift; sourceTree = "<group>"; };
+		18BC84FD2964A0B3006F17CD /* wordSound.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wordSound.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183B1D562966D97400D80509 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				183B1D542966D7E800D80509 /* AppError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		1844642929393A7D00A2C540 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				187C2C3A2917E0ED0036F43A /* levels.json */,
+				18BC84FD2964A0B3006F17CD /* wordSound.json */,
 			);
 			path = SampleData;
 			sourceTree = "<group>";
@@ -304,7 +323,9 @@
 				1844642929393A7D00A2C540 /* Animation */,
 				187C2C4A29186E9C0036F43A /* Logger */,
 				187C2C3D2917E4C40036F43A /* Network */,
+				183B1D562966D97400D80509 /* Error */,
 				187C2C552919791C0036F43A /* Storage */,
+				18BC84F4296443CE006F17CD /* Media */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -331,6 +352,7 @@
 		187C2C432917FF320036F43A /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				18BC84F729644A09006F17CD /* LevelSoundRequest.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -339,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				187C2C412917E9EE0036F43A /* LevelResponse.swift */,
+				18BC84F929645749006F17CD /* LevelSoundResponse.swift */,
 			);
 			path = Output;
 			sourceTree = "<group>";
@@ -368,6 +391,14 @@
 				1842E0252963823A000E95F4 /* AppStorageExtension.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		18BC84F4296443CE006F17CD /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				18BC84F5296443EB006F17CD /* SoundPlayer.swift */,
+			);
+			path = Media;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +472,7 @@
 				187C2C232916FB870036F43A /* SF-Pro-Display-Semibold.otf in Resources */,
 				187C2C1C2916FB870036F43A /* SF UI Text Bold.otf in Resources */,
 				187C2C242916FB870036F43A /* SF UI Text Regular.otf in Resources */,
+				18BC84FE2964A0B3006F17CD /* wordSound.json in Resources */,
 				187C2C252916FB870036F43A /* SF-Pro-Display-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,6 +497,7 @@
 				187C2C52291963730036F43A /* BuildConfig.swift in Sources */,
 				187C2C5029194E1E0036F43A /* Data.swift in Sources */,
 				185B5DAD293CA00F001B726D /* KeyboardGestureRecognizer.swift in Sources */,
+				18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */,
 				187C2BF42916A7C40036F43A /* BaseViewModel.swift in Sources */,
 				187C2C422917E9EE0036F43A /* LevelResponse.swift in Sources */,
 				187C2C312917BC850036F43A /* LevelViewModel.swift in Sources */,
@@ -473,11 +506,14 @@
 				185B5DAB293C9F36001B726D /* KeyboardLogic.swift in Sources */,
 				187C2C0B2916F74E0036F43A /* AppColor.swift in Sources */,
 				187C2C012916B3910036F43A /* UIView + Autolayout.swift in Sources */,
+				183B1D552966D7E800D80509 /* AppError.swift in Sources */,
 				187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */,
 				187C2BF22916A7AE0036F43A /* BaseViewController.swift in Sources */,
 				187C2C572919792A0036F43A /* AppStorage.swift in Sources */,
 				187C2C362917C4670036F43A /* UITableViewCell.swift in Sources */,
 				187C2BF72916AA420036F43A /* MainViewController.swift in Sources */,
+				18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */,
+				18BC84F829644A09006F17CD /* LevelSoundRequest.swift in Sources */,
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
 				187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */,
 				187C2C282916FBD80036F43A /* AppFont.swift in Sources */,

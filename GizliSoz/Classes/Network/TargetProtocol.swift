@@ -10,8 +10,8 @@ import Foundation
 protocol Target {
     var path: String { get }
     var method: HTTPMethod { get }
-    var headers: [String : String] { get }
-    var query: [String : String] { get }
+    var headers: [String : Any] { get }
+    var query: [String : Any] { get }
     var body: Data { get }
     var sampleData: Data { get }
     

@@ -32,8 +32,8 @@ protocol LevelCrossViewDelegate: AnyObject {
     
     /// Открыть слово если оно есть
     /// - Parameter word: Искомое слово
-    /// - Returns: Возвращает true если слово найдено и открыто
-    func openWord(word: String) -> Bool
+    /// - Returns: Возвращает id октрытого слова, если слово удалось открыть
+    func openWord(word: String) -> Int?
     
     /// Открывает случайную ячейку
     /// - Returns: Возвращает true если есть что отрыть

@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppStorage.appStart()
         AppStorage.userLoginCount += 1
         
+        SoundPlayer.appStart()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         window?.rootViewController = AppNavigationController()

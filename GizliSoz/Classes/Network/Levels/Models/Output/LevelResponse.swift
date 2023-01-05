@@ -10,20 +10,34 @@ import Foundation
 struct LevelResponse: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case level
-        case name
-        case size
-        case chars
-        case words
-        case bonusWords
+        case result
+        case description
+        case content
     }
     
-    let level: Int
-    let name: String
-    let size: Int
-    let chars: [String]
-    let words: [String : Word]
-    let bonusWords: [String]
+    let result: Int
+    let description: String?
+    let content: [Content]?
+}
+
+extension LevelResponse {
+    struct Content: Codable {
+        enum CodingKeys: String, CodingKey {
+            case level
+            case name
+            case size
+            case chars
+            case words
+            case bonusWords
+        }
+        
+        let level: Int
+        let name: String
+        let size: Int
+        let chars: [String]
+        let words: [String : Word]
+        let bonusWords: [String]
+    }
 }
 
 extension LevelResponse {
@@ -34,6 +48,7 @@ extension LevelResponse {
             case y
             case chars
             case description
+            case sound
         }
         
         let id: Int
@@ -41,5 +56,6 @@ extension LevelResponse {
         let y: [Int]
         let chars: [String]
         let description: String
+        let sound: Bool
     }
 }

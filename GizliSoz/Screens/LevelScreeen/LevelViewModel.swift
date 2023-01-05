@@ -14,7 +14,6 @@ final class LevelViewModel: BaseViewModel {
     weak var keyboardDelegate: LevelKeyboardViewDelegate?
     
     private var bonusWords: [String] = []
-    private var sound = false
     
     private var openWords = 0
     
@@ -62,7 +61,11 @@ final class LevelViewModel: BaseViewModel {
         keyboardDelegate?.setAdditionalStatus(type: .hint, isActive: AppStorage.hintCount != 0, counter: "\(AppStorage.hintCount)")
         keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: AppStorage.hammerCount != 0, counter: "\(AppStorage.hammerCount)")
         keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWords.count != 0, counter: "\(bonusWords.count)")
-        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: sound, counter: nil)
+        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.voiceActorIsActive, counter: nil)
+        
+        // Загружаем и подготавливаем озвучку слов
+        let wordIds = level.words.compactMap { $0.value.id }
+        SoundPlayer.share.loadLevelSounds(ids: wordIds)
     }
 }
 
@@ -71,6 +74,11 @@ extension LevelViewModel {
     private func turnOffHammer() {
         let result = crossDelegate?.openByPressing(valueIfNeeded: false) ?? false
         keyboardDelegate?.setAdditionalSelected(type: .hammer, isSelected: result)
+    }
+    
+    private func playSound(id: Int) {
+        guard AppStorage.voiceActorIsActive else { return }
+        SoundPlayer.share.play(id: id)
     }
 }
 
@@ -104,8 +112,9 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     
     func wordComplete(word: [String]) {
         let word = word.reduce("", {$0 + $1})
-        if crossDelegate?.openWord(word: word) ?? false {
+        if let id = crossDelegate?.openWord(word: word) {
             openWords += 1
+            playSound(id: id)
         } else {
             // Получаем текущий уровень
             guard let level = AppStorage.currentLevel else { return }
@@ -141,6 +150,7 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     }
     
     func soundHandle() {
-        print("Запуск музыки")
+        AppStorage.voiceActorIsActive = !AppStorage.voiceActorIsActive
+        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.voiceActorIsActive, counter: nil)
     }
 }

@@ -62,5 +62,6 @@ extension AppLogger {
         case api, api_mock
         case storage
         case logic
+        case fetch
     }
 }
