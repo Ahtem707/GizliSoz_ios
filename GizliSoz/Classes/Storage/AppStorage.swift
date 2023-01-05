@@ -9,7 +9,7 @@ import Foundation
 
 final class AppStorage {
     
-    static var share: AppStorage!
+    private static var share: AppStorage!
     
     static func appStart() {
         AppStorage.share = AppStorage()
@@ -20,7 +20,7 @@ final class AppStorage {
     static var userLoginCount: Int
     
     static var levels: [LevelResponse.Content] = []
-    static var currentLevelIndex: Int = 1
+    
     static var currentLevel: LevelResponse.Content? {
         guard currentLevelIndex > 0 && levels.count >= currentLevelIndex
         else {
@@ -32,6 +32,9 @@ final class AppStorage {
     }
     
     // User value
+    @UserDefault("currentLevelIndex", 1)
+    static var currentLevelIndex: Int = 1
+    
     @UserDefault("hintCount", 5)
     static var hintCount: Int
     

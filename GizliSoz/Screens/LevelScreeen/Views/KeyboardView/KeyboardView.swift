@@ -415,6 +415,9 @@ extension KeyboardView: LevelKeyboardViewDelegate {
     
     func clear() {
         subviews.forEach { $0.removeFromSuperview() }
+        isSetupLayouts = false
         cells.removeAll()
+        selectedCells.removeAll()
+        additionalButtons.removeAll()
     }
 }

@@ -26,7 +26,6 @@ final class LevelViewController: BaseViewController {
         setupSubviews()
         setupLayouts()
         setupAppearance()
-        setupContents()
         setupAction()
     }
 }
@@ -56,10 +55,6 @@ extension LevelViewController {
         backImage.image = appearance.backImage
     }
     
-    private func setupContents() {
-        title = viewModel.getViewTitle()
-    }
-    
     private func setupAction() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTap))
         view.addGestureRecognizer(tap)
@@ -75,19 +70,27 @@ extension LevelViewController {
 
 // MARK: - LevelViewControllerDelegate
 extension LevelViewController: LevelViewControllerDelegate {
+    func setTitle(_ text: String) {
+        title = text
+    }
+    
     func levelComplete() {
-        let alert = UIAlertController(
-            title: "Успех",
-            message: "Вы открыли все слова",
-            preferredStyle: .alert
+        AlertsFactory.makeLevelComplete(
+            yesAction: { [weak self] in
+                AppStorage.currentLevelIndex += 1
+                self?.viewModel.initialize()
+            },
+            cancelAction: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
         )
-        alert.addAction(
-            UIAlertAction(
-                title: "Понятно",
-                style: .default,
-                handler: { _ in alert.dismiss(animated: true) }
-            )
+    }
+    
+    func levelsFinished() {
+        AlertsFactory.makeLevelsFinished(
+            cancelAction: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
         )
-        present(alert, animated: true)
     }
 }

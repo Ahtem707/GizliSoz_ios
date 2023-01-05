@@ -8,17 +8,22 @@
 import Foundation
 
 protocol LevelViewModelProtocol: AnyObject {
-    /// Получить текущее название экрана
-    /// - Returns: Возвращает название экрнана
-    func getViewTitle() -> String
+    /// Инициализация viewModel
+    func initialize()
     
     /// Выключаем режим открытия ячейки молотком
     func turnOffHammerFromView()
 }
 
 protocol LevelViewControllerDelegate: AnyObject {
+    /// Установить название экрана
+    func setTitle(_ text: String)
+    
     /// Успешное завершение уровня
     func levelComplete()
+    
+    /// Уровни закончились
+    func levelsFinished()
 }
 
 protocol LevelCrossViewModelProtocol: AnyObject {
@@ -48,6 +53,9 @@ protocol LevelCrossViewDelegate: AnyObject {
     /// - Parameter value: устанавливает конкретное значение
     /// - Returns: требует замыкание openByPressingClosure
     func openByPressing(valueIfNeeded: Bool?) -> Bool
+    
+    /// Очистка ячеек
+    func clear()
 }
 
 protocol LevelKeyboardViewModelProtocol: AnyObject {

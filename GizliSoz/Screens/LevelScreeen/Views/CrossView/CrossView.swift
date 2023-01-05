@@ -213,4 +213,9 @@ extension CrossView: LevelCrossViewDelegate {
             return openByPressingPermission
         }
     }
+    
+    func clear() {
+        subviews.forEach { $0.removeFromSuperview() }
+        cells.removeAll()
+    }
 }

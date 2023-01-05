@@ -18,7 +18,15 @@ final class LevelViewModel: BaseViewModel {
     private var openWords = 0
     
     func initialize() {
+        
+        checkLevel()
+        
         guard let level = AppStorage.currentLevel else { return }
+        
+        delegate?.setTitle("Seviye \(level.level)")
+        
+        crossDelegate?.clear()
+        keyboardDelegate?.clear()
         
         let words: [CrossViewBuilder.Word] = level.words.map { word, wordData in
             
@@ -71,6 +79,12 @@ final class LevelViewModel: BaseViewModel {
 
 // MARK: - Private methods
 extension LevelViewModel {
+    private func checkLevel() {
+        if AppStorage.currentLevel == nil {
+            delegate?.levelsFinished()
+        }
+    }
+    
     private func turnOffHammer() {
         let result = crossDelegate?.openByPressing(valueIfNeeded: false) ?? false
         keyboardDelegate?.setAdditionalSelected(type: .hammer, isSelected: result)
@@ -84,13 +98,6 @@ extension LevelViewModel {
 
 // MARK: - LevelViewModelProtocol
 extension LevelViewModel: LevelViewModelProtocol {
-    func getViewTitle() -> String {
-        if let level = AppStorage.currentLevel {
-            return "Seviye \(level.level)"
-        }
-        return "Seviye"
-    }
-    
     func turnOffHammerFromView() {
         turnOffHammer()
     }

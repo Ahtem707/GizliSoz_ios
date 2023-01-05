@@ -13,14 +13,14 @@ final class LevelBuilder {
         let viewController = LevelViewController()
         let viewModel = LevelViewModel()
         viewController.viewModel = viewModel
+        viewController.layouts = Layouts()
+        viewController.appearance = Appearances()
         viewModel.delegate = viewController
         viewController.crossView.viewModel = viewModel
         viewModel.crossDelegate = viewController.crossView
         viewController.keyboardView.viewModel = viewModel
         viewModel.keyboardDelegate = viewController.keyboardView
         viewModel.initialize()
-        viewController.layouts = Layouts()
-        viewController.appearance = Appearances()
         return viewController
     }
     
