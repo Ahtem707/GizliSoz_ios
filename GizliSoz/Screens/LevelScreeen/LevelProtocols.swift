@@ -8,6 +8,10 @@
 import Foundation
 
 protocol LevelViewModelProtocol: AnyObject {
+    /// Получить текущее название экрана
+    /// - Returns: Возвращает название экрнана
+    func getViewTitle() -> String
+    
     /// Выключаем режим открытия ячейки молотком
     func turnOffHammerFromView()
 }

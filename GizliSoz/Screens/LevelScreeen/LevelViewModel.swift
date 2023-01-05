@@ -84,6 +84,13 @@ extension LevelViewModel {
 
 // MARK: - LevelViewModelProtocol
 extension LevelViewModel: LevelViewModelProtocol {
+    func getViewTitle() -> String {
+        if let level = AppStorage.currentLevel {
+            return "Seviye \(level.level)"
+        }
+        return "Seviye"
+    }
+    
     func turnOffHammerFromView() {
         turnOffHammer()
     }

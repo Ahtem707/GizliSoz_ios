@@ -57,7 +57,7 @@ extension LevelViewController {
     }
     
     private func setupContents() {
-        title = "Seviye"
+        title = viewModel.getViewTitle()
     }
     
     private func setupAction() {
