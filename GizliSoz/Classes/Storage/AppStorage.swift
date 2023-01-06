@@ -50,6 +50,12 @@ final class AppStorage {
     @UserDefault("voiceActor", "default")
     static var voiceActor: String
     
+    @UserDefault("infoMessage", true)
+    static var infoMessage: Bool
+    
+    @UserDefault("infoMessage", "default")
+    static var infoMessageLanguage: String
+    
     static func levelUp() -> Bool {
         if currentLevelIndex < levels.count {
             currentLevelIndex += 1

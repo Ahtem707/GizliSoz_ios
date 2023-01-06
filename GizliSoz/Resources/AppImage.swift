@@ -24,4 +24,5 @@ enum AppImage {
     static let soundEnable = UIImage(named: "sound_enable")!
     static let soundDisable = UIImage(named: "sound_disable")!
     static let lock = UIImage(named: "lock")!
+    static let arrowRight = UIImage(named: "arrow_right")!
 }

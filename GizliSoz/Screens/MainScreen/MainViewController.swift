@@ -140,7 +140,7 @@ extension MainViewController {
     }
     
     @objc private func settingsButtonAction(_ sender: UIButton) {
-        
+        navigationController?.pushViewController(SettingsBuilder.start(), animated: true)
     }
 
     @objc private func startButtonAction(_ sender: UIButton) {

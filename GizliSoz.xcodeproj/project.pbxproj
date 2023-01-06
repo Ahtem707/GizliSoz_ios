@@ -21,6 +21,13 @@
 		184E29C82960BAE400B54C63 /* AdditionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E29C72960BAE400B54C63 /* AdditionalCell.swift */; };
 		185B5DAB293C9F36001B726D /* KeyboardLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B5DAA293C9F36001B726D /* KeyboardLogic.swift */; };
 		185B5DAD293CA00F001B726D /* KeyboardGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185B5DAC293CA00F001B726D /* KeyboardGestureRecognizer.swift */; };
+		185D6D512968274A00B10CD8 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D502968274A00B10CD8 /* SettingsBuilder.swift */; };
+		185D6D532968275600B10CD8 /* SettingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D522968275600B10CD8 /* SettingsProtocols.swift */; };
+		185D6D552968276A00B10CD8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D542968276A00B10CD8 /* SettingsViewController.swift */; };
+		185D6D572968277500B10CD8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D562968277500B10CD8 /* SettingsViewModel.swift */; };
+		185D6D5A29682C3F00B10CD8 /* SettingsSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D5929682C3F00B10CD8 /* SettingsSwitchCell.swift */; };
+		185D6D5D2968303600B10CD8 /* SettingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D5C2968303600B10CD8 /* SettingsCellModel.swift */; };
+		185D6D6129683A1200B10CD8 /* SettingsMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6029683A1200B10CD8 /* SettingsMoreCell.swift */; };
 		187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2BD9291674D40036F43A /* AppDelegate.swift */; };
 		187C2BE3291674D70036F43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE2291674D70036F43A /* Assets.xcassets */; };
 		187C2BE6291674D70036F43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE4291674D70036F43A /* LaunchScreen.storyboard */; };
@@ -53,7 +60,7 @@
 		187C2C2F2917BC790036F43A /* LevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C2E2917BC790036F43A /* LevelViewController.swift */; };
 		187C2C312917BC850036F43A /* LevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C302917BC850036F43A /* LevelViewModel.swift */; };
 		187C2C342917C0790036F43A /* CrossCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C332917C0790036F43A /* CrossCell.swift */; };
-		187C2C362917C4670036F43A /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C352917C4670036F43A /* UITableViewCell.swift */; };
+		187C2C362917C4670036F43A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C352917C4670036F43A /* UITableView.swift */; };
 		187C2C382917C65C0036F43A /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C372917C65C0036F43A /* KeyboardCell.swift */; };
 		187C2C3B2917E0ED0036F43A /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 187C2C3A2917E0ED0036F43A /* levels.json */; };
 		187C2C3F2917E4D00036F43A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C3E2917E4D00036F43A /* API.swift */; };
@@ -88,6 +95,13 @@
 		185B5DA3293C8FDF001B726D /* GizliSoz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GizliSoz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185B5DAA293C9F36001B726D /* KeyboardLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLogic.swift; sourceTree = "<group>"; };
 		185B5DAC293CA00F001B726D /* KeyboardGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardGestureRecognizer.swift; sourceTree = "<group>"; };
+		185D6D502968274A00B10CD8 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		185D6D522968275600B10CD8 /* SettingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProtocols.swift; sourceTree = "<group>"; };
+		185D6D542968276A00B10CD8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		185D6D562968277500B10CD8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		185D6D5929682C3F00B10CD8 /* SettingsSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchCell.swift; sourceTree = "<group>"; };
+		185D6D5C2968303600B10CD8 /* SettingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellModel.swift; sourceTree = "<group>"; };
+		185D6D6029683A1200B10CD8 /* SettingsMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMoreCell.swift; sourceTree = "<group>"; };
 		187C2BD9291674D40036F43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187C2BE2291674D70036F43A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187C2BE5291674D70036F43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -121,7 +135,7 @@
 		187C2C2E2917BC790036F43A /* LevelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewController.swift; sourceTree = "<group>"; };
 		187C2C302917BC850036F43A /* LevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelViewModel.swift; sourceTree = "<group>"; };
 		187C2C332917C0790036F43A /* CrossCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossCell.swift; sourceTree = "<group>"; };
-		187C2C352917C4670036F43A /* UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		187C2C352917C4670036F43A /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		187C2C372917C65C0036F43A /* KeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
 		187C2C3A2917E0ED0036F43A /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
 		187C2C3E2917E4D00036F43A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -225,6 +239,36 @@
 			path = KeyboardView;
 			sourceTree = "<group>";
 		};
+		185D6D4F2968272B00B10CD8 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				185D6D5B2968302400B10CD8 /* Model */,
+				185D6D5829682BBB00B10CD8 /* Cells */,
+				185D6D522968275600B10CD8 /* SettingsProtocols.swift */,
+				185D6D502968274A00B10CD8 /* SettingsBuilder.swift */,
+				185D6D542968276A00B10CD8 /* SettingsViewController.swift */,
+				185D6D562968277500B10CD8 /* SettingsViewModel.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		185D6D5829682BBB00B10CD8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				185D6D5929682C3F00B10CD8 /* SettingsSwitchCell.swift */,
+				185D6D6029683A1200B10CD8 /* SettingsMoreCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		185D6D5B2968302400B10CD8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				185D6D5C2968303600B10CD8 /* SettingsCellModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		187C2BCD291674D40036F43A = {
 			isa = PBXGroup;
 			children = (
@@ -253,7 +297,7 @@
 				187C2BFE2916B08F0036F43A /* UIEdgeInsets.swift */,
 				187C2C002916B3910036F43A /* UIView + Autolayout.swift */,
 				187C2C0C2916F7D50036F43A /* UIColor.swift */,
-				187C2C352917C4670036F43A /* UITableViewCell.swift */,
+				187C2C352917C4670036F43A /* UITableView.swift */,
 				187C2C4F29194E1E0036F43A /* Data.swift */,
 				187C2C5C29199FBD0036F43A /* Array.swift */,
 			);
@@ -275,6 +319,7 @@
 			children = (
 				187C2BF52916AA340036F43A /* MainScreen */,
 				183B1D5A296754AB00D80509 /* LevelsScreen */,
+				185D6D4F2968272B00B10CD8 /* SettingsScreen */,
 				187C2C292917BC4D0036F43A /* LevelScreeen */,
 			);
 			path = Screens;
@@ -561,16 +606,20 @@
 				183B1D5C296754C200D80509 /* LevelsBuilder.swift in Sources */,
 				187C2C312917BC850036F43A /* LevelViewModel.swift in Sources */,
 				1820F424292A602B00D33069 /* KeyboardView.swift in Sources */,
+				185D6D532968275600B10CD8 /* SettingsProtocols.swift in Sources */,
 				187C2BF92916AA940036F43A /* MainProtocols.swift in Sources */,
 				185B5DAB293C9F36001B726D /* KeyboardLogic.swift in Sources */,
 				187C2C0B2916F74E0036F43A /* AppColor.swift in Sources */,
 				187C2C012916B3910036F43A /* UIView + Autolayout.swift in Sources */,
+				185D6D6129683A1200B10CD8 /* SettingsMoreCell.swift in Sources */,
+				185D6D552968276A00B10CD8 /* SettingsViewController.swift in Sources */,
 				183B1D552966D7E800D80509 /* AppError.swift in Sources */,
 				187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */,
 				187C2BF22916A7AE0036F43A /* BaseViewController.swift in Sources */,
 				187C2C572919792A0036F43A /* AppStorage.swift in Sources */,
-				187C2C362917C4670036F43A /* UITableViewCell.swift in Sources */,
+				187C2C362917C4670036F43A /* UITableView.swift in Sources */,
 				187C2BF72916AA420036F43A /* MainViewController.swift in Sources */,
+				185D6D5D2968303600B10CD8 /* SettingsCellModel.swift in Sources */,
 				18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */,
 				18BC84F829644A09006F17CD /* LevelSoundRequest.swift in Sources */,
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
@@ -581,10 +630,13 @@
 				187C2C2B2917BC5F0036F43A /* LevelProtocols.swift in Sources */,
 				187C2C092916F0CF0036F43A /* AppNavigationController.swift in Sources */,
 				187C2C342917C0790036F43A /* CrossCell.swift in Sources */,
+				185D6D512968274A00B10CD8 /* SettingsBuilder.swift in Sources */,
+				185D6D572968277500B10CD8 /* SettingsViewModel.swift in Sources */,
 				1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */,
 				187C2C062916EB650036F43A /* AppImage.swift in Sources */,
 				187C2BFF2916B0900036F43A /* UIEdgeInsets.swift in Sources */,
 				187C2C2D2917BC6F0036F43A /* LevelBuilder.swift in Sources */,
+				185D6D5A29682C3F00B10CD8 /* SettingsSwitchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
