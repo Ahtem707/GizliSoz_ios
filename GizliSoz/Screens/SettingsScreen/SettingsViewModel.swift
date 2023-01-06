@@ -20,19 +20,38 @@ final class SettingsViewModel: BaseViewModel {
 
 // MARK: - Private functions
 extension SettingsViewModel {
-    func makeDataSource() {
+    private func makeDataSource() {
         let dataSource = [
             SettingsSwitchCellModel(title: "Inhar", isEnable: AppStorage.infoMessage, action: { value in
                 AppStorage.infoMessage = value
             }),
-            SettingsMoreCellModel(title: "Inhar tili", action: {
-                // TODO: - This is need bottom sheet
+            SettingsMoreCellModel(title: "Inhar tili", action: { [weak self] in
+                self?.showInfoLanguage()
             }),
-            SettingsMoreCellModel(title: "Ses tili", action: {
-                // TODO: - This is need bottom sheet
+            SettingsMoreCellModel(title: "Ses tili", action: { [weak self] in
+                self?.showVoiceActorLanguage()
             }),
         ].compactMap { return $0 as? SettingsCellModel }
         self.dataSource.append(contentsOf: dataSource)
+    }
+    
+    private func showInfoLanguage() {
+        let dataSource = [
+            ActionSheetModel(code: "ru", title: "Русский", action: {
+                AppStorage.infoMessageLanguage = "ru"
+            }),
+            ActionSheetModel(code: "en", title: "English", action: {
+                AppStorage.infoMessageLanguage = "en"
+            })
+        ]
+        ActionSheetFactory.makeDinamic(dataSource: dataSource)
+    }
+    
+    private func showVoiceActorLanguage() {
+        let dataSource = [
+            ActionSheetModel(code: "default", title: "Ахтем", action: {})
+        ]
+        ActionSheetFactory.makeDinamic(dataSource: dataSource)
     }
 }
 

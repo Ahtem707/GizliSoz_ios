@@ -28,6 +28,11 @@
 		185D6D5A29682C3F00B10CD8 /* SettingsSwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D5929682C3F00B10CD8 /* SettingsSwitchCell.swift */; };
 		185D6D5D2968303600B10CD8 /* SettingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D5C2968303600B10CD8 /* SettingsCellModel.swift */; };
 		185D6D6129683A1200B10CD8 /* SettingsMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6029683A1200B10CD8 /* SettingsMoreCell.swift */; };
+		185D6D6529685EAB00B10CD8 /* ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6429685EAB00B10CD8 /* ActionSheetViewController.swift */; };
+		185D6D672968653C00B10CD8 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D662968653C00B10CD8 /* ActionSheetCell.swift */; };
+		185D6D6B296866B700B10CD8 /* ActionSheetCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */; };
+		185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */; };
+		185D6D6F2968AE0100B10CD8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6E2968AE0100B10CD8 /* UIView.swift */; };
 		187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2BD9291674D40036F43A /* AppDelegate.swift */; };
 		187C2BE3291674D70036F43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE2291674D70036F43A /* Assets.xcassets */; };
 		187C2BE6291674D70036F43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE4291674D70036F43A /* LaunchScreen.storyboard */; };
@@ -102,6 +107,11 @@
 		185D6D5929682C3F00B10CD8 /* SettingsSwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSwitchCell.swift; sourceTree = "<group>"; };
 		185D6D5C2968303600B10CD8 /* SettingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellModel.swift; sourceTree = "<group>"; };
 		185D6D6029683A1200B10CD8 /* SettingsMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMoreCell.swift; sourceTree = "<group>"; };
+		185D6D6429685EAB00B10CD8 /* ActionSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewController.swift; sourceTree = "<group>"; };
+		185D6D662968653C00B10CD8 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
+		185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCellModel.swift; sourceTree = "<group>"; };
+		185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetFactory.swift; sourceTree = "<group>"; };
+		185D6D6E2968AE0100B10CD8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		187C2BD9291674D40036F43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187C2BE2291674D70036F43A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187C2BE5291674D70036F43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -173,12 +183,12 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		183B1D572967329700D80509 /* AlertsFactory */ = {
+		183B1D572967329700D80509 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
 				183B1D58296732B000D80509 /* AlertsFactory.swift */,
 			);
-			path = AlertsFactory;
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 		183B1D5A296754AB00D80509 /* LevelsScreen */ = {
@@ -269,6 +279,41 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		185D6D6229685E8D00B10CD8 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				185D6D6329685E9C00B10CD8 /* ActionSheet */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		185D6D6329685E9C00B10CD8 /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				185D6D69296866A800B10CD8 /* Models */,
+				185D6D68296866A100B10CD8 /* Cell */,
+				185D6D6429685EAB00B10CD8 /* ActionSheetViewController.swift */,
+				185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */,
+			);
+			path = ActionSheet;
+			sourceTree = "<group>";
+		};
+		185D6D68296866A100B10CD8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				185D6D662968653C00B10CD8 /* ActionSheetCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		185D6D69296866A800B10CD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		187C2BCD291674D40036F43A = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +345,7 @@
 				187C2C352917C4670036F43A /* UITableView.swift */,
 				187C2C4F29194E1E0036F43A /* Data.swift */,
 				187C2C5C29199FBD0036F43A /* Array.swift */,
+				185D6D6E2968AE0100B10CD8 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -423,7 +469,8 @@
 				183B1D562966D97400D80509 /* Error */,
 				187C2C552919791C0036F43A /* Storage */,
 				18BC84F4296443CE006F17CD /* Media */,
-				183B1D572967329700D80509 /* AlertsFactory */,
+				183B1D572967329700D80509 /* Alerts */,
+				185D6D6229685E8D00B10CD8 /* BottomSheet */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -583,11 +630,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				184E29C82960BAE400B54C63 /* AdditionalCell.swift in Sources */,
+				185D6D672968653C00B10CD8 /* ActionSheetCell.swift in Sources */,
 				187C2BFD2916B0160036F43A /* MainBuilder.swift in Sources */,
 				187C2C0D2916F7D50036F43A /* UIColor.swift in Sources */,
 				187C2BFB2916AB860036F43A /* MainViewModel.swift in Sources */,
 				187C2C542919670C0036F43A /* CrossView.swift in Sources */,
 				187C2C4C29186EB90036F43A /* AppLogger.swift in Sources */,
+				185D6D6B296866B700B10CD8 /* ActionSheetCellModel.swift in Sources */,
 				187C2C5D29199FBD0036F43A /* Array.swift in Sources */,
 				187C2C4E29186F280036F43A /* TargetProtocol.swift in Sources */,
 				183B1D5E296754D400D80509 /* LevelsProtocol.swift in Sources */,
@@ -606,6 +655,7 @@
 				183B1D5C296754C200D80509 /* LevelsBuilder.swift in Sources */,
 				187C2C312917BC850036F43A /* LevelViewModel.swift in Sources */,
 				1820F424292A602B00D33069 /* KeyboardView.swift in Sources */,
+				185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */,
 				185D6D532968275600B10CD8 /* SettingsProtocols.swift in Sources */,
 				187C2BF92916AA940036F43A /* MainProtocols.swift in Sources */,
 				185B5DAB293C9F36001B726D /* KeyboardLogic.swift in Sources */,
@@ -614,10 +664,12 @@
 				185D6D6129683A1200B10CD8 /* SettingsMoreCell.swift in Sources */,
 				185D6D552968276A00B10CD8 /* SettingsViewController.swift in Sources */,
 				183B1D552966D7E800D80509 /* AppError.swift in Sources */,
+				185D6D6529685EAB00B10CD8 /* ActionSheetViewController.swift in Sources */,
 				187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */,
 				187C2BF22916A7AE0036F43A /* BaseViewController.swift in Sources */,
 				187C2C572919792A0036F43A /* AppStorage.swift in Sources */,
 				187C2C362917C4670036F43A /* UITableView.swift in Sources */,
+				185D6D6F2968AE0100B10CD8 /* UIView.swift in Sources */,
 				187C2BF72916AA420036F43A /* MainViewController.swift in Sources */,
 				185D6D5D2968303600B10CD8 /* SettingsCellModel.swift in Sources */,
 				18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */,
