@@ -30,5 +30,4 @@ final class AppNavigationController: UINavigationController {
         
         pushViewController(Screens.main.viewController, animated: false)
     }
-    
 }
