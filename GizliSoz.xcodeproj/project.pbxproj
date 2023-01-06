@@ -10,6 +10,12 @@
 		1820F424292A602B00D33069 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820F423292A602B00D33069 /* KeyboardView.swift */; };
 		183B1D552966D7E800D80509 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D542966D7E800D80509 /* AppError.swift */; };
 		183B1D59296732B000D80509 /* AlertsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D58296732B000D80509 /* AlertsFactory.swift */; };
+		183B1D5C296754C200D80509 /* LevelsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D5B296754C200D80509 /* LevelsBuilder.swift */; };
+		183B1D5E296754D400D80509 /* LevelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D5D296754D400D80509 /* LevelsProtocol.swift */; };
+		183B1D60296754E000D80509 /* LevelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D5F296754E000D80509 /* LevelsViewController.swift */; };
+		183B1D62296754E900D80509 /* LevelsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D61296754E900D80509 /* LevelsViewModel.swift */; };
+		183B1D6529675B6D00D80509 /* LevelsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D6429675B6D00D80509 /* LevelsCollectionCell.swift */; };
+		183B1D682967634500D80509 /* LevelsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D672967634500D80509 /* LevelsCellModel.swift */; };
 		1842E0262963823A000E95F4 /* AppStorageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E0252963823A000E95F4 /* AppStorageExtension.swift */; };
 		1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844642A29393AAF00A2C540 /* AnimateStack.swift */; };
 		184E29C82960BAE400B54C63 /* AdditionalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E29C72960BAE400B54C63 /* AdditionalCell.swift */; };
@@ -70,6 +76,12 @@
 		1820F423292A602B00D33069 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		183B1D542966D7E800D80509 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		183B1D58296732B000D80509 /* AlertsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsFactory.swift; sourceTree = "<group>"; };
+		183B1D5B296754C200D80509 /* LevelsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsBuilder.swift; sourceTree = "<group>"; };
+		183B1D5D296754D400D80509 /* LevelsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsProtocol.swift; sourceTree = "<group>"; };
+		183B1D5F296754E000D80509 /* LevelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewController.swift; sourceTree = "<group>"; };
+		183B1D61296754E900D80509 /* LevelsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsViewModel.swift; sourceTree = "<group>"; };
+		183B1D6429675B6D00D80509 /* LevelsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsCollectionCell.swift; sourceTree = "<group>"; };
+		183B1D672967634500D80509 /* LevelsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsCellModel.swift; sourceTree = "<group>"; };
 		1842E0252963823A000E95F4 /* AppStorageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageExtension.swift; sourceTree = "<group>"; };
 		1844642A29393AAF00A2C540 /* AnimateStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateStack.swift; sourceTree = "<group>"; };
 		184E29C72960BAE400B54C63 /* AdditionalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCell.swift; sourceTree = "<group>"; };
@@ -155,6 +167,35 @@
 			path = AlertsFactory;
 			sourceTree = "<group>";
 		};
+		183B1D5A296754AB00D80509 /* LevelsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				183B1D662967630500D80509 /* Models */,
+				183B1D6329675B4E00D80509 /* Cells */,
+				183B1D5B296754C200D80509 /* LevelsBuilder.swift */,
+				183B1D5D296754D400D80509 /* LevelsProtocol.swift */,
+				183B1D5F296754E000D80509 /* LevelsViewController.swift */,
+				183B1D61296754E900D80509 /* LevelsViewModel.swift */,
+			);
+			path = LevelsScreen;
+			sourceTree = "<group>";
+		};
+		183B1D6329675B4E00D80509 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				183B1D6429675B6D00D80509 /* LevelsCollectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		183B1D662967630500D80509 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				183B1D672967634500D80509 /* LevelsCellModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1844642929393A7D00A2C540 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				187C2BF52916AA340036F43A /* MainScreen */,
+				183B1D5A296754AB00D80509 /* LevelsScreen */,
 				187C2C292917BC4D0036F43A /* LevelScreeen */,
 			);
 			path = Screens;
@@ -503,15 +545,20 @@
 				187C2C4C29186EB90036F43A /* AppLogger.swift in Sources */,
 				187C2C5D29199FBD0036F43A /* Array.swift in Sources */,
 				187C2C4E29186F280036F43A /* TargetProtocol.swift in Sources */,
+				183B1D5E296754D400D80509 /* LevelsProtocol.swift in Sources */,
 				187C2C2F2917BC790036F43A /* LevelViewController.swift in Sources */,
 				187C2C382917C65C0036F43A /* KeyboardCell.swift in Sources */,
+				183B1D682967634500D80509 /* LevelsCellModel.swift in Sources */,
 				187C2C52291963730036F43A /* BuildConfig.swift in Sources */,
 				183B1D59296732B000D80509 /* AlertsFactory.swift in Sources */,
+				183B1D6529675B6D00D80509 /* LevelsCollectionCell.swift in Sources */,
 				187C2C5029194E1E0036F43A /* Data.swift in Sources */,
 				185B5DAD293CA00F001B726D /* KeyboardGestureRecognizer.swift in Sources */,
 				18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */,
 				187C2BF42916A7C40036F43A /* BaseViewModel.swift in Sources */,
+				183B1D62296754E900D80509 /* LevelsViewModel.swift in Sources */,
 				187C2C422917E9EE0036F43A /* LevelResponse.swift in Sources */,
+				183B1D5C296754C200D80509 /* LevelsBuilder.swift in Sources */,
 				187C2C312917BC850036F43A /* LevelViewModel.swift in Sources */,
 				1820F424292A602B00D33069 /* KeyboardView.swift in Sources */,
 				187C2BF92916AA940036F43A /* MainProtocols.swift in Sources */,
@@ -529,6 +576,7 @@
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
 				187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */,
 				187C2C282916FBD80036F43A /* AppFont.swift in Sources */,
+				183B1D60296754E000D80509 /* LevelsViewController.swift in Sources */,
 				1842E0262963823A000E95F4 /* AppStorageExtension.swift in Sources */,
 				187C2C2B2917BC5F0036F43A /* LevelProtocols.swift in Sources */,
 				187C2C092916F0CF0036F43A /* AppNavigationController.swift in Sources */,

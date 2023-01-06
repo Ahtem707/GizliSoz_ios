@@ -19,8 +19,6 @@ final class LevelViewModel: BaseViewModel {
     
     func initialize() {
         
-        checkLevel()
-        
         guard let level = AppStorage.currentLevel else { return }
         
         delegate?.setTitle("Seviye \(level.level)")
@@ -79,11 +77,6 @@ final class LevelViewModel: BaseViewModel {
 
 // MARK: - Private methods
 extension LevelViewModel {
-    private func checkLevel() {
-        if AppStorage.currentLevel == nil {
-            delegate?.levelsFinished()
-        }
-    }
     
     private func turnOffHammer() {
         let result = crossDelegate?.openByPressing(valueIfNeeded: false) ?? false

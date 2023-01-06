@@ -12,6 +12,7 @@ enum AppColor {
         static let white = UIColor(0xFFFFFF)
         static let primary = UIColor(0x000000)
         static let blue = UIColor(0x0F26A1)
+        static let disable = UIColor(0xC4C4C4)
     }
     
     enum Button {
@@ -25,6 +26,7 @@ enum AppColor {
     enum Cell {
         static let normal = UIColor(0xFFFFFF)
         static let select = UIColor(0x2DCD34)
+        static let disabled = UIColor(0xE6E6E6)
     }
     
     enum Keyboard {

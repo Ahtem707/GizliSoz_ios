@@ -33,7 +33,10 @@ final class AppStorage {
     
     // User value
     @UserDefault("currentLevelIndex", 1)
-    static var currentLevelIndex: Int = 1
+    private(set) static var currentLevelIndex: Int
+    
+    @UserDefault("lastOpenedLevelIndex", 1)
+    private(set) static var lastOpenedLevelIndex: Int
     
     @UserDefault("hintCount", 5)
     static var hintCount: Int
@@ -46,6 +49,30 @@ final class AppStorage {
     
     @UserDefault("voiceActor", "default")
     static var voiceActor: String
+    
+    static func levelUp() -> Bool {
+        if currentLevelIndex < levels.count {
+            currentLevelIndex += 1
+            if currentLevelIndex > lastOpenedLevelIndex {
+                lastOpenedLevelIndex = currentLevelIndex
+            }
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    static func setLevel(_ value: Int) -> Bool {
+        guard currentLevelIndex < levels.count else {
+            assertionFailure("Неправильная установка уровня")
+            return false
+        }
+        
+        guard value <= lastOpenedLevelIndex else { return false }
+        
+        currentLevelIndex = value
+        return true
+    }
     
     // MARK: - Fetch functions
     

@@ -136,7 +136,7 @@ extension MainViewController {
 // MARK: - Actions
 extension MainViewController {
     @objc private func levelButtonAction(_ sender: UIButton) {
-        
+        navigationController?.pushViewController(LevelsBuilder.start(), animated: true)
     }
     
     @objc private func settingsButtonAction(_ sender: UIButton) {

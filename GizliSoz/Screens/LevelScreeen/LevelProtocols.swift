@@ -21,9 +21,6 @@ protocol LevelViewControllerDelegate: AnyObject {
     
     /// Успешное завершение уровня
     func levelComplete()
-    
-    /// Уровни закончились
-    func levelsFinished()
 }
 
 protocol LevelCrossViewModelProtocol: AnyObject {

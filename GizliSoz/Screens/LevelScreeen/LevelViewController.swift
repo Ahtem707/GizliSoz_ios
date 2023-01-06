@@ -59,6 +59,14 @@ extension LevelViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTap))
         view.addGestureRecognizer(tap)
     }
+    
+    private func levelsFinished() {
+        AlertsFactory.makeLevelsFinished(
+            cancelAction: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
+        )
+    }
 }
 
 // MARK: - Actions
@@ -75,19 +83,15 @@ extension LevelViewController: LevelViewControllerDelegate {
     }
     
     func levelComplete() {
+        let status = AppStorage.levelUp()
         AlertsFactory.makeLevelComplete(
             yesAction: { [weak self] in
-                AppStorage.currentLevelIndex += 1
-                self?.viewModel.initialize()
+                if status {
+                    self?.viewModel.initialize()
+                } else {
+                    self?.levelsFinished()
+                }
             },
-            cancelAction: { [weak self] in
-                self?.navigationController?.popViewController(animated: true)
-            }
-        )
-    }
-    
-    func levelsFinished() {
-        AlertsFactory.makeLevelsFinished(
             cancelAction: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             }
