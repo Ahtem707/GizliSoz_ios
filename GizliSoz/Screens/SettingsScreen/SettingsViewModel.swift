@@ -22,7 +22,7 @@ final class SettingsViewModel: BaseViewModel {
 extension SettingsViewModel {
     func makeDataSource() {
         let dataSource = [
-            SettingsSwitchCellModel(title: "Inhar", isEnable: false, action: { value in
+            SettingsSwitchCellModel(title: "Inhar", isEnable: AppStorage.infoMessage, action: { value in
                 AppStorage.infoMessage = value
             }),
             SettingsMoreCellModel(title: "Inhar tili", action: {
