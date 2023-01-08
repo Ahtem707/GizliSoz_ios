@@ -18,7 +18,7 @@ extension API {
         var path: String {
             switch self {
             case .getLevels:
-                return "crosswords"
+                return "getLevels"
             case .getWordSound:
                 return "wordSound"
             }

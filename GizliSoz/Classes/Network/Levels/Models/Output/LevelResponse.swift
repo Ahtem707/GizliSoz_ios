@@ -48,7 +48,6 @@ extension LevelResponse {
             case y
             case chars
             case description
-            case sound
         }
         
         let id: Int
@@ -56,6 +55,5 @@ extension LevelResponse {
         let y: [Int]
         let chars: [String]
         let description: String
-        let sound: Bool
     }
 }

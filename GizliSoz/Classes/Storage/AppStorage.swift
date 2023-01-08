@@ -69,7 +69,7 @@ final class AppStorage {
     }
     
     static func setLevel(_ value: Int) -> Bool {
-        guard currentLevelIndex < levels.count else {
+        guard currentLevelIndex <= levels.count else {
             assertionFailure("Неправильная установка уровня")
             return false
         }
