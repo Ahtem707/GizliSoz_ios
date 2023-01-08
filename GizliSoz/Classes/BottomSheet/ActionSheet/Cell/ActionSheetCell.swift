@@ -30,6 +30,8 @@ final class ActionSheetCell: UITableViewCell {
             titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor)
         ])
         
+        separatorInset = UIEdgeInsets.zero
+        contentView.backgroundColor = AppColor.Cell.normal
         titleLabel.font = AppFont.font(style: .regular, size: 22)
         titleLabel.textColor = AppColor.Text.primary
     }

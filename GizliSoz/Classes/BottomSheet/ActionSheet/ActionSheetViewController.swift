@@ -10,7 +10,7 @@ import UIKit
 extension ActionSheetViewController {
     struct Layouts {
         let containerViewRadius: CGFloat = 16
-        let indicatorRadius: CGFloat = 8
+        let indicatorRadius: CGFloat = 2
         let indicatorEdge = UIEdgeInsets(all: 8)
         let indicatorSize = CGSize(width: 100, height: 5)
         let tableViewEdges = UIEdgeInsets(all: 10)
@@ -21,7 +21,8 @@ extension ActionSheetViewController {
         let viewBackground = UIColor.init(white: 255, alpha: 0)
         let contentViewBackground = UIColor(0xFFFFFF)
         let indicatorBackground = UIColor(0xC8CCDB)
-        let animatiionDuration = 0.25
+        let tableViewBackground = UIColor(0xFFFFFF)
+        let animationDuration: CGFloat = 0.25
     }
 }
 
@@ -111,22 +112,29 @@ extension ActionSheetViewController {
         view.backgroundColor = appearance.viewBackground
         contentView.backgroundColor = appearance.contentViewBackground
         indicatorView.backgroundColor = appearance.indicatorBackground
+        tableView.backgroundColor = appearance.tableViewBackground
     }
     
     private func updateContentHeight(_ value: CGFloat?) {
-        UIView.animate(withDuration: appearance.animatiionDuration) { [weak self] in
-            guard let self = self else { return }
-            guard let value = value else {
+        if let value = value {
+            UIView.animate(withDuration: appearance.animationDuration, animations: { [weak self] in
+                guard let self = self else { return }
+                if self.view.bounds.height > value {
+                    self.contentViewHeight?.constant = value
+                } else {
+                    self.contentViewHeight?.constant = self.view.bounds.height
+                }
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            UIView.animate(withDuration: appearance.animationDuration, animations: { [weak self] in
+                guard let self = self else { return }
                 self.contentViewHeight?.constant = 0
-                self.dismiss(animated: false)
-                return
-            }
-            if self.view.bounds.height > value {
-                self.contentViewHeight?.constant = value
-            } else {
-                self.contentViewHeight?.constant = self.view.bounds.height
-            }
-            self.view.updateConstraints()
+                self.view.layoutIfNeeded()
+            },
+            completion: { [weak self] _ in
+                self?.dismiss(animated: false)
+            })
         }
     }
     
