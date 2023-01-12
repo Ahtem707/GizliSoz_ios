@@ -10,18 +10,19 @@ import UIKit
 class AdditionalCellBuilder {
     
     struct Layouts {
+        let backImageEdge = UIEdgeInsets(all: 5)
         let counterEdge = UIEdgeInsets(all: -5)
-        let counterSize = CGSize(width: 25, height: 25)
+        let counterSize = CGSize(width: 22, height: 22)
     }
     
     struct Appearance {
         let backgroundNormal = AppColor.Cell.normal
         let backgroundSelected = AppColor.Cell.select
-        let hintEnableImage = AppImage.hintEnable
-        let hintDisableImage = AppImage.hintDisable
+        let hintEnableImage = AppImage.lampEnable
+        let hintDisableImage = AppImage.lampDisable
         let hammerEnableImage = AppImage.hammerEnable
         let hammerDisableImage = AppImage.hammerDisable
-        let wordsImage = AppImage.words
+        let wordsImage = AppImage.word
         let soundEnableImage = AppImage.soundEnable
         let soundDisableImage = AppImage.soundDisable
         let counterBackground = AppColor.Keyboard.counter
@@ -124,8 +125,7 @@ extension AdditionalCell {
     }
     
     private func setupLayouts() {
-        backImage.pinCenterToSuperview(of: .vertical)
-        backImage.pinCenterToSuperview(of: .horizontal)
+        backImage.pinToSuperview(edges: .all, insets: layout.backImageEdge)
         counterView.pinToSuperview(edges: [.top, .right], insets: layout.counterEdge)
         counterView.pin(size: layout.counterSize)
         counterView.layer.cornerRadius = layout.counterSize.width / 2

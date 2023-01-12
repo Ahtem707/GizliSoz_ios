@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "hint_disable@1x.png",
+      "filename" : "lamp_enable@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "hint_disable@2x.png",
+      "filename" : "lamp_enable@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "hint_disable@3x.png",
+      "filename" : "lamp_enable@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
