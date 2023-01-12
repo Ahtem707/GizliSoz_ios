@@ -21,7 +21,7 @@ final class LevelViewModel: BaseViewModel {
         
         guard let level = AppStorage.currentLevel else { return }
         
-        delegate?.setTitle("Seviye \(level.level)")
+        delegate?.setTitle(level.name)
         
         crossDelegate?.clear()
         keyboardDelegate?.clear()
