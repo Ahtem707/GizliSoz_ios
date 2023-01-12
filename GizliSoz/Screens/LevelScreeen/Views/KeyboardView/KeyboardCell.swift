@@ -34,7 +34,7 @@ final class KeyboardCell: UIView {
     
     var text: String! {
         didSet {
-            label.text = text
+            label.text = text.uppercased()
         }
     }
     var image: UIImage! {

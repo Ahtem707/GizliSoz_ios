@@ -41,7 +41,7 @@ final class CrossCell: UIView {
     var y: Int!
     var text: String! {
         didSet {
-            label.text = text
+            label.text = text.uppercased()
         }
     }
     var isShow: Bool = false {
