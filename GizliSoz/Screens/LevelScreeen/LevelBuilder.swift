@@ -25,14 +25,12 @@ final class LevelBuilder {
     }
     
     struct Layouts {
-        let contentViewEdge = UIEdgeInsets(vertical: 5, horizontal: 20)
+        let contentViewEdge = UIEdgeInsets(top: 5, leading: 20, bottom: 0, trailing: 20)
         let crossViewEdge = UIEdgeInsets(all: 0)
-        let crossViewHeightMultiplier: CGFloat = 0.4
-        let keyboardViewEdge = UIEdgeInsets(all: 0)
+        let keyboardViewEdge = UIEdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)
     }
     
     struct Appearances {
         let backImage: UIImage = AppImage.appBackground
     }
 }
-

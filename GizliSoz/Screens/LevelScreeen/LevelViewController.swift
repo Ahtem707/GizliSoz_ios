@@ -50,12 +50,9 @@ extension LevelViewController {
         contentView.pinToSuperview(edges: .all, insets: layouts.contentViewEdge, safeArea: true)
         crossView.pinToSuperview(edges: .top, insets: layouts.crossViewEdge)
         crossView.pinToSuperview(edges: [.left, .right], insets: layouts.crossViewEdge)
-        crossView.heightAnchor.constraint(
-            equalTo: contentView.heightAnchor,
-            multiplier: layouts.crossViewHeightMultiplier
-        ).activate()
-        keyboardView.pinTop(toBottom: crossView)
+        keyboardView.pinTop(toBottom: crossView, spacing: layouts.keyboardViewEdge.top)
         keyboardView.pinToSuperview(edges: [.bottom, .left, .right], insets: layouts.keyboardViewEdge)
+        keyboardView.pinRatio(value: -20)
     }
     
     private func setupAppearance() {
