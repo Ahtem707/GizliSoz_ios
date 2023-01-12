@@ -16,6 +16,7 @@ final class LevelViewController: BaseViewController {
     
     // MARK: - Private variables
     private let backImage = UIImageView()
+    private let contentView = UIView()
     let crossView = CrossView()
     let keyboardView = KeyboardView()
     
@@ -34,21 +35,27 @@ final class LevelViewController: BaseViewController {
 extension LevelViewController {
     private func setupSubviews() {
         backImage.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         crossView.translatesAutoresizingMaskIntoConstraints = false
         keyboardView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(backImage)
-        view.addSubview(crossView)
-        view.addSubview(keyboardView)
+        view.addSubview(contentView)
+        contentView.addSubview(crossView)
+        contentView.addSubview(keyboardView)
     }
     
     private func setupLayouts() {
         backImage.pinToSuperview()
-        crossView.pinToSuperview(edges: .top, insets: layouts.crossViewEdge, safeArea: true)
+        contentView.pinToSuperview(edges: .all, insets: layouts.contentViewEdge, safeArea: true)
+        crossView.pinToSuperview(edges: .top, insets: layouts.crossViewEdge)
         crossView.pinToSuperview(edges: [.left, .right], insets: layouts.crossViewEdge)
-        crossView.pinRatio()
+        crossView.heightAnchor.constraint(
+            equalTo: contentView.heightAnchor,
+            multiplier: layouts.crossViewHeightMultiplier
+        ).activate()
+        keyboardView.pinTop(toBottom: crossView)
         keyboardView.pinToSuperview(edges: [.bottom, .left, .right], insets: layouts.keyboardViewEdge)
-        keyboardView.pinRatio(value: -50)
     }
     
     private func setupAppearance() {

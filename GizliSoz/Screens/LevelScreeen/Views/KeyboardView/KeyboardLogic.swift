@@ -81,4 +81,29 @@ final class KeyboardLogic {
             return (xs...xe).contains(point.x) && (ys...ye).contains(point.y)
         }
     }
+    
+    /// Расчет параметров круговой клавиатуры
+    /// - Parameters:
+    ///   - view: родительская view
+    ///   - count: количество ячеек
+    ///   - diameter: входящий диаметр
+    ///   - cellSize: входящий размер ячейки
+    ///   - viewCenter: входящий центр родителькой view
+    static func calcKeyboardParameter(
+        _ view: UIView,
+        count: Int,
+        diameter: inout CGFloat,
+        cellSize: inout CGFloat,
+        viewCenter: inout CGPoint
+    ) {
+        let width = view.bounds.width
+        let height = view.bounds.height
+        let sideRatio = sin(CGFloat.pi / CGFloat(count))
+        let firstStep = 4 + 3 * sideRatio
+        let secondStep = 3 + 12 * sideRatio
+        
+        diameter = width * firstStep / secondStep
+        cellSize = (diameter * sideRatio) / (sideRatio + 1)
+        viewCenter = CGPoint(x: width/2, y: height/2 + cellSize/4)
+    }
 }

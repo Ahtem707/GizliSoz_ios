@@ -15,7 +15,7 @@ class CrossCellBuilder {
     
     struct Appearance {
         let cellBack: UIColor = AppColor.Cell.normal
-        let textFont: UIFont = AppFont.font(style: .regular, size: 40)
+        let textFont: UIFont = AppFont.font(style: .regular, size: 36)
         let textColor: UIColor = AppColor.Text.primary
     }
 }

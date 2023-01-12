@@ -72,25 +72,13 @@ extension KeyboardView {
     /// Установить базовые параметры
     private func setParameters() {
         
-        let viewWidth = bounds.width
-        let viewHeight = bounds.height
-        viewCenter = CGPoint(x: viewWidth/2, y: viewHeight - viewWidth/2)
-        
-        // Ступенчатая установка размеров
-        switch cells.count {
-        case 0...3:
-            cellSize = 100
-            diameter = (viewWidth - cellSize) * 0.7
-        case 4...6:
-            cellSize = 90
-            diameter = (viewWidth - cellSize) * 0.8
-        case 7...9:
-            cellSize = 80
-            diameter = (viewWidth - cellSize) * 0.9
-        default:
-            cellSize = 70
-            diameter = (viewWidth - cellSize) * 1
-        }
+        KeyboardLogic.calcKeyboardParameter(
+            self,
+            count: cells.count,
+            diameter: &diameter,
+            cellSize: &cellSize,
+            viewCenter: &viewCenter
+        )
         
         // Инициализация позиций ячеек
         cells.shuffle()

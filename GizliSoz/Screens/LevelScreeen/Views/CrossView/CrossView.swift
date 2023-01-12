@@ -10,7 +10,7 @@ import UIKit
 class CrossViewBuilder {
     
     struct Layouts {
-        let cellSpacer: CGFloat = 10
+        let cellSpacer: CGFloat = 2
     }
     
     struct Appearance {
@@ -61,19 +61,37 @@ final class CrossView: UIView {
 extension CrossView {
     /// Обновление позиции ячеек
     private func layoutUpdate() {
-        guard let input = self.input else { return }
+        
+        // Получаем размер матрицы
+        let cellWidthCount = CGFloat(cells.reduce(0, { $0 > $1.x ? $0 : $1.x }) + 1)
+        let cellHeightCount = CGFloat(cells.reduce(0, { $0 > $1.y ? $0 : $1.y }) + 1)
+        let screenW = bounds.width
+        let screenH = bounds.height
+        
+        let allCellSpacerWidth = layouts.cellSpacer * (cellWidthCount - 1)
+        let allCellSpacerHeight = layouts.cellSpacer * (cellHeightCount - 1)
+        
+        let allCellWidth = screenW - allCellSpacerWidth
+        let allCellHeight = screenH - allCellSpacerHeight
+        
+        let cellSizeWidth = allCellWidth / cellWidthCount
         
         // Определить параметры ячеек
-        let viewWidth = bounds.width
-        let allCellSpacerWidth = layouts.cellSpacer * CGFloat(input.size - 1)
-        let allCellWidth = viewWidth - allCellSpacerWidth
-        let cellSize = allCellWidth / CGFloat(input.size)
+        let cellSize: CGFloat
+        if cellSizeWidth * cellHeightCount + allCellSpacerWidth < screenH {
+            cellSize = allCellWidth / cellWidthCount
+        } else {
+            cellSize = allCellHeight / cellHeightCount
+        }
+        
+        let crossWidthOffset = cellSize * cellWidthCount + layouts.cellSpacer * (cellWidthCount-1)
+        let widthOffset = (screenW - crossWidthOffset) / 2
         
         // Изменить позицию для ячеек
         cells.forEach { cell in
             cell.frame.size.width = cellSize
             cell.frame.size.height = cellSize
-            cell.frame.origin.x = (cellSize + layouts.cellSpacer) * CGFloat(cell.x)
+            cell.frame.origin.x = widthOffset + (cellSize + layouts.cellSpacer) * CGFloat(cell.x)
             cell.frame.origin.y = (cellSize + layouts.cellSpacer) * CGFloat(cell.y)
         }
         
