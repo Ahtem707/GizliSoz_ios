@@ -13,7 +13,7 @@ final class LevelViewModel: BaseViewModel {
     weak var crossDelegate: LevelCrossViewDelegate?
     weak var keyboardDelegate: LevelKeyboardViewDelegate?
     
-    private var bonusWords: [String] = []
+    private var bonusWordsCount: Int = 0
     
     private var openWords = 0
     
@@ -66,7 +66,7 @@ final class LevelViewModel: BaseViewModel {
         // Устанавливаем состояние дополнительных кнопок
         keyboardDelegate?.setAdditionalStatus(type: .hint, isActive: AppStorage.hintCount != 0, counter: "\(AppStorage.hintCount)")
         keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: AppStorage.hammerCount != 0, counter: "\(AppStorage.hammerCount)")
-        keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWords.count != 0, counter: "\(bonusWords.count)")
+        keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWordsCount != 0, counter: "\(bonusWordsCount)")
         keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.voiceActorIsActive, counter: nil)
         
         // Загружаем и подготавливаем озвучку слов
@@ -106,6 +106,9 @@ extension LevelViewModel: LevelCrossViewModelProtocol {
     }
     
     func wordsCompleted() {
+        if AppStorage.lastOpenedLevelIndex == AppStorage.currentLevelIndex {
+            AppStorage.hintCount += 1
+        }
         delegate?.levelComplete()
     }
 }
@@ -127,9 +130,12 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
             guard let level = AppStorage.currentLevel else { return }
             
             if level.bonusWords.contains(where: { $0 == word }) &&
-                !bonusWords.contains(where: { $0 == word }) {
-                bonusWords.append(word)
-                keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWords.count != 0, counter: "\(bonusWords.count)")
+                !AppStorage.bonusWords.contains(where: { $0 == word }) {
+                AppStorage.bonusWords.append(word)
+                bonusWordsCount += 1
+                keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWordsCount != 0, counter: "\(bonusWordsCount)")
+                AppStorage.hammerCount += 1
+                keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: AppStorage.hammerCount != 0, counter: "\(AppStorage.hammerCount)")
             }
         }
     }
@@ -150,7 +156,6 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
         if AppStorage.hammerCount > 0 {
             let result = crossDelegate?.openByPressing(valueIfNeeded: nil) ?? false
             keyboardDelegate?.setAdditionalSelected(type: .hammer, isSelected: result)
-            
         } else {
             keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: false, counter: nil)
         }

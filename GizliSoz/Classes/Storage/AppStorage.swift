@@ -44,6 +44,9 @@ final class AppStorage {
     @UserDefault("hammerCount", 5)
     static var hammerCount: Int
     
+    @UserDefault("bonusWords", [])
+    static var bonusWords: [String]
+    
     @UserDefault("voiceActorIsActive", true)
     static var voiceActorIsActive: Bool
     
