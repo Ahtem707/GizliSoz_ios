@@ -38,10 +38,10 @@ final class AppStorage {
     @UserDefault("lastOpenedLevelIndex", 1)
     private(set) static var lastOpenedLevelIndex: Int
     
-    @UserDefault("hintCount", 5)
+    @UserDefault("hintCount", 10)
     static var hintCount: Int
     
-    @UserDefault("hammerCount", 5)
+    @UserDefault("hammerCount", 10)
     static var hammerCount: Int
     
     @UserDefault("bonusWords", [])
