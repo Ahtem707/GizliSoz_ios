@@ -16,7 +16,7 @@ final class SoundPlayer {
         SoundPlayer.share = SoundPlayer()
     }
     
-    var audioPlayers: [Int : AVPlayer] = [:]
+    private var audioPlayers: [Int : AVPlayer] = [:]
     
     private init() {}
     
@@ -34,6 +34,10 @@ final class SoundPlayer {
     func play(id: Int) {
         audioPlayers[id]?.isMuted = false
         audioPlayers[id]?.play()
+    }
+    
+    func clear() {
+        audioPlayers.removeAll()
     }
 }
 
