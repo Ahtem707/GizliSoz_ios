@@ -10,7 +10,7 @@ import UIKit
 class AdditionalCellBuilder {
     
     struct Layouts {
-        let backImageEdge = UIEdgeInsets(all: 5)
+        let backImageMultiplayer: CGFloat = 0.8
         let counterEdge = UIEdgeInsets(all: -5)
         let counterSize = CGSize(width: 22, height: 22)
     }
@@ -125,7 +125,12 @@ extension AdditionalCell {
     }
     
     private func setupLayouts() {
-        backImage.pinToSuperview(edges: .all, insets: layout.backImageEdge)
+        backImage.pinCenterToSuperview(of: .vertical)
+        backImage.pinCenterToSuperview(of: .horizontal)
+        NSLayoutConstraint.activate([
+            backImage.widthAnchor.constraint(equalTo: widthAnchor, multiplier: layout.backImageMultiplayer),
+            backImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: layout.backImageMultiplayer)
+        ])
         counterView.pinToSuperview(edges: [.top, .right], insets: layout.counterEdge)
         counterView.pin(size: layout.counterSize)
         counterView.layer.cornerRadius = layout.counterSize.width / 2
