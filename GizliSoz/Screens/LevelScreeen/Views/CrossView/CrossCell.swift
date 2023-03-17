@@ -14,9 +14,11 @@ class CrossCellBuilder {
     }
     
     struct Appearance {
-        let cellBack: UIColor = AppColor.Cell.normal
+        let cellNormalBack: UIColor = AppColor.Cell.normal
+        let cellSelectBack: UIColor = AppColor.Cell.select
         let textFont: UIFont = AppFont.font(style: .regular, size: 36)
         let textColor: UIColor = AppColor.Text.primary
+        let animationTime: TimeInterval = 1
     }
 }
 
@@ -32,7 +34,10 @@ final class CrossCell: UIView {
     private let layout = B.Layouts()
     private let appearance = B.Appearance()
     
+    private let container = UIView()
     private let label = UILabel()
+    
+    private var containerSize: [NSLayoutConstraint] = []
     
     // MARK: - public variable
     var delegate: CrossCellDelegate?
@@ -47,6 +52,7 @@ final class CrossCell: UIView {
     var isShow: Bool = false {
         didSet {
             label.isHidden = !isShow
+            cellSelectedAnimate()
         }
     }
     
@@ -69,9 +75,11 @@ final class CrossCell: UIView {
 // MARK: - Private methods
 extension CrossCell {
     private func setupSubviews() {
+        container.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(label)
+        addSubview(container)
+        container.addSubview(label)
         label.isHidden = true
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTap))
@@ -79,12 +87,20 @@ extension CrossCell {
     }
     
     private func setupLayouts() {
-        self.layer.cornerRadius = layout.cellCorner
+        container.layer.cornerRadius = layout.cellCorner
+        container.pinCenterToSuperview(of: .vertical)
+        container.pinCenterToSuperview(of: .horizontal)
+        container.pinToSuperview()
+        containerSize = [
+            container.widthAnchor.constraint(equalTo: widthAnchor),
+            container.heightAnchor.constraint(equalTo: heightAnchor)
+        ].activate()
         label.pinToSuperview()
     }
     
     private func setupAppearance() {
-        self.backgroundColor = appearance.cellBack
+        backgroundColor = .clear
+        container.backgroundColor = appearance.cellNormalBack
         label.font = appearance.textFont
         label.textColor = appearance.textColor
         label.textAlignment = .center
@@ -92,5 +108,31 @@ extension CrossCell {
     
     @objc private func viewTap() {
         delegate?.didSelect(crossCell: self)
+    }
+    
+    /// Анимированное выделение ячейки
+    private func cellSelectedAnimate() {
+        roundingAnimation(value: true) {
+            self.roundingAnimation(value: false)
+        }
+    }
+    
+    /// Анимированное выделение или нормализация ячейки
+    /// - Parameters:
+    ///   - value: если true - то загругляется и выделяется
+    ///   - completion: Замыкание завершение анимации
+    private func roundingAnimation(value: Bool, completion: VoidClosure? = nil) {
+        UIView.animate(withDuration: appearance.animationTime, animations: {
+            if value {
+                self.container.backgroundColor = self.appearance.cellSelectBack
+                self.container.layer.cornerRadius = self.container.frame.size.width / 2
+            } else {
+                self.container.backgroundColor = self.appearance.cellNormalBack
+                self.container.layer.cornerRadius = self.layout.cellCorner
+            }
+        },
+        completion: { _ in
+            completion?()
+        })
     }
 }

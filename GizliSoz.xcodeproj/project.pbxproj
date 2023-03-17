@@ -33,6 +33,7 @@
 		185D6D6B296866B700B10CD8 /* ActionSheetCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */; };
 		185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */; };
 		185D6D6F2968AE0100B10CD8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6E2968AE0100B10CD8 /* UIView.swift */; };
+		186B681B29C46E1100138526 /* typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B681A29C46E1100138526 /* typealias.swift */; };
 		187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2BD9291674D40036F43A /* AppDelegate.swift */; };
 		187C2BE3291674D70036F43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE2291674D70036F43A /* Assets.xcassets */; };
 		187C2BE6291674D70036F43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE4291674D70036F43A /* LaunchScreen.storyboard */; };
@@ -112,6 +113,7 @@
 		185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCellModel.swift; sourceTree = "<group>"; };
 		185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetFactory.swift; sourceTree = "<group>"; };
 		185D6D6E2968AE0100B10CD8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		186B681A29C46E1100138526 /* typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typealias.swift; sourceTree = "<group>"; };
 		187C2BD9291674D40036F43A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		187C2BE2291674D70036F43A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		187C2BE5291674D70036F43A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -314,6 +316,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		186A2E0429AD4D9C005FF900 /* AppComponents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppComponents;
+			sourceTree = "<group>";
+		};
 		187C2BCD291674D40036F43A = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +355,7 @@
 				187C2C4F29194E1E0036F43A /* Data.swift */,
 				187C2C5C29199FBD0036F43A /* Array.swift */,
 				185D6D6E2968AE0100B10CD8 /* UIView.swift */,
+				186B681A29C46E1100138526 /* typealias.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -369,13 +379,6 @@
 				187C2C292917BC4D0036F43A /* LevelScreeen */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		187C2BF02916A76B0036F43A /* AppComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AppComponents;
 			sourceTree = "<group>";
 		};
 		187C2BF52916AA340036F43A /* MainScreen */ = {
@@ -460,9 +463,9 @@
 		187C2C3C2917E4BB0036F43A /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				186A2E0429AD4D9C005FF900 /* AppComponents */,
 				187C2BED2916A7460036F43A /* Extension */,
 				187C2BEE2916A74E0036F43A /* Base */,
-				187C2BF02916A76B0036F43A /* AppComponents */,
 				1844642929393A7D00A2C540 /* Animation */,
 				187C2C4A29186E9C0036F43A /* Logger */,
 				187C2C3D2917E4C40036F43A /* Network */,
@@ -648,6 +651,7 @@
 				183B1D6529675B6D00D80509 /* LevelsCollectionCell.swift in Sources */,
 				187C2C5029194E1E0036F43A /* Data.swift in Sources */,
 				185B5DAD293CA00F001B726D /* KeyboardGestureRecognizer.swift in Sources */,
+				186B681B29C46E1100138526 /* typealias.swift in Sources */,
 				18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */,
 				187C2BF42916A7C40036F43A /* BaseViewModel.swift in Sources */,
 				183B1D62296754E900D80509 /* LevelsViewModel.swift in Sources */,
