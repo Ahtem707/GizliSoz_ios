@@ -17,8 +17,15 @@ class CrossCellBuilder {
         let cellNormalBack: UIColor = AppColor.Cell.normal
         let cellSelectBack: UIColor = AppColor.Cell.select
         let textFont: UIFont = AppFont.font(style: .regular, size: 36)
-        let textColor: UIColor = AppColor.Text.primary
+        let textFillerColor: UIColor = AppColor.Text.secondary
+        let textNormalColor: UIColor = AppColor.Text.primary
         let animationTime: TimeInterval = 1
+    }
+    
+    enum State {
+        case hidden
+        case phantom
+        case show
     }
 }
 
@@ -37,8 +44,6 @@ final class CrossCell: UIView {
     private let container = UIView()
     private let label = UILabel()
     
-    private var containerSize: [NSLayoutConstraint] = []
-    
     // MARK: - public variable
     var delegate: CrossCellDelegate?
     var wordsId: [Int]!
@@ -49,10 +54,19 @@ final class CrossCell: UIView {
             label.text = text.uppercased()
         }
     }
-    var isShow: Bool = false {
+    var state: CrossCellBuilder.State = .hidden {
         didSet {
-            label.isHidden = !isShow
-            cellSelectedAnimate()
+            switch state {
+            case .hidden:
+                label.isHidden = true
+            case .phantom:
+                label.isHidden = false
+                label.textColor = appearance.textFillerColor
+            case .show:
+                label.isHidden = false
+                label.textColor = appearance.textNormalColor
+                cellSelectedAnimate()
+            }
         }
     }
     
@@ -88,13 +102,7 @@ extension CrossCell {
     
     private func setupLayouts() {
         container.layer.cornerRadius = layout.cellCorner
-        container.pinCenterToSuperview(of: .vertical)
-        container.pinCenterToSuperview(of: .horizontal)
         container.pinToSuperview()
-        containerSize = [
-            container.widthAnchor.constraint(equalTo: widthAnchor),
-            container.heightAnchor.constraint(equalTo: heightAnchor)
-        ].activate()
         label.pinToSuperview()
     }
     
@@ -102,7 +110,7 @@ extension CrossCell {
         backgroundColor = .clear
         container.backgroundColor = appearance.cellNormalBack
         label.font = appearance.textFont
-        label.textColor = appearance.textColor
+        label.textColor = appearance.textNormalColor
         label.textAlignment = .center
     }
     

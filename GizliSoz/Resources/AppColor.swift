@@ -10,7 +10,8 @@ import UIKit
 enum AppColor {
     enum Text {
         static let white = UIColor(0xFFFFFF)
-        static let primary = UIColor(0x000000)
+        static let primary = UIColor(0x071E22)
+        static let secondary = UIColor(0x808080)
         static let blue = UIColor(0x0F26A1)
         static let disable = UIColor(0xC4C4C4)
     }

@@ -103,7 +103,7 @@ extension CrossView {
     
     /// Проверка открытых слов
     private func checkWords() {
-        if cells.reduce(true, { $0 && $1.isShow }) {
+        if cells.reduce(true, { $0 && $1.state == .show }) {
             viewModel?.wordsCompleted()
         }
     }
@@ -115,7 +115,7 @@ extension CrossView: CrossCellDelegate {
         guard openByPressingPermission else { return }
         
         // Получаем массив еще не открытых ячеек
-        let closeCells = cells.filter { !$0.isShow }
+        let closeCells = cells.filter { $0.state == .hidden }
         
         // Возвращаем false при отсутсвии закрытых ячеек
         guard !closeCells.isEmpty else { return }
@@ -124,7 +124,7 @@ extension CrossView: CrossCellDelegate {
         guard closeCells.contains(crossCell) else { return }
         
         // Открытие ячейки и вызов действия при успешности
-        crossCell.isShow = true
+        crossCell.state = .phantom
         openByPressingPermission = false
         viewModel?.openByPressingClosure()
         
@@ -193,7 +193,7 @@ extension CrossView: LevelCrossViewDelegate {
         let cells = cells.filter { $0.wordsId.contains(wordId) }
         
         // Отобразить текст ячеек искомых ячеек
-        cells.forEach { $0.isShow = true }
+        cells.forEach { $0.state = .show }
         
         // Проверка состояния открытых слов
         checkWords()
@@ -204,7 +204,7 @@ extension CrossView: LevelCrossViewDelegate {
     func openRandom() -> Bool {
         
         // Получаем массив еще не открытых ячеек
-        let closeCells = cells.filter { !$0.isShow }
+        let closeCells = cells.filter { $0.state == .hidden }
         
         // Возвращаем false при отсутсвии закрытых ячеек
         guard !closeCells.isEmpty else { return false }
@@ -214,7 +214,7 @@ extension CrossView: LevelCrossViewDelegate {
         let cell = closeCells[cellIndex]
         
         // Открываем ячейку и возвращаем успешный результат
-        cell.isShow = true
+        cell.state = .phantom
         
         // Проверка состояния открытых слов
         checkWords()
