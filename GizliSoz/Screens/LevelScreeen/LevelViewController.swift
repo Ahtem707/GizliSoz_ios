@@ -101,4 +101,9 @@ extension LevelViewController: LevelViewControllerDelegate {
             }
         )
     }
+    
+    func presentVC(_ viewController: UIViewController) {
+        viewController.modalPresentationStyle = .pageSheet
+        present(viewController, animated: true)
+    }
 }

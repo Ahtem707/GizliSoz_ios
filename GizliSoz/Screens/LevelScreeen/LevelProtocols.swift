@@ -5,7 +5,7 @@
 //  Created by Ahtem Sitjalilov on 06.11.2022.
 //
 
-import Foundation
+import UIKit
 
 protocol LevelViewModelProtocol: AnyObject {
     /// Инициализация viewModel
@@ -21,6 +21,9 @@ protocol LevelViewControllerDelegate: AnyObject {
     
     /// Успешное завершение уровня
     func levelComplete()
+    
+    /// Навигация к viewController
+    func presentVC(_ viewController: UIViewController)
 }
 
 protocol LevelCrossViewModelProtocol: AnyObject {
@@ -67,6 +70,9 @@ protocol LevelKeyboardViewModelProtocol: AnyObject {
     
     /// Обработка нажатия молотка
     func hammerHandle()
+    
+    /// Обработка нажатия на бонусные слова
+    func bonusWords()
     
     /// Обработка нажатия озвучки
     func soundHandle()

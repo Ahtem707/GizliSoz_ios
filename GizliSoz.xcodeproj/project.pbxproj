@@ -83,6 +83,13 @@
 		18BC84F829644A09006F17CD /* LevelSoundRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F729644A09006F17CD /* LevelSoundRequest.swift */; };
 		18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F929645749006F17CD /* LevelSoundResponse.swift */; };
 		18BC84FE2964A0B3006F17CD /* wordSound.json in Resources */ = {isa = PBXBuildFile; fileRef = 18BC84FD2964A0B3006F17CD /* wordSound.json */; };
+		18D6880929D6121A00D28216 /* WordsListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6880829D6121A00D28216 /* WordsListProtocol.swift */; };
+		18D6880B29D6122900D28216 /* WordsListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6880A29D6122900D28216 /* WordsListBuilder.swift */; };
+		18D6880D29D6123A00D28216 /* WordsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6880C29D6123A00D28216 /* WordsListViewController.swift */; };
+		18D6880F29D6124600D28216 /* WordsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D6880E29D6124600D28216 /* WordsListViewModel.swift */; };
+		18E34EB029D96ECD0094CBBA /* WordTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */; };
+		18E34EB229D9882F0094CBBA /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB129D9882F0094CBBA /* AppText.swift */; };
+		18E34EB429D9D10B0094CBBA /* WordTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +171,13 @@
 		18BC84F729644A09006F17CD /* LevelSoundRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoundRequest.swift; sourceTree = "<group>"; };
 		18BC84F929645749006F17CD /* LevelSoundResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoundResponse.swift; sourceTree = "<group>"; };
 		18BC84FD2964A0B3006F17CD /* wordSound.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wordSound.json; sourceTree = "<group>"; };
+		18D6880829D6121A00D28216 /* WordsListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListProtocol.swift; sourceTree = "<group>"; };
+		18D6880A29D6122900D28216 /* WordsListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListBuilder.swift; sourceTree = "<group>"; };
+		18D6880C29D6123A00D28216 /* WordsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListViewController.swift; sourceTree = "<group>"; };
+		18D6880E29D6124600D28216 /* WordsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListViewModel.swift; sourceTree = "<group>"; };
+		18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableCell.swift; sourceTree = "<group>"; };
+		18E34EB129D9882F0094CBBA /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
+		18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +391,7 @@
 				183B1D5A296754AB00D80509 /* LevelsScreen */,
 				185D6D4F2968272B00B10CD8 /* SettingsScreen */,
 				187C2C292917BC4D0036F43A /* LevelScreeen */,
+				18D6880729D6112700D28216 /* WordsListScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -400,6 +415,7 @@
 				187C2C052916EB650036F43A /* AppImage.swift */,
 				187C2C0A2916F74E0036F43A /* AppColor.swift */,
 				187C2C272916FBD80036F43A /* AppFont.swift */,
+				18E34EB129D9882F0094CBBA /* AppText.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -549,6 +565,27 @@
 			path = Media;
 			sourceTree = "<group>";
 		};
+		18D6880729D6112700D28216 /* WordsListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				18E34EAE29D96EA50094CBBA /* Cells */,
+				18D6880829D6121A00D28216 /* WordsListProtocol.swift */,
+				18D6880A29D6122900D28216 /* WordsListBuilder.swift */,
+				18D6880C29D6123A00D28216 /* WordsListViewController.swift */,
+				18D6880E29D6124600D28216 /* WordsListViewModel.swift */,
+			);
+			path = WordsListScreen;
+			sourceTree = "<group>";
+		};
+		18E34EAE29D96EA50094CBBA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */,
+				18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -648,6 +685,7 @@
 				183B1D682967634500D80509 /* LevelsCellModel.swift in Sources */,
 				187C2C52291963730036F43A /* BuildConfig.swift in Sources */,
 				183B1D59296732B000D80509 /* AlertsFactory.swift in Sources */,
+				18E34EB029D96ECD0094CBBA /* WordTableCell.swift in Sources */,
 				183B1D6529675B6D00D80509 /* LevelsCollectionCell.swift in Sources */,
 				187C2C5029194E1E0036F43A /* Data.swift in Sources */,
 				185B5DAD293CA00F001B726D /* KeyboardGestureRecognizer.swift in Sources */,
@@ -655,6 +693,7 @@
 				18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */,
 				187C2BF42916A7C40036F43A /* BaseViewModel.swift in Sources */,
 				183B1D62296754E900D80509 /* LevelsViewModel.swift in Sources */,
+				18D6880929D6121A00D28216 /* WordsListProtocol.swift in Sources */,
 				187C2C422917E9EE0036F43A /* LevelResponse.swift in Sources */,
 				183B1D5C296754C200D80509 /* LevelsBuilder.swift in Sources */,
 				187C2C312917BC850036F43A /* LevelViewModel.swift in Sources */,
@@ -665,11 +704,13 @@
 				185B5DAB293C9F36001B726D /* KeyboardLogic.swift in Sources */,
 				187C2C0B2916F74E0036F43A /* AppColor.swift in Sources */,
 				187C2C012916B3910036F43A /* UIView + Autolayout.swift in Sources */,
+				18D6880D29D6123A00D28216 /* WordsListViewController.swift in Sources */,
 				185D6D6129683A1200B10CD8 /* SettingsMoreCell.swift in Sources */,
 				185D6D552968276A00B10CD8 /* SettingsViewController.swift in Sources */,
 				183B1D552966D7E800D80509 /* AppError.swift in Sources */,
 				185D6D6529685EAB00B10CD8 /* ActionSheetViewController.swift in Sources */,
 				187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */,
+				18E34EB429D9D10B0094CBBA /* WordTableHeader.swift in Sources */,
 				187C2BF22916A7AE0036F43A /* BaseViewController.swift in Sources */,
 				187C2C572919792A0036F43A /* AppStorage.swift in Sources */,
 				187C2C362917C4670036F43A /* UITableView.swift in Sources */,
@@ -679,6 +720,8 @@
 				18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */,
 				18BC84F829644A09006F17CD /* LevelSoundRequest.swift in Sources */,
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
+				18D6880F29D6124600D28216 /* WordsListViewModel.swift in Sources */,
+				18D6880B29D6122900D28216 /* WordsListBuilder.swift in Sources */,
 				187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */,
 				187C2C282916FBD80036F43A /* AppFont.swift in Sources */,
 				183B1D60296754E000D80509 /* LevelsViewController.swift in Sources */,
@@ -686,6 +729,7 @@
 				187C2C2B2917BC5F0036F43A /* LevelProtocols.swift in Sources */,
 				187C2C092916F0CF0036F43A /* AppNavigationController.swift in Sources */,
 				187C2C342917C0790036F43A /* CrossCell.swift in Sources */,
+				18E34EB229D9882F0094CBBA /* AppText.swift in Sources */,
 				185D6D512968274A00B10CD8 /* SettingsBuilder.swift in Sources */,
 				185D6D572968277500B10CD8 /* SettingsViewModel.swift in Sources */,
 				1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */,

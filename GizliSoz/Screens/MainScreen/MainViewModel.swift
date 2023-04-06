@@ -19,5 +19,4 @@ final class MainViewModel: BaseViewModel {
 // MARK: - MainViewModelProtocol
 extension MainViewModel: MainViewModelProtocol {
     
-    
 }

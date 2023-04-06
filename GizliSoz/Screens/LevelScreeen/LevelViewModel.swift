@@ -162,6 +162,10 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
         }
     }
     
+    func bonusWords() {
+        delegate?.presentVC(WordsListBuilder.start())
+    }
+    
     func soundHandle() {
         AppStorage.voiceActorIsActive = !AppStorage.voiceActorIsActive
         keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.voiceActorIsActive, counter: nil)

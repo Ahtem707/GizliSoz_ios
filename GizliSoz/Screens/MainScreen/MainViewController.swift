@@ -121,9 +121,9 @@ extension MainViewController {
     }
     
     private func setupContents() {
-        levelButton.setTitle("Seviyeler", for: .normal)
-        settingButton.setTitle("Sazlamalar", for: .normal)
-        startButton.setTitle("Başlamaq", for: .normal)
+        levelButton.setTitle(AppText.MainScreen.levels, for: .normal)
+        settingButton.setTitle(AppText.MainScreen.settings, for: .normal)
+        startButton.setTitle(AppText.MainScreen.start, for: .normal)
     }
     
     private func setupAction() {

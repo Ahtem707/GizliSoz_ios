@@ -294,7 +294,7 @@ extension KeyboardView {
         case .hammer:
             viewModel?.hammerHandle()
         case .bonusWords:
-            break
+            viewModel?.bonusWords()
         case .sound:
             viewModel?.soundHandle()
         }

@@ -38,10 +38,10 @@ extension SettingsViewController {
         view.addSubview(tableView)
         
         tableView.dataSource = self
-        tableView.delegate = self
+        tableView.separatorInset = .zero
+        tableView.allowsSelection = false
         tableView.registerCellClass(SettingsSwitchCell.self)
         tableView.registerCellClass(SettingsMoreCell.self)
-        tableView.allowsSelection = false
     }
     
     private func setupLayouts() {
@@ -82,12 +82,5 @@ extension SettingsViewController: UITableViewDataSource {
         } else {
             return UITableViewCell()
         }
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension SettingsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
     }
 }
