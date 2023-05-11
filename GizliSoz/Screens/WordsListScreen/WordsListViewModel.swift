@@ -14,6 +14,11 @@ final class WordsListViewModel: BaseViewModel {
     private var sections: [WordHeaderData] = []
     private var words: [WordCellData] = []
     private var bonusWords: [WordCellData] = []
+    private var openWords: [Int]
+    
+    init(openWords: [Int]) {
+        self.openWords = openWords
+    }
     
     func initialize() {
         sections.append(contentsOf: [
@@ -22,8 +27,24 @@ final class WordsListViewModel: BaseViewModel {
         ])
         
         guard let level = AppStorage.currentLevel else { return }
-        words = level.words.values.map { WordCellData(word: $0.chars.joined(), translate: $0.description, isHaveSound: true) }
-        bonusWords = level.bonusWords.map { WordCellData(word: $0, translate: $0, isHaveSound: true) }
+        words = level.words.values.compactMap {
+            return WordCellData(
+                id: $0.id,
+                word: $0.chars.joined(),
+                translate: $0.description,
+                isHaveSound: SoundPlayer.share.hasSound(id: $0.id),
+                isMasked: !openWords.contains($0.id)
+            )
+        }
+        bonusWords = level.bonusWords.map {
+            return WordCellData(
+                id: 0,
+                word: $0,
+                translate: $0,
+                isHaveSound: false,
+                isMasked: false
+            )
+        }
     }
 }
 

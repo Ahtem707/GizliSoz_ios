@@ -10,10 +10,12 @@ import os
 
 final class AppLogger {
     
-    private static var enableLogType: [LogType] = [
-        .api, .api_mock,
-        .storage
-    ]
+    // TODO: - Переделать
+    private static var enableLogType: [LogType] = LogType.allCases
+//    private static var enableLogType: [LogType] = [
+//        .api, .api_mock,
+//        .storage
+//    ]
     
     static func log(_ type: LogType, _ message: Any) {
         guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
@@ -92,10 +94,11 @@ final class AppLogger {
 
 // MARK: - LogType
 extension AppLogger {
-    enum LogType: String {
+    enum LogType: String, CaseIterable {
         case api, api_mock
         case storage
         case logic
         case fetch
+        case media
     }
 }

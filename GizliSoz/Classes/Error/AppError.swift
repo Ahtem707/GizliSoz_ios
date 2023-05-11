@@ -16,4 +16,5 @@ extension AppError {
 enum AppError: String, Error {
     case urlMakeFailed = "Не удалось сгенерировать запрос"
     case contentError = "Ошибка возвращения данных"
+    case sound = "Ошибка воспроизведения звука"
 }

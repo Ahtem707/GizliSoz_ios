@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1819F9032A0CC9F20096BA84 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819F9022A0CC9F20096BA84 /* AppConstants.swift */; };
 		1820F424292A602B00D33069 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1820F423292A602B00D33069 /* KeyboardView.swift */; };
 		183B1D552966D7E800D80509 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D542966D7E800D80509 /* AppError.swift */; };
 		183B1D59296732B000D80509 /* AlertsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D58296732B000D80509 /* AlertsFactory.swift */; };
@@ -93,6 +94,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1819F9022A0CC9F20096BA84 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		1820F423292A602B00D33069 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		183B1D542966D7E800D80509 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		183B1D58296732B000D80509 /* AlertsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsFactory.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				187C2C0A2916F74E0036F43A /* AppColor.swift */,
 				187C2C272916FBD80036F43A /* AppFont.swift */,
 				18E34EB129D9882F0094CBBA /* AppText.swift */,
+				1819F9022A0CC9F20096BA84 /* AppConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 				185D6D672968653C00B10CD8 /* ActionSheetCell.swift in Sources */,
 				187C2BFD2916B0160036F43A /* MainBuilder.swift in Sources */,
 				187C2C0D2916F7D50036F43A /* UIColor.swift in Sources */,
+				1819F9032A0CC9F20096BA84 /* AppConstants.swift in Sources */,
 				187C2BFB2916AB860036F43A /* MainViewModel.swift in Sources */,
 				187C2C542919670C0036F43A /* CrossView.swift in Sources */,
 				187C2C4C29186EB90036F43A /* AppLogger.swift in Sources */,

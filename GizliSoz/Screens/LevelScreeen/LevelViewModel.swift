@@ -15,7 +15,7 @@ final class LevelViewModel: BaseViewModel {
     
     private var bonusWordsCount: Int = 0
     
-    private var openWords = 0
+    private var openWords: [Int] = []
     
     func initialize() {
         
@@ -124,7 +124,7 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     func wordComplete(word: [String]) {
         let word = word.reduce("", {$0 + $1})
         if let id = crossDelegate?.openWord(word: word) {
-            openWords += 1
+            openWords.append(id)
             playSound(id: id)
         } else {
             // Получаем текущий уровень
@@ -163,7 +163,7 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     }
     
     func bonusWords() {
-        delegate?.presentVC(WordsListBuilder.start())
+        delegate?.presentVC(WordsListBuilder.start(openWords: openWords))
     }
     
     func soundHandle() {

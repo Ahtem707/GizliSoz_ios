@@ -16,7 +16,7 @@ final class SoundPlayer {
         SoundPlayer.share = SoundPlayer()
     }
     
-    private var audioPlayers: [Int : AVPlayer] = [:]
+    private var audioPlayers: [Int : AVAudioPlayer] = [:]
     
     private init() {}
     
@@ -24,15 +24,19 @@ final class SoundPlayer {
         for id in ids {
             if audioPlayers.contains(where: {$0.key == id}) { continue }
             fetchSoundUrl(id: id) { [weak self] url in
-                let audioPlayer = AVPlayer(url: url)
-                audioPlayer.isMuted = true
-                self?.audioPlayers[id] = audioPlayer
+                guard let data = try? Data(contentsOf: url) else { return }
+                self?.audioPlayers[id] = try? AVAudioPlayer(data: data)
             }
         }
     }
     
+    func hasSound(id: Int) -> Bool {
+        return audioPlayers[id] != nil
+    }
+    
     func play(id: Int) {
-        audioPlayers[id]?.isMuted = false
+        audioPlayers[id]?.stop()
+        audioPlayers[id]?.currentTime = .zero
         audioPlayers[id]?.play()
     }
     

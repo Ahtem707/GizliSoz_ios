@@ -24,20 +24,24 @@ struct WordCellAppearance {
 }
 
 struct WordCellData {
+    let id: Int
     let word: String
     let translate: String
     let isHaveSound: Bool
+    let isMasked: Bool
     
-    static let `default` = WordCellData(word: "", translate: "", isHaveSound: false)
+    static let `default` = WordCellData(id: 0, word: "", translate: "", isHaveSound: false, isMasked: false)
 }
 
 final class WordCell: UITableViewCell {
     
     var data: WordCellData! {
         didSet {
-            wordLabel.text = data.word
+            wordLabel.text = data.isMasked ? makeTextMasked(text: data.word) : data.word
             translateLabel.text = data.translate
-            let image = data.isHaveSound ? appearance.soundButtonEnabledImage : appearance.soundButtonDisabledImage
+            soundButton.isHidden = !data.isHaveSound
+            soundButton.isUserInteractionEnabled = data.isHaveSound && !data.isMasked
+            let image = !data.isMasked ? appearance.soundButtonEnabledImage : appearance.soundButtonDisabledImage
             soundButton.setImage(image, for: .normal)
         }
     }
@@ -89,5 +93,9 @@ final class WordCell: UITableViewCell {
     
     @objc private func soundButtonAction(_ sender: UIButton) {
         didSelectSound?()
+    }
+    
+    private func makeTextMasked(text: String) -> String {
+        return String(repeating: AppConstants.maskedChar, count: text.count)
     }
 }

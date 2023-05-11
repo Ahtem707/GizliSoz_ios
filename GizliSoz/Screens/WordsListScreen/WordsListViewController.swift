@@ -86,6 +86,9 @@ extension WordsListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = WordCell()
         cell.data = viewModel.getCellData(indexPath)
+        cell.didSelectSound = {
+            SoundPlayer.share.play(id: cell.data.id)
+        }
         return cell
     }
 }

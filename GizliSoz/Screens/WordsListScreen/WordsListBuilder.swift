@@ -8,9 +8,9 @@
 import UIKit
 
 final class WordsListBuilder {
-    static func start() -> UIViewController {
+    static func start(openWords: [Int]) -> UIViewController {
         let viewController = WordsListViewController()
-        let viewModel = WordsListViewModel()
+        let viewModel = WordsListViewModel(openWords: openWords)
         viewModel.delegate = viewController
         viewController.viewModel = viewModel
         viewModel.initialize()
