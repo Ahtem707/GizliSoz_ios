@@ -148,7 +148,10 @@ extension KeyboardView {
         UIView.animate(
             withDuration: appearance.animateDuration,
             animations: { self.cells.forEach { $0.alpha = 1 } },
-            completion: { _ in self.moveCharsCells() }
+            completion: { _ in
+                self.moveCharsCells()
+                self.showAdditionalButtons()
+            }
         )
     }
     
@@ -190,6 +193,15 @@ extension KeyboardView {
         )
     }
     
+    /// Анимированное отображение дополнительных кнопок
+    private func showAdditionalButtons() {
+        UIView.animate(
+            withDuration: appearance.animateDuration,
+            animations: { self.additionalButtons.forEach { $0.alpha = 1 } }
+        )
+    }
+    
+    /// Отправляет кнопку перемешивания на задний слой
     private func shuffleToBack() {
         sendSubviewToBack(shuffleCell)
     }
@@ -374,6 +386,7 @@ extension KeyboardView: LevelKeyboardViewDelegate {
             cell.type = button
             cell.counter = nil
             cell.isActive = false
+            cell.alpha = 0
             additionalButtons.append(cell)
         }
         

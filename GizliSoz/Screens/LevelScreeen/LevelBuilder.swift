@@ -28,6 +28,7 @@ final class LevelBuilder {
         let contentViewEdge = UIEdgeInsets(top: 5, leading: 20, bottom: 0, trailing: 20)
         let crossViewEdge = UIEdgeInsets(all: 0)
         let keyboardViewEdge = UIEdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0)
+        let keyboardViewRatio = CGFloat(-20)
     }
     
     struct Appearances {
