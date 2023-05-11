@@ -13,7 +13,7 @@ extension ActionSheetViewController {
         let indicatorRadius: CGFloat = 2
         let indicatorEdge = UIEdgeInsets(all: 8)
         let indicatorSize = CGSize(width: 100, height: 5)
-        let tableViewEdges = UIEdgeInsets(all: 10)
+        let tableViewEdges = UIEdgeInsets(top: 10, leading: 10, bottom: 30, trailing: 10)
         let tableViewCellHeight: CGFloat = 50
     }
     
@@ -89,7 +89,7 @@ extension ActionSheetViewController {
         ])
         contentViewHeight = contentView.heightAnchor.constraint(equalToConstant: 0).activate()
         
-        contentView.roundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: layouts.containerViewRadius)
+        contentView.setRoundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: layouts.containerViewRadius)
         
         NSLayoutConstraint.activate([
             indicatorView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: layouts.indicatorEdge.top),

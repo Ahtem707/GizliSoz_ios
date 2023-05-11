@@ -30,7 +30,7 @@
 		185D6D6129683A1200B10CD8 /* SettingsMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6029683A1200B10CD8 /* SettingsMoreCell.swift */; };
 		185D6D6529685EAB00B10CD8 /* ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6429685EAB00B10CD8 /* ActionSheetViewController.swift */; };
 		185D6D672968653C00B10CD8 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D662968653C00B10CD8 /* ActionSheetCell.swift */; };
-		185D6D6B296866B700B10CD8 /* ActionSheetCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */; };
+		185D6D6B296866B700B10CD8 /* ActionSheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6A296866B700B10CD8 /* ActionSheetModel.swift */; };
 		185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */; };
 		185D6D6F2968AE0100B10CD8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6E2968AE0100B10CD8 /* UIView.swift */; };
 		186B681B29C46E1100138526 /* typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B681A29C46E1100138526 /* typealias.swift */; };
@@ -117,7 +117,7 @@
 		185D6D6029683A1200B10CD8 /* SettingsMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMoreCell.swift; sourceTree = "<group>"; };
 		185D6D6429685EAB00B10CD8 /* ActionSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetViewController.swift; sourceTree = "<group>"; };
 		185D6D662968653C00B10CD8 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
-		185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCellModel.swift; sourceTree = "<group>"; };
+		185D6D6A296866B700B10CD8 /* ActionSheetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetModel.swift; sourceTree = "<group>"; };
 		185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetFactory.swift; sourceTree = "<group>"; };
 		185D6D6E2968AE0100B10CD8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		186B681A29C46E1100138526 /* typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = typealias.swift; sourceTree = "<group>"; };
@@ -325,7 +325,7 @@
 		185D6D69296866A800B10CD8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				185D6D6A296866B700B10CD8 /* ActionSheetCellModel.swift */,
+				185D6D6A296866B700B10CD8 /* ActionSheetModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -676,7 +676,7 @@
 				187C2BFB2916AB860036F43A /* MainViewModel.swift in Sources */,
 				187C2C542919670C0036F43A /* CrossView.swift in Sources */,
 				187C2C4C29186EB90036F43A /* AppLogger.swift in Sources */,
-				185D6D6B296866B700B10CD8 /* ActionSheetCellModel.swift in Sources */,
+				185D6D6B296866B700B10CD8 /* ActionSheetModel.swift in Sources */,
 				187C2C5D29199FBD0036F43A /* Array.swift in Sources */,
 				187C2C4E29186F280036F43A /* TargetProtocol.swift in Sources */,
 				183B1D5E296754D400D80509 /* LevelsProtocol.swift in Sources */,
@@ -876,8 +876,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N29SZ25DF4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GizliSoz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -892,6 +894,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Ahtem707.GizliSoz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -903,8 +906,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N29SZ25DF4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GizliSoz/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -919,6 +924,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Ahtem707.GizliSoz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

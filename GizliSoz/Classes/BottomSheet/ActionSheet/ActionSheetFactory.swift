@@ -9,6 +9,15 @@ import UIKit
 
 final class ActionSheetFactory {
     
+    static func makeDinamic(dataSource: [ActionSheetModel]) {
+        let vc = ActionSheetViewController()
+        vc.dataSource = dataSource
+        vc.modalPresentationStyle = .overFullScreen
+        rootViewController?.present(vc, animated: false)
+    }
+}
+
+extension ActionSheetFactory {
     private static let rootViewController: UIViewController? = {
         if #available(iOS 15, *) {
             let scenes = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene })
@@ -19,11 +28,4 @@ final class ActionSheetFactory {
             return keyWindow?.rootViewController
         }
     }()
-    
-    static func makeDinamic(dataSource: [ActionSheetModel]) {
-        let vc = ActionSheetViewController()
-        vc.dataSource = dataSource
-        vc.modalPresentationStyle = .overFullScreen
-        rootViewController?.present(vc, animated: false)
-    }
 }

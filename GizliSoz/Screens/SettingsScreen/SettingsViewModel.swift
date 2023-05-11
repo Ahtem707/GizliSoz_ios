@@ -37,10 +37,10 @@ extension SettingsViewModel {
     
     private func showInfoLanguage() {
         let dataSource = [
-            ActionSheetModel(code: "ru", title: "Русский", action: {
+            ActionSheetModel(key: "ru", title: "Русский", action: {
                 AppStorage.infoMessageLanguage = "ru"
             }),
-            ActionSheetModel(code: "en", title: "English", action: {
+            ActionSheetModel(key: "en", title: "English", action: {
                 AppStorage.infoMessageLanguage = "en"
             })
         ]
@@ -49,7 +49,7 @@ extension SettingsViewModel {
     
     private func showVoiceActorLanguage() {
         let dataSource = [
-            ActionSheetModel(code: "default", title: "Ахтем", action: {})
+            ActionSheetModel(key: "default", title: "Ахтем", action: {})
         ]
         ActionSheetFactory.makeDinamic(dataSource: dataSource)
     }

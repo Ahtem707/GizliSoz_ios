@@ -8,7 +8,11 @@
 import UIKit
 
 extension UIView {
-    func roundCorners(corners: CACornerMask, radius: CGFloat) {
+    /// Установка закругления углов для компонента
+    /// - Parameters:
+    ///   - corners: Углы закругления
+    ///   - radius: Значение закругления
+    func setRoundCorners(corners: CACornerMask, radius: CGFloat) {
         if #available(iOS 11.0, *) {
             self.layer.cornerRadius = radius
             self.layer.maskedCorners = corners
@@ -26,7 +30,11 @@ extension UIView {
             if corners.contains(.layerMaxXMaxYCorner) {
                 cornerMask.insert(.bottomRight)
             }
-            let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: cornerMask, cornerRadii: CGSize(width: radius, height: radius))
+            let path = UIBezierPath(
+                roundedRect: self.bounds,
+                byRoundingCorners: cornerMask,
+                cornerRadii: CGSize(width: radius, height: radius)
+            )
             let mask = CAShapeLayer()
             mask.path = path.cgPath
             self.layer.mask = mask

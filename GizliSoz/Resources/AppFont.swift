@@ -5,8 +5,6 @@
 //  Created by Ahtem Sitjalilov on 05.11.2022.
 //
 
-import Foundation
-
 import UIKit
 
 enum SFProDisplayStyle: String {

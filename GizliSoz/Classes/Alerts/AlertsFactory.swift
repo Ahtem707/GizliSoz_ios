@@ -9,19 +9,6 @@ import UIKit
 
 class AlertsFactory {
     
-    typealias VoidClosure = () -> Void
-    
-    private static let rootViewController: UIViewController? = {
-        if #available(iOS 15, *) {
-            let scenes = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene })
-            let keyWindow = scenes.first?.windows.first { $0.isKeyWindow }
-            return keyWindow?.rootViewController
-        } else {
-            let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            return keyWindow?.rootViewController
-        }
-    }()
-    
     static func makeLevelComplete(yesAction: VoidClosure?, cancelAction: VoidClosure?) {
         let alert = UIAlertController(
             title: "Maşalla!",
@@ -70,4 +57,19 @@ class AlertsFactory {
         )
         rootViewController?.present(alert, animated: true)
     }
+}
+
+extension AlertsFactory {
+    typealias VoidClosure = () -> Void
+    
+    private static let rootViewController: UIViewController? = {
+        if #available(iOS 15, *) {
+            let scenes = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene })
+            let keyWindow = scenes.first?.windows.first { $0.isKeyWindow }
+            return keyWindow?.rootViewController
+        } else {
+            let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            return keyWindow?.rootViewController
+        }
+    }()
 }
