@@ -39,6 +39,7 @@
 		1805960C2A104211006A0E2A /* LevelsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D5D296754D400D80509 /* LevelsProtocol.swift */; };
 		1805960D2A104213006A0E2A /* LevelsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D6429675B6D00D80509 /* LevelsCollectionCell.swift */; };
 		1805960E2A104216006A0E2A /* LevelsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D672967634500D80509 /* LevelsCellModel.swift */; };
+		180596102A119F71006A0E2A /* appInit.json in Sources */ = {isa = PBXBuildFile; fileRef = 1805960F2A119F71006A0E2A /* appInit.json */; };
 		1813F3D42A0E1C71001BDBFC /* LevelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3D32A0E1C71001BDBFC /* LevelRequest.swift */; };
 		1813F3D62A0E1D48001BDBFC /* LevelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3D52A0E1D48001BDBFC /* LevelResponse.swift */; };
 		1813F3D82A0E94E9001BDBFC /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3D72A0E94E9001BDBFC /* Codable.swift */; };
@@ -83,7 +84,7 @@
 		187C2C252916FB870036F43A /* SF-Pro-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 187C2C1A2916FB870036F43A /* SF-Pro-Display-Black.otf */; };
 		187C2C282916FBD80036F43A /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C272916FBD80036F43A /* AppFont.swift */; };
 		187C2C362917C4670036F43A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C352917C4670036F43A /* UITableView.swift */; };
-		187C2C3B2917E0ED0036F43A /* levels.json in Resources */ = {isa = PBXBuildFile; fileRef = 187C2C3A2917E0ED0036F43A /* levels.json */; };
+		187C2C3B2917E0ED0036F43A /* level.json in Resources */ = {isa = PBXBuildFile; fileRef = 187C2C3A2917E0ED0036F43A /* level.json */; };
 		187C2C3F2917E4D00036F43A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C3E2917E4D00036F43A /* API.swift */; };
 		187C2C422917E9EE0036F43A /* LevelsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C412917E9EE0036F43A /* LevelsResponse.swift */; };
 		187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C48291861C10036F43A /* LevelsTarget.swift */; };
@@ -94,15 +95,13 @@
 		187C2C572919792A0036F43A /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C562919792A0036F43A /* AppStorage.swift */; };
 		187C2C5D29199FBD0036F43A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C5C29199FBD0036F43A /* Array.swift */; };
 		18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F5296443EB006F17CD /* SoundPlayer.swift */; };
-		18BC84F829644A09006F17CD /* LevelSoundRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F729644A09006F17CD /* LevelSoundRequest.swift */; };
-		18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F929645749006F17CD /* LevelSoundResponse.swift */; };
-		18BC84FE2964A0B3006F17CD /* wordSound.json in Resources */ = {isa = PBXBuildFile; fileRef = 18BC84FD2964A0B3006F17CD /* wordSound.json */; };
 		18E34EB229D9882F0094CBBA /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB129D9882F0094CBBA /* AppText.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		180595ED2A0FAC48006A0E2A /* Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameter.swift; sourceTree = "<group>"; };
 		180595EF2A0FB15D006A0E2A /* CharacterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterType.swift; sourceTree = "<group>"; };
+		1805960F2A119F71006A0E2A /* appInit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = appInit.json; sourceTree = "<group>"; };
 		1813F3D32A0E1C71001BDBFC /* LevelRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelRequest.swift; sourceTree = "<group>"; };
 		1813F3D52A0E1D48001BDBFC /* LevelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelResponse.swift; sourceTree = "<group>"; };
 		1813F3D72A0E94E9001BDBFC /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -172,7 +171,7 @@
 		187C2C332917C0790036F43A /* CrossCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossCell.swift; sourceTree = "<group>"; };
 		187C2C352917C4670036F43A /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		187C2C372917C65C0036F43A /* KeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
-		187C2C3A2917E0ED0036F43A /* levels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = levels.json; sourceTree = "<group>"; };
+		187C2C3A2917E0ED0036F43A /* level.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level.json; sourceTree = "<group>"; };
 		187C2C3E2917E4D00036F43A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		187C2C412917E9EE0036F43A /* LevelsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsResponse.swift; sourceTree = "<group>"; };
 		187C2C48291861C10036F43A /* LevelsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsTarget.swift; sourceTree = "<group>"; };
@@ -184,9 +183,6 @@
 		187C2C562919792A0036F43A /* AppStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorage.swift; sourceTree = "<group>"; };
 		187C2C5C29199FBD0036F43A /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		18BC84F5296443EB006F17CD /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
-		18BC84F729644A09006F17CD /* LevelSoundRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoundRequest.swift; sourceTree = "<group>"; };
-		18BC84F929645749006F17CD /* LevelSoundResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelSoundResponse.swift; sourceTree = "<group>"; };
-		18BC84FD2964A0B3006F17CD /* wordSound.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = wordSound.json; sourceTree = "<group>"; };
 		18D6880829D6121A00D28216 /* WordsListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListProtocol.swift; sourceTree = "<group>"; };
 		18D6880A29D6122900D28216 /* WordsListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListBuilder.swift; sourceTree = "<group>"; };
 		18D6880C29D6123A00D28216 /* WordsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListViewController.swift; sourceTree = "<group>"; };
@@ -498,8 +494,8 @@
 		187C2C392917E0C90036F43A /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
-				187C2C3A2917E0ED0036F43A /* levels.json */,
-				18BC84FD2964A0B3006F17CD /* wordSound.json */,
+				187C2C3A2917E0ED0036F43A /* level.json */,
+				1805960F2A119F71006A0E2A /* appInit.json */,
 			);
 			path = SampleData;
 			sourceTree = "<group>";
@@ -546,7 +542,6 @@
 			isa = PBXGroup;
 			children = (
 				1813F3D32A0E1C71001BDBFC /* LevelRequest.swift */,
-				18BC84F729644A09006F17CD /* LevelSoundRequest.swift */,
 			);
 			path = Input;
 			sourceTree = "<group>";
@@ -557,7 +552,6 @@
 				1813F3DB2A0E98BC001BDBFC /* AppInitResponse.swift */,
 				1813F3D52A0E1D48001BDBFC /* LevelResponse.swift */,
 				187C2C412917E9EE0036F43A /* LevelsResponse.swift */,
-				18BC84F929645749006F17CD /* LevelSoundResponse.swift */,
 			);
 			path = Output;
 			sourceTree = "<group>";
@@ -677,7 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				187C2BE6291674D70036F43A /* LaunchScreen.storyboard in Resources */,
-				187C2C3B2917E0ED0036F43A /* levels.json in Resources */,
+				187C2C3B2917E0ED0036F43A /* level.json in Resources */,
 				187C2C1F2916FB870036F43A /* Roboto-Regular.ttf in Resources */,
 				187C2C1D2916FB870036F43A /* SF-Pro-Display-Light.otf in Resources */,
 				187C2C1B2916FB870036F43A /* SF UI Text Light.otf in Resources */,
@@ -689,7 +683,6 @@
 				187C2C232916FB870036F43A /* SF-Pro-Display-Semibold.otf in Resources */,
 				187C2C1C2916FB870036F43A /* SF UI Text Bold.otf in Resources */,
 				187C2C242916FB870036F43A /* SF UI Text Regular.otf in Resources */,
-				18BC84FE2964A0B3006F17CD /* wordSound.json in Resources */,
 				187C2C252916FB870036F43A /* SF-Pro-Display-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -750,8 +743,6 @@
 				180595F32A1041EE006A0E2A /* WordsListViewController.swift in Sources */,
 				1813F3D82A0E94E9001BDBFC /* Codable.swift in Sources */,
 				1805960E2A104216006A0E2A /* LevelsCellModel.swift in Sources */,
-				18BC84FA29645749006F17CD /* LevelSoundResponse.swift in Sources */,
-				18BC84F829644A09006F17CD /* LevelSoundRequest.swift in Sources */,
 				180595FF2A1041F9006A0E2A /* KeyboardView.swift in Sources */,
 				180595F02A0FB15D006A0E2A /* CharacterType.swift in Sources */,
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
@@ -773,6 +764,7 @@
 				187C2C062916EB650036F43A /* AppImage.swift in Sources */,
 				180596072A104208006A0E2A /* SettingsSwitchCell.swift in Sources */,
 				1813F3DC2A0E98BC001BDBFC /* AppInitResponse.swift in Sources */,
+				180596102A119F71006A0E2A /* appInit.json in Sources */,
 				180595F72A1041F6006A0E2A /* LevelProtocols.swift in Sources */,
 				187C2BFF2916B0900036F43A /* UIEdgeInsets.swift in Sources */,
 				1805960C2A104211006A0E2A /* LevelsProtocol.swift in Sources */,

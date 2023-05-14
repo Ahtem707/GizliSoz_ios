@@ -20,12 +20,22 @@ final class SoundPlayer {
     
     private init() {}
     
-    func loadLevelSounds(ids: [Int]) {
-        for id in ids {
-            if audioPlayers.contains(where: {$0.key == id}) { continue }
-            fetchSoundUrl(id: id) { [weak self] url in
-                guard let data = try? Data(contentsOf: url) else { return }
-                self?.audioPlayers[id] = try? AVAudioPlayer(data: data)
+    func loadLevelSounds() {
+        DispatchQueue(label: "Media").async { [weak self] in
+            guard let level = AppStorage.currentLevel else { return }
+            
+            for word in level.words {
+                if let url = word.voiceoverUrl,
+                   let data = try? Data(contentsOf: url) {
+                    self?.audioPlayers[word.id] = try? AVAudioPlayer(data: data)
+                }
+            }
+            
+            for bonusWord in level.bonusWords {
+                if let url = bonusWord.voiceoverUrl,
+                   let data = try? Data(contentsOf: url) {
+                    self?.audioPlayers[bonusWord.id] = try? AVAudioPlayer(data: data)
+                }
             }
         }
     }
@@ -42,28 +52,5 @@ final class SoundPlayer {
     
     func clear() {
         audioPlayers.removeAll()
-    }
-}
-
-// MARK: - Private functions
-extension SoundPlayer {
-    private func fetchSoundUrl(id: Int, completion: @escaping (_ url: URL) -> Void) {
-        API.Levels.getWordSound(
-            .init(
-                wordId: id,
-                voiceActor: AppStorage.voiceoverActor
-            )
-        ).request(LevelSoundResponse.self) { result in
-            switch result {
-            case .success(let data):
-                if let content = data.content {
-                    completion(content.url)
-                } else {
-                    AppLogger.error(.fetch, AppError.contentError)
-                }
-            case .failure(let error):
-                AppLogger.error(.fetch, error.localizedDescription)
-            }
-        }
     }
 }

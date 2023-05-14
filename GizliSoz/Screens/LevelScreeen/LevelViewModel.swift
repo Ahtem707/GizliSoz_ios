@@ -72,10 +72,7 @@ final class LevelViewModel: BaseViewModel {
         
         // Загружаем и подготавливаем озвучку слов
         SoundPlayer.share.clear()
-        let wordIds = level.words.compactMap { $0.id }
-        let bonusWordsIds = level.bonusWords.compactMap { $0.id }
-        let ids = wordIds + bonusWordsIds
-        SoundPlayer.share.loadLevelSounds(ids: ids)
+        SoundPlayer.share.loadLevelSounds()
     }
 }
 

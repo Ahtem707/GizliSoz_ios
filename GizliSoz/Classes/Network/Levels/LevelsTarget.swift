@@ -13,7 +13,6 @@ extension API {
         case appInit
         case getLevel(_ input: LevelRequest)
         case getLevels
-        case getWordSound(_ input: LevelSoundRequest)
         
         // MARK: - Internal
         
@@ -25,8 +24,6 @@ extension API {
                 return "getLevel"
             case .getLevels:
                 return "getLevels"
-            case .getWordSound:
-                return "wordSound"
             }
         }
         
@@ -43,7 +40,6 @@ extension API {
             case .appInit: return [:]
             case .getLevel(let input): return input.asDictionary()
             case .getLevels: return [:]
-            case .getWordSound(let input): return input.asDictionary()
             }
         }
         
@@ -54,13 +50,11 @@ extension API {
         var sampleData: Data {
             switch self {
             case .appInit:
-                return Data.json(fileName: "", with: .json)
+                return Data.json(fileName: "appInit", with: .json)
             case .getLevel:
-                return Data.json(fileName: "", with: .json)
+                return Data.json(fileName: "level", with: .json)
             case .getLevels:
-                return Data.json(fileName: "levels", with: .json)
-            case .getWordSound:
-                return Data.json(fileName: "wordSound", with: .json)
+                return Data.json(fileName: "", with: .json)
             }
         }
     }
