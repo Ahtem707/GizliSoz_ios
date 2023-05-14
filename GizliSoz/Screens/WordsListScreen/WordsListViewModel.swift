@@ -15,9 +15,11 @@ final class WordsListViewModel: BaseViewModel {
     private var words: [WordCellData] = []
     private var bonusWords: [WordCellData] = []
     private var openWords: [Int]
+    private var openBonusWords: [Int]
     
-    init(openWords: [Int]) {
+    init(openWords: [Int], openBonusWords: [Int]) {
         self.openWords = openWords
+        self.openBonusWords = openBonusWords
     }
     
     func initialize() {
@@ -27,22 +29,23 @@ final class WordsListViewModel: BaseViewModel {
         ])
         
         guard let level = AppStorage.currentLevel else { return }
-        words = level.words.values.compactMap {
+        
+        words = level.words.compactMap {
             return WordCellData(
                 id: $0.id,
-                word: $0.chars.joined(),
-                translate: $0.description,
+                word: $0.word,
+                translate: $0.translate,
                 isHaveSound: SoundPlayer.share.hasSound(id: $0.id),
                 isMasked: !openWords.contains($0.id)
             )
         }
         bonusWords = level.bonusWords.map {
             return WordCellData(
-                id: 0,
-                word: $0,
-                translate: $0,
-                isHaveSound: false,
-                isMasked: false
+                id: $0.id,
+                word: $0.word,
+                translate: $0.translate,
+                isHaveSound: SoundPlayer.share.hasSound(id: $0.id),
+                isMasked: !openBonusWords.contains($0.id)
             )
         }
     }

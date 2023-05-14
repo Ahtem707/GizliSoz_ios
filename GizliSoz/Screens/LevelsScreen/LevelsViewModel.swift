@@ -28,11 +28,10 @@ extension LevelsViewModel: LevelsViewModelProtocol {
     }
     
     func getCollectionCount() -> Int {
-        return AppStorage.levels.count
+        return AppStorage.levelsCount
     }
     
     func getCollectionItem(_ indexPath: IndexPath) -> LevelsCellModel {
-        let level = AppStorage.levels[indexPath.row]
         let type: CellType
         let localLevel = indexPath.row + 1
         if localLevel == AppStorage.currentLevelIndex {
@@ -43,7 +42,7 @@ extension LevelsViewModel: LevelsViewModelProtocol {
             type = .locked
         }
         let cellModel = LevelsCellModel(
-            level: level.level,
+            level: localLevel,
             type: type
         )
         return cellModel

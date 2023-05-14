@@ -69,7 +69,7 @@ extension WordsListViewController: WordsListViewControllerDelegate {
 
 extension WordsListViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.getSectionCount()
     }
     

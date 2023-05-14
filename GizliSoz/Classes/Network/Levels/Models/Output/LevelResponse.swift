@@ -2,42 +2,27 @@
 //  LevelResponse.swift
 //  GizliSoz
 //
-//  Created by Ahtem Sitjalilov on 06.11.2022.
+//  Created by Ahtem Sitjalilov on 12.05.2023.
 //
 
 import Foundation
 
 struct LevelResponse: Codable {
-    
     enum CodingKeys: String, CodingKey {
-        case result
-        case description
-        case content
+        case levelNumber
+        case name
+        case size
+        case chars
+        case words
+        case bonusWords
     }
     
-    let result: Int
-    let description: String?
-    let content: [Content]?
-}
-
-extension LevelResponse {
-    struct Content: Codable {
-        enum CodingKeys: String, CodingKey {
-            case level
-            case name
-            case size
-            case chars
-            case words
-            case bonusWords
-        }
-        
-        let level: Int
-        let name: String
-        let size: Int
-        let chars: [String]
-        let words: [String : Word]
-        let bonusWords: [String]
-    }
+    let levelNumber: Int
+    let name: String
+    let size: Int
+    let chars: [String]
+    let words: [Word]
+    let bonusWords: [BonusWord]
 }
 
 extension LevelResponse {
@@ -47,13 +32,37 @@ extension LevelResponse {
             case x
             case y
             case chars
-            case description
+            case translate
+            case voiceoverUrl
         }
         
         let id: Int
         let x: [Int]
         let y: [Int]
         let chars: [String]
-        let description: String
+        let translate: String
+        @FailableDecodable
+        var voiceoverUrl: URL?
+        
+        var word: String {
+            return chars.joined()
+        }
+    }
+}
+
+extension LevelResponse {
+    struct BonusWord: Codable {
+        enum CodingKeys: String, CodingKey {
+            case id
+            case word
+            case translate
+            case voiceoverUrl
+        }
+        
+        let id: Int
+        let word: String
+        let translate: String
+        @FailableDecodable
+        var voiceoverUrl: URL?
     }
 }

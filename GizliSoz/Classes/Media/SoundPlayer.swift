@@ -51,7 +51,7 @@ extension SoundPlayer {
         API.Levels.getWordSound(
             .init(
                 wordId: id,
-                voiceActor: AppStorage.voiceActor
+                voiceActor: AppStorage.voiceoverActor
             )
         ).request(LevelSoundResponse.self) { result in
             switch result {

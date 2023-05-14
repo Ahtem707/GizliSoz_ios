@@ -75,21 +75,24 @@ final class API {
     static func requestExecute<T: Codable>(request: URLRequest, completion: @escaping RequestClosure<T>) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             API.logger(response?.url?.absoluteString, data)
-            if let errorRequest = error {
-                completion(.failure(errorRequest as NSError))
-                return
-            }
+            if let errorRequest = error { completion(.failure(errorRequest)); return }
             
-            if let data = data {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                do {
+            guard let data = data else { completion(.failure(AppError.contentError)); return }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            do {
+                let apiResponse = try decoder.decode(ApiResponse.self, from: data)
+                if apiResponse.result == 0 {
                     let rawResponse = try decoder.decode(T.self, from: data)
                     completion(.success(rawResponse))
                     return
-                } catch {
-                    completion(.failure(error as NSError))
+                } else {
+                    completion(.failure(AppError.serverError))
+                    return
                 }
+            } catch {
+                completion(.failure(error as NSError))
             }
         }.resume()
     }

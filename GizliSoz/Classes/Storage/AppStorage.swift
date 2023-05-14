@@ -13,25 +13,24 @@ final class AppStorage {
     
     static func appStart() {
         AppStorage.share = AppStorage()
-        AppStorage.share.fetchLevels()
+        AppStorage.share.fetchAppInit()
+        AppStorage.share.fetchLevel()
     }
     
-    @UserDefault("userLoginCount", 0)
-    static var userLoginCount: Int
+    static var translationLangs: [Parameter] = []
+    static var voiceoverActors: [Parameter] = []
+    static var levelsCount: Int = 0
     
-    static var levels: [LevelResponse.Content] = []
+    static var levels: [LevelResponse] = []
     
-    static var currentLevel: LevelResponse.Content? {
-        guard currentLevelIndex > 0 && levels.count >= currentLevelIndex
-        else {
-            AppLogger.critical(.logic, "Неправильно выставленный уровень")
-            return nil
-        }
-        
-        return levels[currentLevelIndex - 1]
+    static var currentLevel: LevelResponse? {
+        return levels.first(where: { $0.levelNumber == currentLevelIndex })
     }
     
     // User value
+    @UserDefault("userLoginCount", 0)
+    static var userLoginCount: Int
+    
     @UserDefault("currentLevelIndex", 1)
     private(set) static var currentLevelIndex: Int
     
@@ -47,24 +46,34 @@ final class AppStorage {
     @UserDefault("bonusWords", [])
     static var bonusWords: [String]
     
-    @UserDefault("voiceActorIsActive", true)
-    static var voiceActorIsActive: Bool
+    @UserDefault("IsActiveVoiceover", true)
+    static var isActiveVoiceover: Bool
     
-    @UserDefault("voiceActor", "default")
-    static var voiceActor: String
+    @UserDefault("voiceoverActor", "default")
+    static var voiceoverActor: String {
+        didSet { AppStorage.share.fetchLevel() }
+    }
+    
+    @UserDefault("translationLang", "default")
+    static var translationLang: String {
+        didSet { AppStorage.share.fetchLevel() }
+    }
+    
+    @UserDefault("characterType", CharacterType.latin)
+    static var characterType: CharacterType {
+        didSet { AppStorage.share.fetchLevel() }
+    }
     
     @UserDefault("infoMessage", true)
     static var infoMessage: Bool
     
-    @UserDefault("infoMessage", "default")
-    static var infoMessageLanguage: String
-    
     static func levelUp() -> Bool {
-        if currentLevelIndex < levels.count {
+        if currentLevelIndex < levelsCount {
             currentLevelIndex += 1
             if currentLevelIndex > lastOpenedLevelIndex {
                 lastOpenedLevelIndex = currentLevelIndex
             }
+            AppStorage.share.fetchLevel()
             return true
         } else {
             return false
@@ -72,7 +81,7 @@ final class AppStorage {
     }
     
     static func setLevel(_ value: Int) -> Bool {
-        guard currentLevelIndex <= levels.count else {
+        guard currentLevelIndex <= levelsCount else {
             assertionFailure("Неправильная установка уровня")
             return false
         }
@@ -80,20 +89,54 @@ final class AppStorage {
         guard value <= lastOpenedLevelIndex else { return false }
         
         currentLevelIndex = value
+        AppStorage.share.fetchLevel()
         return true
     }
     
     // MARK: - Fetch functions
     
-    /// Загрузка данных уровней
-    private func fetchLevels() {
-        API.Levels.getLevels.request(LevelResponse.self) { result in
+    /// Получаем базовые  данные для приложения
+    private func fetchAppInit() {
+        API.Levels.appInit.request(AppInitResponse.self) { result in
             switch result {
             case .success(let data):
-                Self.levels = data.content ?? []
+                Self.translationLangs = data.translationLangs
+                Self.voiceoverActors = data.voiceoverActors
+                Self.levelsCount = data.levelsCount
             case .failure(let error):
                 AppLogger.log(.storage, error.localizedDescription)
             }
         }
     }
+    
+    /// Загрузка данных уровня
+    private func fetchLevel() {
+        API.Levels.getLevel(
+            .init(
+                levelNumber: AppStorage.currentLevelIndex,
+                translateLang: AppStorage.translationLang,
+                voiceoverActor: AppStorage.voiceoverActor,
+                characterType: AppStorage.characterType
+            )
+        ).request(LevelResponse.self) { result in
+            switch result {
+            case .success(let data):
+                Self.levels.append(data)
+            case .failure(let error):
+                AppLogger.log(.storage, error.localizedDescription)
+            }
+        }
+    }
+    
+    /// Загрузка данных уровней
+//    private func fetchLevels() {
+//        API.Levels.getLevels.request(LevelsResponse.self) { result in
+//            switch result {
+//            case .success(let data):
+//                Self.levels = data.content ?? []
+//            case .failure(let error):
+//                AppLogger.log(.storage, error.localizedDescription)
+//            }
+//        }
+//    }
 }

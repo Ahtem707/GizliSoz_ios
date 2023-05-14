@@ -10,7 +10,7 @@ import Foundation
 typealias ActionCompletion = () -> Void
 
 struct ActionSheetModel {
-    let key: String
+    let code: String
     let title: String
     let action: ActionCompletion
 }

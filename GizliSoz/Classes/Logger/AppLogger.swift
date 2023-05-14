@@ -19,7 +19,7 @@ final class AppLogger {
     
     static func log(_ type: LogType, _ message: Any) {
         guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
-        guard let message = message as? String else { return }
+        let message = decodeMessage(message)
         if #available(iOS 14.0, *) {
             let log = Logger(
                 subsystem: Bundle.main.bundleIdentifier!,
@@ -37,8 +37,7 @@ final class AppLogger {
     
     static func warning(_ type: LogType, _ message: Any) {
         guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
-        guard let message = message as? String else { return }
-        
+        let message = decodeMessage(message)
         if #available(iOS 14.0, *) {
             let log = Logger(
                 subsystem: Bundle.main.bundleIdentifier!,
@@ -56,7 +55,7 @@ final class AppLogger {
     
     static func error(_ type: LogType, _ message: Any) {
         guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
-        guard let message = message as? String else { return }
+        let message = decodeMessage(message)
         if #available(iOS 14.0, *) {
             let log = Logger(
                 subsystem: Bundle.main.bundleIdentifier!,
@@ -74,8 +73,7 @@ final class AppLogger {
     
     static func critical(_ type: LogType, _ message: Any) {
         guard BuildConfig.loggingEnabled && Self.enableLogType.contains(type) else { return }
-        guard let message = message as? String else { return }
-        
+        let message = decodeMessage(message)
         if #available(iOS 14.0, *) {
             let log = Logger(
                 subsystem: Bundle.main.bundleIdentifier!,
@@ -88,6 +86,21 @@ final class AppLogger {
                 category: String(describing: type.rawValue)
             )
             os_log("%@", log: log, type: .error, message)
+        }
+    }
+}
+
+extension AppLogger {
+    /// Преобразует текст сообщения в правильный формат
+    /// - Parameter message: Текст сообщения
+    /// - Returns: Возвращает сообщение в строковом типе
+    private static func decodeMessage(_ message: Any) -> String {
+        if let message = message as? AppError {
+            return message.localizedDescription
+        } else if let message = message as? String {
+            return message
+        } else {
+            return String(describing: message)
         }
     }
 }

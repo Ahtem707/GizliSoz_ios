@@ -36,21 +36,24 @@ extension SettingsViewModel {
     }
     
     private func showInfoLanguage() {
-        let dataSource = [
-            ActionSheetModel(key: "ru", title: "Русский", action: {
-                AppStorage.infoMessageLanguage = "ru"
-            }),
-            ActionSheetModel(key: "en", title: "English", action: {
-                AppStorage.infoMessageLanguage = "en"
-            })
-        ]
+        let dataSource = AppStorage.translationLangs.map { item in
+            return ActionSheetModel(
+                code: item.code,
+                title: item.value,
+                action: { AppStorage.translationLang = item.code }
+            )
+        }
         ActionSheetFactory.makeDinamic(dataSource: dataSource)
     }
     
     private func showVoiceActorLanguage() {
-        let dataSource = [
-            ActionSheetModel(key: "default", title: "Ахтем", action: {})
-        ]
+        let dataSource = AppStorage.voiceoverActors.map { item in
+            return ActionSheetModel(
+                code: item.code,
+                title: item.value,
+                action: { AppStorage.voiceoverActor =  item.code }
+            )
+        }
         ActionSheetFactory.makeDinamic(dataSource: dataSource)
     }
 }

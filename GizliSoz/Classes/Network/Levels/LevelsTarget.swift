@@ -10,6 +10,8 @@ import Foundation
 extension API {
     enum Levels: Target {
         
+        case appInit
+        case getLevel(_ input: LevelRequest)
         case getLevels
         case getWordSound(_ input: LevelSoundRequest)
         
@@ -17,6 +19,10 @@ extension API {
         
         var path: String {
             switch self {
+            case .appInit:
+                return "appInit"
+            case .getLevel:
+                return "getLevel"
             case .getLevels:
                 return "getLevels"
             case .getWordSound:
@@ -34,13 +40,10 @@ extension API {
         
         var query: [String : Any] {
             switch self {
-            case .getLevels:
-                return [:]
-            case .getWordSound(let input):
-                return [
-                    "wordId" : input.wordId,
-                    "voiceActor" : input.voiceActor
-                ]
+            case .appInit: return [:]
+            case .getLevel(let input): return input.asDictionary()
+            case .getLevels: return [:]
+            case .getWordSound(let input): return input.asDictionary()
             }
         }
         
@@ -50,6 +53,10 @@ extension API {
         
         var sampleData: Data {
             switch self {
+            case .appInit:
+                return Data.json(fileName: "", with: .json)
+            case .getLevel:
+                return Data.json(fileName: "", with: .json)
             case .getLevels:
                 return Data.json(fileName: "levels", with: .json)
             case .getWordSound:

@@ -16,6 +16,7 @@ final class LevelViewModel: BaseViewModel {
     private var bonusWordsCount: Int = 0
     
     private var openWords: [Int] = []
+    private var openBonusWords: [Int] = []
     
     func initialize() {
         
@@ -26,15 +27,15 @@ final class LevelViewModel: BaseViewModel {
         crossDelegate?.clear()
         keyboardDelegate?.clear()
         
-        let words: [CrossViewBuilder.Word] = level.words.map { word, wordData in
+        let words: [CrossViewBuilder.Word] = level.words.map { data in
             
             var cellsData: [CrossViewBuilder.CellData] = []
             var i: Int = 0
-            while i < wordData.chars.count {
+            while i < data.chars.count {
                 let cellData = CrossViewBuilder.CellData(
-                    x: wordData.x[i],
-                    y: wordData.y[i],
-                    char: wordData.chars[i]
+                    x: data.x[i],
+                    y: data.y[i],
+                    char: data.chars[i]
                 )
                 
                 cellsData.append(cellData)
@@ -42,8 +43,8 @@ final class LevelViewModel: BaseViewModel {
             }
             
             return CrossViewBuilder.Word(
-                id: wordData.id,
-                word: word,
+                id: data.id,
+                word: data.word,
                 chars: cellsData
             )
         }
@@ -67,12 +68,14 @@ final class LevelViewModel: BaseViewModel {
         keyboardDelegate?.setAdditionalStatus(type: .hint, isActive: AppStorage.hintCount != 0, counter: "\(AppStorage.hintCount)")
         keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: AppStorage.hammerCount != 0, counter: "\(AppStorage.hammerCount)")
         keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWordsCount != 0, counter: "\(bonusWordsCount)")
-        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.voiceActorIsActive, counter: nil)
+        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.isActiveVoiceover, counter: nil)
         
         // Загружаем и подготавливаем озвучку слов
-        let wordIds = level.words.compactMap { $0.value.id }
         SoundPlayer.share.clear()
-        SoundPlayer.share.loadLevelSounds(ids: wordIds)
+        let wordIds = level.words.compactMap { $0.id }
+        let bonusWordsIds = level.bonusWords.compactMap { $0.id }
+        let ids = wordIds + bonusWordsIds
+        SoundPlayer.share.loadLevelSounds(ids: ids)
     }
 }
 
@@ -85,7 +88,7 @@ extension LevelViewModel {
     }
     
     private func playSound(id: Int) {
-        guard AppStorage.voiceActorIsActive else { return }
+        guard AppStorage.isActiveVoiceover else { return }
         SoundPlayer.share.play(id: id)
     }
 }
@@ -130,13 +133,15 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
             // Получаем текущий уровень
             guard let level = AppStorage.currentLevel else { return }
             
-            if level.bonusWords.contains(where: { $0 == word }) &&
-                !AppStorage.bonusWords.contains(where: { $0 == word }) {
-                AppStorage.bonusWords.append(word)
-                bonusWordsCount += 1
-                keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWordsCount != 0, counter: "\(bonusWordsCount)")
-                AppStorage.hammerCount += 1
-                keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: AppStorage.hammerCount != 0, counter: "\(AppStorage.hammerCount)")
+            if let bonusWord = level.bonusWords.first(where: { $0.word == word }) {
+                openBonusWords.append(bonusWord.id)
+                if !AppStorage.bonusWords.contains(where: { $0 == word }) {
+                    AppStorage.bonusWords.append(bonusWord.word)
+                    bonusWordsCount += 1
+                    keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWordsCount != 0, counter: "\(bonusWordsCount)")
+                    AppStorage.hammerCount += 1
+                    keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: AppStorage.hammerCount != 0, counter: "\(AppStorage.hammerCount)")
+                }
             }
         }
     }
@@ -163,11 +168,11 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     }
     
     func bonusWords() {
-        delegate?.presentVC(WordsListBuilder.start(openWords: openWords))
+        delegate?.presentVC(WordsListBuilder.start(openWords: openWords, openBonusWords: openBonusWords))
     }
     
     func soundHandle() {
-        AppStorage.voiceActorIsActive = !AppStorage.voiceActorIsActive
-        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.voiceActorIsActive, counter: nil)
+        AppStorage.isActiveVoiceover = !AppStorage.isActiveVoiceover
+        keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.isActiveVoiceover, counter: nil)
     }
 }

@@ -64,6 +64,13 @@ extension KeyboardView {
     private func setupLayouts() {
         guard !isSetupLayouts else { return }
         isSetupLayouts = true
+        
+        guard cells.count > 0 else {
+            AppLogger.critical(.logic, AppError.incorrectData)
+            AlertsFactory.makeLogicError()
+            return
+        }
+        
         setParameters()
         setZeroPosition()
         animationStart()
