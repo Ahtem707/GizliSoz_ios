@@ -1,0 +1,41 @@
+{
+    "levelNumber": 7,
+    "name": "Ayvanlar 1",
+    "size": 6,
+    "chars": ["q","o","y","a","n","t","p","l","a"],
+    "bonusWords": [],
+    "words": [
+        {
+            "id": 18,
+            "chars": ["q","a","p","l","a","n"],
+            "x": [0,1,2,3,4,5],
+            "y": [3,3,3,3,3,3],
+            "translate": "къаплан",
+            "voiceoverFile": "qaplan.wav"
+        },
+        {
+            "id": 19,
+            "chars": ["q","o","y"],
+            "x": [3,4,5],
+            "y": [1,1,1],
+            "translate": "къой",
+            "voiceoverFile": "qoy.wav"
+        },
+        {
+            "id": 20,
+            "chars": ["a","t"],
+            "x": [1,1],
+            "y": [3,4],
+            "translate": "ат",
+            "voiceoverFile": "at.wav"
+        },
+        {
+            "id": 21,
+            "chars": ["q","o","y","a","n"],
+            "x": [4,4,4,4,4],
+            "y": [0,1,2,3,4],
+            "translate": "къойан",
+            "voiceoverFile": "qoyan.wav"
+        }
+    ]
+}

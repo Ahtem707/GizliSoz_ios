@@ -46,6 +46,56 @@
 		1813F3DC2A0E98BC001BDBFC /* AppInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3DB2A0E98BC001BDBFC /* AppInitResponse.swift */; };
 		1813F3DE2A0EDA16001BDBFC /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3DD2A0EDA16001BDBFC /* ApiResponse.swift */; };
 		1819F9032A0CC9F20096BA84 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819F9022A0CC9F20096BA84 /* AppConstants.swift */; };
+		182D93262A120F3900B64C62 /* Level 1.json in Sources */ = {isa = PBXBuildFile; fileRef = 182D93252A120F3900B64C62 /* Level 1.json */; };
+		1835AA382A120FCE00AF3887 /* Level 3.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA2F2A120FCE00AF3887 /* Level 3.json */; };
+		1835AA392A120FCE00AF3887 /* Level 9.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA302A120FCE00AF3887 /* Level 9.json */; };
+		1835AA3A2A120FCE00AF3887 /* Level 6.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA312A120FCE00AF3887 /* Level 6.json */; };
+		1835AA3B2A120FCE00AF3887 /* Level 4.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA322A120FCE00AF3887 /* Level 4.json */; };
+		1835AA3C2A120FCE00AF3887 /* Level 5.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA332A120FCE00AF3887 /* Level 5.json */; };
+		1835AA3D2A120FCE00AF3887 /* Level 2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA342A120FCE00AF3887 /* Level 2.json */; };
+		1835AA3E2A120FCE00AF3887 /* Level 8.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA352A120FCE00AF3887 /* Level 8.json */; };
+		1835AA3F2A120FCE00AF3887 /* Level 10.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA362A120FCE00AF3887 /* Level 10.json */; };
+		1835AA402A120FCE00AF3887 /* Level 7.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA372A120FCE00AF3887 /* Level 7.json */; };
+		1835AA6A2A12182D00AF3887 /* deve.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA462A12182C00AF3887 /* deve.wav */; };
+		1835AA6B2A12182D00AF3887 /* men.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA472A12182C00AF3887 /* men.wav */; };
+		1835AA6C2A12182D00AF3887 /* dut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA482A12182C00AF3887 /* dut.wav */; };
+		1835AA6D2A12182D00AF3887 /* saqal.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA492A12182C00AF3887 /* saqal.wav */; };
+		1835AA6E2A12182D00AF3887 /* qulaq.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA4A2A12182C00AF3887 /* qulaq.wav */; };
+		1835AA6F2A12182D00AF3887 /* sari.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA4B2A12182C00AF3887 /* sari.wav */; };
+		1835AA702A12182D00AF3887 /* esil.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA4C2A12182C00AF3887 /* esil.wav */; };
+		1835AA712A12182D00AF3887 /* alma.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA4D2A12182C00AF3887 /* alma.wav */; };
+		1835AA722A12182D00AF3887 /* tirnaq.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA4E2A12182C00AF3887 /* tirnaq.wav */; };
+		1835AA732A12182D00AF3887 /* meraba.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA4F2A12182C00AF3887 /* meraba.wav */; };
+		1835AA742A12182D00AF3887 /* at.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA502A12182C00AF3887 /* at.wav */; };
+		1835AA752A12182D00AF3887 /* armut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA512A12182C00AF3887 /* armut.wav */; };
+		1835AA762A12182D00AF3887 /* selam.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA522A12182C00AF3887 /* selam.wav */; };
+		1835AA772A12182D00AF3887 /* al.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA532A12182C00AF3887 /* al.wav */; };
+		1835AA782A12182D00AF3887 /* qalem.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA542A12182C00AF3887 /* qalem.wav */; };
+		1835AA792A12182D00AF3887 /* portaqal.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA552A12182C00AF3887 /* portaqal.wav */; };
+		1835AA7A2A12182D00AF3887 /* qoyan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA562A12182D00AF3887 /* qoyan.wav */; };
+		1835AA7B2A12182D00AF3887 /* turaq.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA572A12182D00AF3887 /* turaq.wav */; };
+		1835AA7C2A12182D00AF3887 /* kun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA582A12182D00AF3887 /* kun.wav */; };
+		1835AA7D2A12182D00AF3887 /* aq.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA592A12182D00AF3887 /* aq.wav */; };
+		1835AA7E2A12182D00AF3887 /* qoy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA5A2A12182D00AF3887 /* qoy.wav */; };
+		1835AA7F2A12182D00AF3887 /* canta.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA5B2A12182D00AF3887 /* canta.wav */; };
+		1835AA802A12182D00AF3887 /* mavi.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA5C2A12182D00AF3887 /* mavi.wav */; };
+		1835AA812A12182D00AF3887 /* jirafe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA5D2A12182D00AF3887 /* jirafe.wav */; };
+		1835AA822A12182D00AF3887 /* qursaq.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA5E2A12182D00AF3887 /* qursaq.wav */; };
+		1835AA832A12182D00AF3887 /* narguz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA5F2A12182D00AF3887 /* narguz.wav */; };
+		1835AA842A12182D00AF3887 /* ayva.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA602A12182D00AF3887 /* ayva.wav */; };
+		1835AA852A12182D00AF3887 /* ahudut.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA612A12182D00AF3887 /* ahudut.wav */; };
+		1835AA862A12182D00AF3887 /* qavun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA622A12182D00AF3887 /* qavun.wav */; };
+		1835AA872A12182D00AF3887 /* tis.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA632A12182D00AF3887 /* tis.wav */; };
+		1835AA882A12182D00AF3887 /* qara.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA642A12182D00AF3887 /* qara.wav */; };
+		1835AA892A12182D00AF3887 /* fil.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA652A12182D00AF3887 /* fil.wav */; };
+		1835AA8A2A12182D00AF3887 /* lale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA662A12182D00AF3887 /* lale.wav */; };
+		1835AA8B2A12182D00AF3887 /* bas.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA672A12182D00AF3887 /* bas.wav */; };
+		1835AA8C2A12182D00AF3887 /* qaplan.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA682A12182D00AF3887 /* qaplan.wav */; };
+		1835AA8D2A12182D00AF3887 /* gul.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA692A12182D00AF3887 /* gul.wav */; };
+		1835AA912A1221A500AF3887 /* AppStorage + UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835AA902A1221A500AF3887 /* AppStorage + UserDefaults.swift */; };
+		1835AA932A12249000AF3887 /* RunStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1835AA922A12249000AF3887 /* RunStack.swift */; };
+		1835AA952A122AB700AF3887 /* checkConnect.json in Sources */ = {isa = PBXBuildFile; fileRef = 1835AA942A122AB700AF3887 /* checkConnect.json */; };
+		1835AA962A125BF600AF3887 /* AppInit.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA432A12104800AF3887 /* AppInit.json */; };
 		183B1D552966D7E800D80509 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D542966D7E800D80509 /* AppError.swift */; };
 		183B1D59296732B000D80509 /* AlertsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D58296732B000D80509 /* AlertsFactory.swift */; };
 		1842E0262963823A000E95F4 /* AppStorageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E0252963823A000E95F4 /* AppStorageExtension.swift */; };
@@ -86,7 +136,6 @@
 		187C2C362917C4670036F43A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C352917C4670036F43A /* UITableView.swift */; };
 		187C2C3B2917E0ED0036F43A /* level.json in Resources */ = {isa = PBXBuildFile; fileRef = 187C2C3A2917E0ED0036F43A /* level.json */; };
 		187C2C3F2917E4D00036F43A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C3E2917E4D00036F43A /* API.swift */; };
-		187C2C422917E9EE0036F43A /* LevelsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C412917E9EE0036F43A /* LevelsResponse.swift */; };
 		187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C48291861C10036F43A /* LevelsTarget.swift */; };
 		187C2C4C29186EB90036F43A /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C4B29186EB90036F43A /* AppLogger.swift */; };
 		187C2C4E29186F280036F43A /* TargetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C4D29186F280036F43A /* TargetProtocol.swift */; };
@@ -109,6 +158,56 @@
 		1813F3DD2A0EDA16001BDBFC /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		1819F9022A0CC9F20096BA84 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		1820F423292A602B00D33069 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		182D93252A120F3900B64C62 /* Level 1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "Level 1.json"; sourceTree = "<group>"; };
+		1835AA2F2A120FCE00AF3887 /* Level 3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 3.json"; sourceTree = "<group>"; };
+		1835AA302A120FCE00AF3887 /* Level 9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 9.json"; sourceTree = "<group>"; };
+		1835AA312A120FCE00AF3887 /* Level 6.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 6.json"; sourceTree = "<group>"; };
+		1835AA322A120FCE00AF3887 /* Level 4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 4.json"; sourceTree = "<group>"; };
+		1835AA332A120FCE00AF3887 /* Level 5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 5.json"; sourceTree = "<group>"; };
+		1835AA342A120FCE00AF3887 /* Level 2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 2.json"; sourceTree = "<group>"; };
+		1835AA352A120FCE00AF3887 /* Level 8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 8.json"; sourceTree = "<group>"; };
+		1835AA362A120FCE00AF3887 /* Level 10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 10.json"; sourceTree = "<group>"; };
+		1835AA372A120FCE00AF3887 /* Level 7.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Level 7.json"; sourceTree = "<group>"; };
+		1835AA432A12104800AF3887 /* AppInit.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AppInit.json; sourceTree = "<group>"; };
+		1835AA462A12182C00AF3887 /* deve.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = deve.wav; sourceTree = "<group>"; };
+		1835AA472A12182C00AF3887 /* men.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = men.wav; sourceTree = "<group>"; };
+		1835AA482A12182C00AF3887 /* dut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dut.wav; sourceTree = "<group>"; };
+		1835AA492A12182C00AF3887 /* saqal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = saqal.wav; sourceTree = "<group>"; };
+		1835AA4A2A12182C00AF3887 /* qulaq.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qulaq.wav; sourceTree = "<group>"; };
+		1835AA4B2A12182C00AF3887 /* sari.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sari.wav; sourceTree = "<group>"; };
+		1835AA4C2A12182C00AF3887 /* esil.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = esil.wav; sourceTree = "<group>"; };
+		1835AA4D2A12182C00AF3887 /* alma.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alma.wav; sourceTree = "<group>"; };
+		1835AA4E2A12182C00AF3887 /* tirnaq.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tirnaq.wav; sourceTree = "<group>"; };
+		1835AA4F2A12182C00AF3887 /* meraba.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = meraba.wav; sourceTree = "<group>"; };
+		1835AA502A12182C00AF3887 /* at.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = at.wav; sourceTree = "<group>"; };
+		1835AA512A12182C00AF3887 /* armut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = armut.wav; sourceTree = "<group>"; };
+		1835AA522A12182C00AF3887 /* selam.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = selam.wav; sourceTree = "<group>"; };
+		1835AA532A12182C00AF3887 /* al.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = al.wav; sourceTree = "<group>"; };
+		1835AA542A12182C00AF3887 /* qalem.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qalem.wav; sourceTree = "<group>"; };
+		1835AA552A12182C00AF3887 /* portaqal.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = portaqal.wav; sourceTree = "<group>"; };
+		1835AA562A12182D00AF3887 /* qoyan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qoyan.wav; sourceTree = "<group>"; };
+		1835AA572A12182D00AF3887 /* turaq.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = turaq.wav; sourceTree = "<group>"; };
+		1835AA582A12182D00AF3887 /* kun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = kun.wav; sourceTree = "<group>"; };
+		1835AA592A12182D00AF3887 /* aq.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = aq.wav; sourceTree = "<group>"; };
+		1835AA5A2A12182D00AF3887 /* qoy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qoy.wav; sourceTree = "<group>"; };
+		1835AA5B2A12182D00AF3887 /* canta.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = canta.wav; sourceTree = "<group>"; };
+		1835AA5C2A12182D00AF3887 /* mavi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mavi.wav; sourceTree = "<group>"; };
+		1835AA5D2A12182D00AF3887 /* jirafe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jirafe.wav; sourceTree = "<group>"; };
+		1835AA5E2A12182D00AF3887 /* qursaq.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qursaq.wav; sourceTree = "<group>"; };
+		1835AA5F2A12182D00AF3887 /* narguz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = narguz.wav; sourceTree = "<group>"; };
+		1835AA602A12182D00AF3887 /* ayva.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ayva.wav; sourceTree = "<group>"; };
+		1835AA612A12182D00AF3887 /* ahudut.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ahudut.wav; sourceTree = "<group>"; };
+		1835AA622A12182D00AF3887 /* qavun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qavun.wav; sourceTree = "<group>"; };
+		1835AA632A12182D00AF3887 /* tis.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tis.wav; sourceTree = "<group>"; };
+		1835AA642A12182D00AF3887 /* qara.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qara.wav; sourceTree = "<group>"; };
+		1835AA652A12182D00AF3887 /* fil.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fil.wav; sourceTree = "<group>"; };
+		1835AA662A12182D00AF3887 /* lale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lale.wav; sourceTree = "<group>"; };
+		1835AA672A12182D00AF3887 /* bas.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bas.wav; sourceTree = "<group>"; };
+		1835AA682A12182D00AF3887 /* qaplan.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = qaplan.wav; sourceTree = "<group>"; };
+		1835AA692A12182D00AF3887 /* gul.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = gul.wav; sourceTree = "<group>"; };
+		1835AA902A1221A500AF3887 /* AppStorage + UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStorage + UserDefaults.swift"; sourceTree = "<group>"; };
+		1835AA922A12249000AF3887 /* RunStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStack.swift; sourceTree = "<group>"; };
+		1835AA942A122AB700AF3887 /* checkConnect.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = checkConnect.json; sourceTree = "<group>"; };
 		183B1D542966D7E800D80509 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		183B1D58296732B000D80509 /* AlertsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsFactory.swift; sourceTree = "<group>"; };
 		183B1D5B296754C200D80509 /* LevelsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsBuilder.swift; sourceTree = "<group>"; };
@@ -173,7 +272,6 @@
 		187C2C372917C65C0036F43A /* KeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
 		187C2C3A2917E0ED0036F43A /* level.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level.json; sourceTree = "<group>"; };
 		187C2C3E2917E4D00036F43A /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		187C2C412917E9EE0036F43A /* LevelsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsResponse.swift; sourceTree = "<group>"; };
 		187C2C48291861C10036F43A /* LevelsTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelsTarget.swift; sourceTree = "<group>"; };
 		187C2C4B29186EB90036F43A /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
 		187C2C4D29186F280036F43A /* TargetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetProtocol.swift; sourceTree = "<group>"; };
@@ -211,6 +309,85 @@
 				180595EF2A0FB15D006A0E2A /* CharacterType.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		182D93242A120F0B00B64C62 /* LocalContent */ = {
+			isa = PBXGroup;
+			children = (
+				1835AA422A12103A00AF3887 /* AppInit */,
+				1835AA412A12102900AF3887 /* Levels */,
+				1835AA452A12152900AF3887 /* Voiceover */,
+			);
+			path = LocalContent;
+			sourceTree = "<group>";
+			usesTabs = 0;
+		};
+		1835AA412A12102900AF3887 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				182D93252A120F3900B64C62 /* Level 1.json */,
+				1835AA342A120FCE00AF3887 /* Level 2.json */,
+				1835AA2F2A120FCE00AF3887 /* Level 3.json */,
+				1835AA322A120FCE00AF3887 /* Level 4.json */,
+				1835AA332A120FCE00AF3887 /* Level 5.json */,
+				1835AA312A120FCE00AF3887 /* Level 6.json */,
+				1835AA372A120FCE00AF3887 /* Level 7.json */,
+				1835AA352A120FCE00AF3887 /* Level 8.json */,
+				1835AA302A120FCE00AF3887 /* Level 9.json */,
+				1835AA362A120FCE00AF3887 /* Level 10.json */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		1835AA422A12103A00AF3887 /* AppInit */ = {
+			isa = PBXGroup;
+			children = (
+				1835AA432A12104800AF3887 /* AppInit.json */,
+			);
+			path = AppInit;
+			sourceTree = "<group>";
+		};
+		1835AA452A12152900AF3887 /* Voiceover */ = {
+			isa = PBXGroup;
+			children = (
+				1835AA612A12182D00AF3887 /* ahudut.wav */,
+				1835AA532A12182C00AF3887 /* al.wav */,
+				1835AA4D2A12182C00AF3887 /* alma.wav */,
+				1835AA592A12182D00AF3887 /* aq.wav */,
+				1835AA512A12182C00AF3887 /* armut.wav */,
+				1835AA502A12182C00AF3887 /* at.wav */,
+				1835AA602A12182D00AF3887 /* ayva.wav */,
+				1835AA672A12182D00AF3887 /* bas.wav */,
+				1835AA5B2A12182D00AF3887 /* canta.wav */,
+				1835AA462A12182C00AF3887 /* deve.wav */,
+				1835AA482A12182C00AF3887 /* dut.wav */,
+				1835AA4C2A12182C00AF3887 /* esil.wav */,
+				1835AA652A12182D00AF3887 /* fil.wav */,
+				1835AA692A12182D00AF3887 /* gul.wav */,
+				1835AA5D2A12182D00AF3887 /* jirafe.wav */,
+				1835AA582A12182D00AF3887 /* kun.wav */,
+				1835AA662A12182D00AF3887 /* lale.wav */,
+				1835AA5C2A12182D00AF3887 /* mavi.wav */,
+				1835AA472A12182C00AF3887 /* men.wav */,
+				1835AA4F2A12182C00AF3887 /* meraba.wav */,
+				1835AA5F2A12182D00AF3887 /* narguz.wav */,
+				1835AA552A12182C00AF3887 /* portaqal.wav */,
+				1835AA542A12182C00AF3887 /* qalem.wav */,
+				1835AA682A12182D00AF3887 /* qaplan.wav */,
+				1835AA642A12182D00AF3887 /* qara.wav */,
+				1835AA622A12182D00AF3887 /* qavun.wav */,
+				1835AA5A2A12182D00AF3887 /* qoy.wav */,
+				1835AA562A12182D00AF3887 /* qoyan.wav */,
+				1835AA4A2A12182C00AF3887 /* qulaq.wav */,
+				1835AA5E2A12182D00AF3887 /* qursaq.wav */,
+				1835AA492A12182C00AF3887 /* saqal.wav */,
+				1835AA4B2A12182C00AF3887 /* sari.wav */,
+				1835AA522A12182C00AF3887 /* selam.wav */,
+				1835AA4E2A12182C00AF3887 /* tirnaq.wav */,
+				1835AA632A12182D00AF3887 /* tis.wav */,
+				1835AA572A12182D00AF3887 /* turaq.wav */,
+			);
+			path = Voiceover;
 			sourceTree = "<group>";
 		};
 		183B1D562966D97400D80509 /* Error */ = {
@@ -393,6 +570,7 @@
 				185D6D6E2968AE0100B10CD8 /* UIView.swift */,
 				186B681A29C46E1100138526 /* typealias.swift */,
 				1813F3D72A0E94E9001BDBFC /* Codable.swift */,
+				1835AA922A12249000AF3887 /* RunStack.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -433,6 +611,7 @@
 		187C2C042916EB4E0036F43A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				182D93242A120F0B00B64C62 /* LocalContent */,
 				187C2BE2291674D70036F43A /* Assets.xcassets */,
 				187C2C0F2916FB870036F43A /* Fonts */,
 				187C2C052916EB650036F43A /* AppImage.swift */,
@@ -494,8 +673,9 @@
 		187C2C392917E0C90036F43A /* SampleData */ = {
 			isa = PBXGroup;
 			children = (
-				187C2C3A2917E0ED0036F43A /* level.json */,
+				1835AA942A122AB700AF3887 /* checkConnect.json */,
 				1805960F2A119F71006A0E2A /* appInit.json */,
+				187C2C3A2917E0ED0036F43A /* level.json */,
 			);
 			path = SampleData;
 			sourceTree = "<group>";
@@ -551,7 +731,6 @@
 			children = (
 				1813F3DB2A0E98BC001BDBFC /* AppInitResponse.swift */,
 				1813F3D52A0E1D48001BDBFC /* LevelResponse.swift */,
-				187C2C412917E9EE0036F43A /* LevelsResponse.swift */,
 			);
 			path = Output;
 			sourceTree = "<group>";
@@ -579,6 +758,7 @@
 			children = (
 				187C2C562919792A0036F43A /* AppStorage.swift */,
 				1842E0252963823A000E95F4 /* AppStorageExtension.swift */,
+				1835AA902A1221A500AF3887 /* AppStorage + UserDefaults.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -670,20 +850,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1835AA8B2A12182D00AF3887 /* bas.wav in Resources */,
+				1835AA752A12182D00AF3887 /* armut.wav in Resources */,
+				1835AA712A12182D00AF3887 /* alma.wav in Resources */,
+				1835AA6A2A12182D00AF3887 /* deve.wav in Resources */,
+				1835AA812A12182D00AF3887 /* jirafe.wav in Resources */,
+				1835AA962A125BF600AF3887 /* AppInit.json in Resources */,
+				1835AA732A12182D00AF3887 /* meraba.wav in Resources */,
+				1835AA742A12182D00AF3887 /* at.wav in Resources */,
+				1835AA6B2A12182D00AF3887 /* men.wav in Resources */,
 				187C2BE6291674D70036F43A /* LaunchScreen.storyboard in Resources */,
+				1835AA8D2A12182D00AF3887 /* gul.wav in Resources */,
+				1835AA892A12182D00AF3887 /* fil.wav in Resources */,
+				1835AA3C2A120FCE00AF3887 /* Level 5.json in Resources */,
+				1835AA8A2A12182D00AF3887 /* lale.wav in Resources */,
+				1835AA382A120FCE00AF3887 /* Level 3.json in Resources */,
+				1835AA872A12182D00AF3887 /* tis.wav in Resources */,
+				1835AA7C2A12182D00AF3887 /* kun.wav in Resources */,
+				1835AA7D2A12182D00AF3887 /* aq.wav in Resources */,
+				1835AA6E2A12182D00AF3887 /* qulaq.wav in Resources */,
+				1835AA7B2A12182D00AF3887 /* turaq.wav in Resources */,
 				187C2C3B2917E0ED0036F43A /* level.json in Resources */,
+				1835AA842A12182D00AF3887 /* ayva.wav in Resources */,
+				1835AA792A12182D00AF3887 /* portaqal.wav in Resources */,
+				1835AA3F2A120FCE00AF3887 /* Level 10.json in Resources */,
+				1835AA7E2A12182D00AF3887 /* qoy.wav in Resources */,
+				1835AA852A12182D00AF3887 /* ahudut.wav in Resources */,
 				187C2C1F2916FB870036F43A /* Roboto-Regular.ttf in Resources */,
 				187C2C1D2916FB870036F43A /* SF-Pro-Display-Light.otf in Resources */,
+				1835AA772A12182D00AF3887 /* al.wav in Resources */,
+				1835AA3D2A120FCE00AF3887 /* Level 2.json in Resources */,
+				1835AA6C2A12182D00AF3887 /* dut.wav in Resources */,
+				1835AA832A12182D00AF3887 /* narguz.wav in Resources */,
+				1835AA3E2A120FCE00AF3887 /* Level 8.json in Resources */,
+				1835AA802A12182D00AF3887 /* mavi.wav in Resources */,
+				1835AA392A120FCE00AF3887 /* Level 9.json in Resources */,
 				187C2C1B2916FB870036F43A /* SF UI Text Light.otf in Resources */,
+				1835AA7A2A12182D00AF3887 /* qoyan.wav in Resources */,
+				1835AA8C2A12182D00AF3887 /* qaplan.wav in Resources */,
+				1835AA762A12182D00AF3887 /* selam.wav in Resources */,
+				1835AA702A12182D00AF3887 /* esil.wav in Resources */,
 				187C2BE3291674D70036F43A /* Assets.xcassets in Resources */,
+				1835AA6F2A12182D00AF3887 /* sari.wav in Resources */,
 				187C2C1E2916FB870036F43A /* SF-Pro-Display-Regular.otf in Resources */,
 				187C2C212916FB870036F43A /* SF-Pro-Display-Medium.otf in Resources */,
+				1835AA722A12182D00AF3887 /* tirnaq.wav in Resources */,
+				1835AA822A12182D00AF3887 /* qursaq.wav in Resources */,
+				1835AA6D2A12182D00AF3887 /* saqal.wav in Resources */,
+				1835AA862A12182D00AF3887 /* qavun.wav in Resources */,
+				1835AA3B2A120FCE00AF3887 /* Level 4.json in Resources */,
+				1835AA782A12182D00AF3887 /* qalem.wav in Resources */,
 				187C2C222916FB870036F43A /* SF UI Text Medium.otf in Resources */,
 				187C2C202916FB870036F43A /* SF-Pro-Display-Bold.otf in Resources */,
 				187C2C232916FB870036F43A /* SF-Pro-Display-Semibold.otf in Resources */,
+				1835AA3A2A120FCE00AF3887 /* Level 6.json in Resources */,
 				187C2C1C2916FB870036F43A /* SF UI Text Bold.otf in Resources */,
 				187C2C242916FB870036F43A /* SF UI Text Regular.otf in Resources */,
 				187C2C252916FB870036F43A /* SF-Pro-Display-Black.otf in Resources */,
+				1835AA882A12182D00AF3887 /* qara.wav in Resources */,
+				1835AA7F2A12182D00AF3887 /* canta.wav in Resources */,
+				1835AA402A120FCE00AF3887 /* Level 7.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -715,8 +941,8 @@
 				187C2C5029194E1E0036F43A /* Data.swift in Sources */,
 				186B681B29C46E1100138526 /* typealias.swift in Sources */,
 				18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */,
+				182D93262A120F3900B64C62 /* Level 1.json in Sources */,
 				187C2BF42916A7C40036F43A /* BaseViewModel.swift in Sources */,
-				187C2C422917E9EE0036F43A /* LevelsResponse.swift in Sources */,
 				185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */,
 				1805960A2A104211006A0E2A /* LevelsViewModel.swift in Sources */,
 				180596002A1041FD006A0E2A /* CrossView.swift in Sources */,
@@ -732,11 +958,13 @@
 				1805960D2A104213006A0E2A /* LevelsCollectionCell.swift in Sources */,
 				180596062A104208006A0E2A /* SettingsMoreCell.swift in Sources */,
 				187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */,
+				1835AA932A12249000AF3887 /* RunStack.swift in Sources */,
 				187C2BF22916A7AE0036F43A /* BaseViewController.swift in Sources */,
 				187C2C572919792A0036F43A /* AppStorage.swift in Sources */,
 				180595F42A1041EE006A0E2A /* WordsListBuilder.swift in Sources */,
 				180596012A1041FD006A0E2A /* CrossCell.swift in Sources */,
 				187C2C362917C4670036F43A /* UITableView.swift in Sources */,
+				1835AA912A1221A500AF3887 /* AppStorage + UserDefaults.swift in Sources */,
 				185D6D6F2968AE0100B10CD8 /* UIView.swift in Sources */,
 				1813F3D62A0E1D48001BDBFC /* LevelResponse.swift in Sources */,
 				187C2BF72916AA420036F43A /* MainViewController.swift in Sources */,
@@ -760,6 +988,7 @@
 				18E34EB229D9882F0094CBBA /* AppText.swift in Sources */,
 				180596082A10420B006A0E2A /* SettingsCellModel.swift in Sources */,
 				180596092A104211006A0E2A /* LevelsBuilder.swift in Sources */,
+				1835AA952A122AB700AF3887 /* checkConnect.json in Sources */,
 				1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */,
 				187C2C062916EB650036F43A /* AppImage.swift in Sources */,
 				180596072A104208006A0E2A /* SettingsSwitchCell.swift in Sources */,

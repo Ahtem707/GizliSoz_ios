@@ -1,0 +1,33 @@
+{
+    "levelNumber": 9,
+    "name": "Çiçekler",
+    "size": 6,
+    "chars": ["n","a","r","g","ü","z","l","l","â","e"],
+    "bonusWords": [],
+    "words": [
+        {
+            "id": 25,
+            "chars": ["n","a","r","g","ü","z"],
+            "x": [0,1,2,3,4,5],
+            "y": [0,0,0,0,0,0],
+            "translate": "наргуз",
+            "voiceoverFile": "narguz.wav"
+        },
+        {
+            "id": 26,
+            "chars": ["l","â","l","e"],
+            "x": [1,2,3,4],
+            "y": [2,2,2,2],
+            "translate": "ляле",
+            "voiceoverFile": "lale.wav"
+        },
+        {
+            "id": 27,
+            "chars": ["g","ü","l"],
+            "x": [3,3,3],
+            "y": [0,1,2],
+            "translate": "гуль",
+            "voiceoverFile": "gul.wav"
+        }
+    ]
+}

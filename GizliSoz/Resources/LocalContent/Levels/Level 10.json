@@ -1,0 +1,33 @@
+{
+    "levelNumber": 10,
+    "name": "Yer yemişleri",
+    "size": 6,
+    "chars": ["a","h","u","d","u","t","q","v","n"],
+    "bonusWords": [],
+    "words": [
+        {
+            "id": 28,
+            "chars": ["a","h","u","d","u","t"],
+            "x": [0,1,2,3,4,5],
+            "y": [1,1,1,1,1,1],
+            "translate": "ахдут",
+            "voiceoverFile": "ahudut.wav"
+        },
+        {
+            "id": 29,
+            "chars": ["q","a","v","u","n"],
+            "x": [0,0,0,0,0],
+            "y": [0,1,2,3,4],
+            "translate": "къавун",
+            "voiceoverFile": "qavun.wav"
+        },
+        {
+            "id": 30,
+            "chars": ["d","u","t"],
+            "x": [4,4,4],
+            "y": [0,1,2],
+            "translate": "дут",
+            "voiceoverFile": "dut.wav"
+        }
+    ]
+}

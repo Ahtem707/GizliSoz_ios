@@ -1,0 +1,33 @@
+{
+    "levelNumber": 4,
+    "name": "Renkler 2",
+    "size": 5,
+    "chars": ["s","a","r","i","m","v","e","ş","l"],
+    "bonusWords": [],
+    "words": [
+        {
+            "id": 9,
+            "chars": ["s","a","r","i"],
+            "x": [0,1,2,3],
+            "y": [2,2,2,2],
+            "translate": "сары",
+            "voiceoverFile": "sari.wav"
+        },
+        {
+            "id": 10,
+            "chars": ["m","a","v","i"],
+            "x": [1,1,1,1],
+            "y": [1,2,3,4],
+            "translate": "мавы",
+            "voiceoverFile": "mavi.wav"
+        },
+        {
+            "id": 11,
+            "chars": ["e","ş","i","l"],
+            "x": [3,3,3,3],
+            "y": [0,1,2,3],
+            "translate": "ешиль",
+            "voiceoverFile": "esil.wav"
+        }
+    ]
+}

@@ -21,21 +21,37 @@ final class SoundPlayer {
     private init() {}
     
     func loadLevelSounds() {
-        DispatchQueue(label: "Media").async { [weak self] in
+        if AppStorage.isServerAvailable {
+            DispatchQueue(label: "Media").async { [weak self] in
+                guard let level = AppStorage.currentLevel else { return }
+                
+                for word in level.words {
+                    if let file = word.voiceoverFile,
+                       let url = AppStorage.voiceoverHost?.appendingPathComponent(file),
+                       let data = try? Data(contentsOf: url) {
+                        self?.audioPlayers[word.id] = try? AVAudioPlayer(data: data)
+                    }
+                }
+                
+                for bonusWord in level.bonusWords {
+                    if let file = bonusWord.voiceoverFile,
+                       let url = AppStorage.voiceoverHost?.appendingPathComponent(file),
+                       let data = try? Data(contentsOf: url) {
+                        self?.audioPlayers[bonusWord.id] = try? AVAudioPlayer(data: data)
+                    }
+                }
+            }
+        } else {
             guard let level = AppStorage.currentLevel else { return }
             
             for word in level.words {
-                if let url = word.voiceoverUrl,
-                   let data = try? Data(contentsOf: url) {
-                    self?.audioPlayers[word.id] = try? AVAudioPlayer(data: data)
-                }
+                guard let url = Bundle.main.url(forResource: word.voiceoverFile, withExtension: nil) else { return }
+                audioPlayers[word.id] = try? AVAudioPlayer(contentsOf: url)
             }
             
             for bonusWord in level.bonusWords {
-                if let url = bonusWord.voiceoverUrl,
-                   let data = try? Data(contentsOf: url) {
-                    self?.audioPlayers[bonusWord.id] = try? AVAudioPlayer(data: data)
-                }
+                guard let url = Bundle.main.url(forResource: bonusWord.voiceoverFile, withExtension: nil) else { return }
+                audioPlayers[bonusWord.id] = try? AVAudioPlayer(contentsOf: url)
             }
         }
     }

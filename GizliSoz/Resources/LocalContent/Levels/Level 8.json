@@ -1,0 +1,33 @@
+{
+    "levelNumber": 8,
+    "name": "Ayvanlar 2",
+    "size": 6,
+    "chars": ["j","i","r","a","f","e","l","d","v","e"],
+    "bonusWords": [],
+    "words": [
+        {
+            "id": 22,
+            "chars": ["j","i","r","a","f","e"],
+            "x": [0,1,2,3,4,5],
+            "y": [1,1,1,1,1,1],
+            "translate": "жирафе",
+            "voiceoverFile": "jirafe.wav"
+        },
+        {
+            "id": 23,
+            "chars": ["f","i","l"],
+            "x": [1,1,1],
+            "y": [0,1,2],
+            "translate": "филь",
+            "voiceoverFile": "fil.wav"
+        },
+        {
+            "id": 24,
+            "chars": ["d","e","v","e"],
+            "x": [5,5,5,5],
+            "y": [0,1,2,3],
+            "translate": "деве",
+            "voiceoverFile": "deve.wav"
+        }
+    ]
+}

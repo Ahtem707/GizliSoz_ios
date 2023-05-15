@@ -1,0 +1,46 @@
+{
+    "levelNumber": 6,
+    "name": "Beden azalari 2",
+    "size": 6,
+    "chars": ["t","i","r","n","a","q","ş","u"],
+    "bonusWords": [
+        {
+            "id": 101,
+            "word": "qan",
+            "translate": "къан",
+            "voiceoverFile": ""
+        },
+        {
+            "id": 102,
+            "word": "qaş",
+            "translate": "къаш",
+            "voiceoverFile": ""
+        }
+    ],
+    "words": [
+        {
+            "id": 15,
+            "chars": ["t","i","r","n","a","q"],
+            "x": [0,1,2,3,4,5],
+            "y": [2,2,2,2,2,2],
+            "translate": "тырнъакъ",
+            "voiceoverFile": "tirnaq.wav"
+        },
+        {
+            "id": 16,
+            "chars": ["t","i","ş"],
+            "x": [0,0,0],
+            "y": [2,3,4],
+            "translate": "тиш",
+            "voiceoverFile": "tis.wav"
+        },
+        {
+            "id": 17,
+            "chars": ["t","u","r","a","q"],
+            "x": [2,2,2,2,2],
+            "y": [0,1,2,3,4],
+            "translate": "туракъ",
+            "voiceoverFile": "turaq.wav"
+        }
+    ]
+}

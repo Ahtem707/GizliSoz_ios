@@ -37,4 +37,10 @@ public extension Data {
 
         return prettyPrintedString
     }
+    
+    func asCodable<T: Codable>(_ type: T.Type) -> T? {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return try? decoder.decode(T.self, from: self)
+    }
 }

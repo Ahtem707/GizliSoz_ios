@@ -1,7 +1,6 @@
-
 {
     "result": 0,
-    "levelsCount": 1,
+    "levelsCount": 10,
     "voiceoverHost": "http://82.146.49.164:3002/media/",
     "translationLangs": [
         {
@@ -23,3 +22,4 @@
         }
     ]
 }
+

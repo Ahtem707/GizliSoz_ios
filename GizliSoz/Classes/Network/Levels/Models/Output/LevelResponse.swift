@@ -33,7 +33,7 @@ extension LevelResponse {
             case y
             case chars
             case translate
-            case voiceoverUrl
+            case voiceoverFile
         }
         
         let id: Int
@@ -41,8 +41,7 @@ extension LevelResponse {
         let y: [Int]
         let chars: [String]
         let translate: String
-        @FailableDecodable
-        var voiceoverUrl: URL?
+        let voiceoverFile: String?
         
         var word: String {
             return chars.joined()
@@ -56,13 +55,12 @@ extension LevelResponse {
             case id
             case word
             case translate
-            case voiceoverUrl
+            case voiceoverFile
         }
         
         let id: Int
         let word: String
         let translate: String
-        @FailableDecodable
-        var voiceoverUrl: URL?
+        let voiceoverFile: String?
     }
 }

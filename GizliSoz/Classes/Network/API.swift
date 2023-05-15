@@ -25,8 +25,43 @@ final class API {
     
     private static let isMock: Bool = false
     
-    static func request<T: Codable>(_ type: T.Type, target: Target, completion: @escaping RequestClosure<T>) {
-        if isMock {
+    private let target: Target
+    private let dispatchGroup: DispatchGroup?
+    private let runStack: RunStack?
+
+    init(_ target: Target,
+         dispatchGroup: DispatchGroup? = nil,
+         runStack: RunStack? = nil) {
+        self.target = target
+        self.dispatchGroup = dispatchGroup
+        self.runStack = runStack
+    }
+
+    func request<T: Codable>(_ type: T.Type, completion: @escaping RequestClosure<T>) {
+        if runStack != nil {
+            if runStack != nil {
+                runStack?.add {
+                    API.variableRequest(type, target: self.target) { result in
+                        completion(result)
+                        self.runStack?.next()
+                    }
+                }
+            }
+        } else {
+            dispatchGroup?.enter()
+            API.variableRequest(type, target: target) { result in
+                completion(result)
+                self.dispatchGroup?.leave()
+            }
+        }
+    }
+    
+    private static func variableRequest<T: Codable>(
+        _ type: T.Type,
+        target: Target,
+        completion: @escaping RequestClosure<T>
+    ) {
+        if isMock  {
             API.sampleData(target: target, completion: completion)
         } else {
             let request = API.makeRequest(target)
@@ -38,7 +73,7 @@ final class API {
         }
     }
     
-    static func makeRequest(_ target: Target) -> URLRequest? {
+    private static func makeRequest(_ target: Target) -> URLRequest? {
         var urlString = BuildConfig.baseUrl
         urlString.append(target.path)
         if !target.query.isEmpty {
@@ -60,7 +95,7 @@ final class API {
         return request
     }
     
-    static func sampleData<T: Codable>(target: Target, completion: @escaping RequestClosure<T>) {
+    private static func sampleData<T: Codable>(target: Target, completion: @escaping RequestClosure<T>) {
         API.logger(target.path, target.sampleData, isMock: true)
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -72,7 +107,7 @@ final class API {
         }
     }
     
-    static func requestExecute<T: Codable>(request: URLRequest, completion: @escaping RequestClosure<T>) {
+    private static func requestExecute<T: Codable>(request: URLRequest, completion: @escaping RequestClosure<T>) {
         URLSession.shared.dataTask(with: request) { data, response, error in
             API.logger(response?.url?.absoluteString, data)
             if let errorRequest = error { completion(.failure(errorRequest)); return }
@@ -97,7 +132,7 @@ final class API {
         }.resume()
     }
     
-    static func logger(_ path: String?, _ data: Data?, isMock: Bool = false) {
+    private static func logger(_ path: String?, _ data: Data?, isMock: Bool = false) {
         guard let path = path,
               let data = data
         else { return }
