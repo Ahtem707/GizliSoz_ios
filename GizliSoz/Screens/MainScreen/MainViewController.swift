@@ -42,6 +42,7 @@ final class MainViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        viewModel.viewDidAppear()
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             self.constrainBag[.logo]?()

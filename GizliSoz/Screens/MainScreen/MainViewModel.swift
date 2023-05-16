@@ -14,6 +14,10 @@ final class MainViewModel: BaseViewModel {
     func initialize() {
         
     }
+    
+    func viewDidAppear() {
+        AppStorage.share.fetchAppInit()
+    }
 }
 
 // MARK: - MainViewModelProtocol

@@ -12,6 +12,9 @@ extension AppStorage {
     @UserDefault("userLoginCount", 0)
     static var userLoginCount: Int
     
+    @UserDefault("levelsCacheCount", 30)
+    static var  levelsCacheCount: Int
+    
     @UserDefault("currentLevelIndex", 1)
     private(set) static var currentLevelIndex: Int
     
@@ -61,8 +64,9 @@ extension AppStorage {
         }
     }
     
+    @discardableResult
     static func setLevel(_ value: Int) -> Bool {
-        guard currentLevelIndex <= levelsCount else {
+        guard value <= levelsCount else {
             assertionFailure("Неправильная установка уровня")
             return false
         }

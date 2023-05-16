@@ -17,11 +17,12 @@ final class AppStorage {
     static func appStart() {
         AppStorage.share = AppStorage()
         
-        AppStorage.share.runStack.add { AppStorage.share.checkConnect() }
+//        AppStorage.share.runStack.add { AppStorage.share.checkConnect() }
         AppStorage.share.runStack.add { AppStorage.share.fetchAppInit() }
         AppStorage.share.runStack.add { AppStorage.share.fetchLevel() }
     }
     
+    static var appInitLoaded: Bool = false
     static var isServerAvailable: Bool = true
     static var voiceoverHost: URL?
     static var translationLangs: [Parameter] = []
@@ -51,58 +52,67 @@ final class AppStorage {
     
     /// Получаем базовые  данные для приложения
     func fetchAppInit() {
-        if AppStorage.isServerAvailable {
-            API.Levels.appInit
-            .request(AppInitResponse.self) { result in
-                switch result {
-                case .success(let data):
+        // Блокирование запроса, если он уже был загружен ранее
+        guard !AppStorage.appInitLoaded else { return }
+        
+        API.Levels.appInit.request(AppInitResponse.self) { result in
+            switch result {
+            case .success(let data):
+                Self.voiceoverHost = data.voiceoverHost
+                Self.translationLangs = data.translationLangs
+                Self.voiceoverActors = data.voiceoverActors
+                Self.levelsCount = data.levelsCount
+            case .failure(let error):
+                if let data = Data.json(fileName: "AppInit", with: .json).asCodable(AppInitResponse.self) {
                     Self.voiceoverHost = data.voiceoverHost
                     Self.translationLangs = data.translationLangs
                     Self.voiceoverActors = data.voiceoverActors
                     Self.levelsCount = data.levelsCount
-                case .failure(let error):
+                } else {
                     AppLogger.log(.storage, error.localizedDescription)
                 }
-                self.runStack.next()
             }
-        } else {
-            guard let data = Data.json(fileName: "AppInit", with: .json).asCodable(AppInitResponse.self)
-            else { return }
-
-            Self.voiceoverHost = data.voiceoverHost
-            Self.translationLangs = data.translationLangs
-            Self.voiceoverActors = data.voiceoverActors
-            Self.levelsCount = data.levelsCount
             self.runStack.next()
         }
     }
     
     /// Загрузка данных уровня
     func fetchLevel() {
-        Self.levels.removeAll()
-        if AppStorage.isServerAvailable {
-            API.Levels.getLevel(
-                .init(
-                    levelNumber: AppStorage.currentLevelIndex,
-                    translateLang: AppStorage.translationLang,
-                    voiceoverActor: AppStorage.voiceoverActor,
-                    characterType: AppStorage.characterType
-                )
-            ).request(LevelResponse.self) { result in
-                switch result {
-                case .success(let data):
+        // Понижаем уровень до минимально допустимого, если количество загруженных уровней меньше
+        if AppStorage.currentLevelIndex > AppStorage.levelsCount {
+            AppStorage.setLevel(AppStorage.levelsCount)
+        }
+        
+        // Удаляем лишние старые уровни превышающие кэш
+        let extraLevels = AppStorage.levels.count - AppStorage.levelsCacheCount
+        if extraLevels > 0 {
+            AppStorage.levels.removeFirst(extraLevels)
+        }
+        
+        // Не подгружаем новый уровень, если он есть в списке
+        guard AppStorage.levels.first(where: { $0.levelNumber == AppStorage.currentLevelIndex }) == nil
+        else { return }
+        
+        API.Levels.getLevel(
+            .init(
+                levelNumber: AppStorage.currentLevelIndex,
+                translateLang: AppStorage.translationLang,
+                voiceoverActor: AppStorage.voiceoverActor,
+                characterType: AppStorage.characterType
+            )
+        ).request(LevelResponse.self) { result in
+            switch result {
+            case .success(let data):
+                Self.levels.append(data)
+            case .failure(let error):
+                let index = AppStorage.currentLevelIndex
+                if let data = Data.json(fileName: "Level \(index)", with: .json).asCodable(LevelResponse.self) {
                     Self.levels.append(data)
-                case .failure(let error):
+                } else {
                     AppLogger.log(.storage, error.localizedDescription)
                 }
-                self.runStack.next()
             }
-        } else {
-            let index = AppStorage.currentLevelIndex
-            guard let data = Data.json(fileName: "Level \(index)", with: .json).asCodable(LevelResponse.self)
-            else { return }
-            
-            Self.levels.append(data)
+            self.runStack.next()
         }
     }
 }

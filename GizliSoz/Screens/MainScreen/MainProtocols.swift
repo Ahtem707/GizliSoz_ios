@@ -8,7 +8,13 @@
 import Foundation
 
 protocol MainViewModelProtocol {
-    
+    func viewDidLoad()
+    func viewDidAppear()
+}
+
+extension MainViewModelProtocol {
+    func viewDidLoad() {}
+    func viewDidAppear() {}
 }
 
 protocol MainViewControllerDelegate {
