@@ -11,6 +11,7 @@ class KeyboardViewBuilder {
     
     struct Layouts {
         let lineWidth: CGFloat = 10
+        let nextButton = CGSize(width: 200, height: 0)
     }
     
     struct Appearance {
@@ -41,6 +42,7 @@ final class KeyboardView: UIView {
     private var cells: [KeyboardCell] = []
     private var selectedCells: [KeyboardCell] = []
     private var additionalButtons: [AdditionalCell] = []
+    private let nextButton = UIButton()
     
     private var lastPoint: CGPoint?
     private var cellSize: CGFloat = 0
@@ -118,6 +120,12 @@ extension KeyboardView {
             additionalButtons[i].frame.origin.x = viewCenter.x - cellSize / 2
             additionalButtons[i].frame.origin.y = viewCenter.y - cellSize / 2
         }
+        
+        nextButton.frame.size.width = .zero
+        nextButton.frame.size.height = cellSize
+        nextButton.layer.cornerRadius = cellSize / 2
+        nextButton.frame.origin.x = viewCenter.x
+        nextButton.frame.origin.y = viewCenter.y - cellSize / 2
     }
     
     /// Запускает анимированные кейсы
@@ -200,6 +208,60 @@ extension KeyboardView {
         )
     }
     
+    /// Анимированное завершение уровня и добаление кнопки перехада на следующий уровень
+    private func nextButtonLoad() {
+        let runStack = RunStack()
+        runStack.add { first { runStack.next() } }
+        runStack.add { second { runStack.next() } }
+        runStack.add { three() }
+        
+        func first(completion: @escaping VoidClosure) {
+            UIView.animate(
+                withDuration: appearance.animateDuration,
+                animations: {
+                    let cellsPositions = KeyboardLogic.getPositions(radius: .zero, count: self.cells.count)
+                    for i in 0..<self.cells.count {
+                        let nowX = self.viewCenter.x + cellsPositions[i].x - self.cellSize / 2
+                        let nowY = self.viewCenter.y + cellsPositions[i].y - self.cellSize / 2
+                        self.cells[i].frame.origin.x = nowX
+                        self.cells[i].frame.origin.y = nowY
+                    }
+                },
+                completion: { _ in completion() }
+            )
+        }
+        
+        func second(completion: @escaping VoidClosure) {
+            UIView.animate(
+                withDuration: appearance.animateDuration,
+                animations: {
+                    let cellsPositions = KeyboardLogic.getPositions(radius: UIScreen.main.bounds.height, count: self.cells.count)
+                    for i in 0..<self.cells.count {
+                        let nowX = self.viewCenter.x + cellsPositions[i].x - self.cellSize / 2
+                        let nowY = self.viewCenter.y + cellsPositions[i].y - self.cellSize / 2
+                        self.cells[i].frame.origin.x = nowX
+                        self.cells[i].frame.origin.y = nowY
+                    }
+                },
+                completion: { _ in completion() }
+            )
+        }
+        
+        func three() {
+            UIView.animate(
+                withDuration: appearance.animateDuration,
+                animations: {
+                    self.addSubview(self.nextButton)
+                    self.nextButton.frame.size.width = self.layouts.nextButton.width
+                    self.nextButton.frame.origin.x = self.viewCenter.x - self.layouts.nextButton.width / 2
+                },
+                completion: { _ in
+                    self.nextButton.titleLabel?.alpha = 1
+                }
+            )
+        }
+    }
+    
     /// Анимированное отображение дополнительных кнопок
     private func showAdditionalButtons() {
         UIView.animate(
@@ -242,7 +304,7 @@ extension KeyboardView {
         }
         
         // Обработать нажатие для кнопки перемешивания и выйти
-        if gesture.state == .began && KeyboardLogic.hoverZone(view: shuffleCell, point: point) {
+        if nextButton.superview == nil, gesture.state == .began && KeyboardLogic.hoverZone(view: shuffleCell, point: point) {
             shuffleHandlePan()
             return
         }
@@ -255,6 +317,11 @@ extension KeyboardView {
                     return
                 }
             }
+        }
+        
+        if nextButton.superview != nil, gesture.state == .began && KeyboardLogic.hoverZone(view: nextButton, point: point) {
+            let status = AppStorage.levelUp()
+            viewModel?.levelUp(status: status)
         }
         
         // Получить список не выбранных ячеек
@@ -397,6 +464,11 @@ extension KeyboardView: LevelKeyboardViewDelegate {
             additionalButtons.append(cell)
         }
         
+        nextButton.backgroundColor = AppColor.Keyboard.select
+        nextButton.setTitle(AppText.MainScreen.nextButton, for: .normal)
+        nextButton.titleLabel?.font = AppFont.font(style: .regular, size: 30)
+        nextButton.titleLabel?.alpha = 0
+        
         // Добавление ячеек на view
         addSubview(shuffleCell)
         cells.forEach { cell in
@@ -427,5 +499,9 @@ extension KeyboardView: LevelKeyboardViewDelegate {
         cells.removeAll()
         selectedCells.removeAll()
         additionalButtons.removeAll()
+    }
+    
+    func levelComplete() {
+        nextButtonLoad()
     }
 }

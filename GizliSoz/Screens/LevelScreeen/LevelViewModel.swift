@@ -110,7 +110,7 @@ extension LevelViewModel: LevelCrossViewModelProtocol {
         if AppStorage.lastOpenedLevelIndex == AppStorage.currentLevelIndex {
             AppStorage.hintCount += 1
         }
-        delegate?.levelComplete()
+        keyboardDelegate?.levelComplete()
     }
 }
 
@@ -171,5 +171,13 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     func soundHandle() {
         AppStorage.isActiveVoiceover = !AppStorage.isActiveVoiceover
         keyboardDelegate?.setAdditionalStatus(type: .sound, isActive: AppStorage.isActiveVoiceover, counter: nil)
+    }
+    
+    func levelUp(status: Bool) {
+        if status {
+            initialize()
+        } else {
+            delegate?.levelsFinished()
+        }
     }
 }

@@ -9,35 +9,6 @@ import UIKit
 
 class AlertsFactory {
     
-    static func makeLevelComplete(yesAction: VoidClosure?, cancelAction: VoidClosure?) {
-        let alert = UIAlertController(
-            title: "Maşalla!",
-            message: "Siz er sözlerni açtiñiz",
-            preferredStyle: .alert
-        )
-        alert.addAction(
-            UIAlertAction(
-                title: "Devam eterim",
-                style: .default,
-                handler: { _ in
-                    alert.dismiss(animated: true)
-                    yesAction?()
-                }
-            )
-        )
-        alert.addAction(
-            UIAlertAction(
-                title: "Bugünge yeter",
-                style: .default,
-                handler: { _ in
-                    alert.dismiss(animated: true)
-                    cancelAction?()
-                }
-            )
-        )
-        rootViewController?.present(alert, animated: true)
-    }
-    
     static func makeLevelsFinished(cancelAction: VoidClosure?) {
         let alert = UIAlertController(
             title: "Oyun soñuna çıqti",

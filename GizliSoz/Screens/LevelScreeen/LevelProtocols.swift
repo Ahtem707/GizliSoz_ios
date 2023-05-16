@@ -19,11 +19,11 @@ protocol LevelViewControllerDelegate: AnyObject {
     /// Установить название экрана
     func setTitle(_ text: String)
     
-    /// Успешное завершение уровня
-    func levelComplete()
-    
     /// Навигация к viewController
     func presentVC(_ viewController: UIViewController)
+    
+    /// Событие прохождения всех уровней
+    func levelsFinished()
 }
 
 protocol LevelCrossViewModelProtocol: AnyObject {
@@ -76,6 +76,9 @@ protocol LevelKeyboardViewModelProtocol: AnyObject {
     
     /// Обработка нажатия озвучки
     func soundHandle()
+    
+    /// Повышаем уровень
+    func levelUp(status: Bool)
 }
 
 protocol LevelKeyboardViewDelegate: AnyObject {
@@ -91,4 +94,7 @@ protocol LevelKeyboardViewDelegate: AnyObject {
     
     /// Очистка клавиатуры
     func clear()
+    
+    /// Успешное завершение уровня
+    func levelComplete()
 }

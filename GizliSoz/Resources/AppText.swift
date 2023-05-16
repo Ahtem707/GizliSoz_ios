@@ -12,6 +12,7 @@ enum AppText {
         static let levels = "Seviyeler"
         static let settings = "Sazlamalar"
         static let start = "Başlamaq"
+        static let nextButton = "Devam etem"
     }
     
     enum WordsListScreen {

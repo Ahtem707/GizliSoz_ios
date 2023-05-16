@@ -63,14 +63,6 @@ extension LevelViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTap))
         view.addGestureRecognizer(tap)
     }
-    
-    private func levelsFinished() {
-        AlertsFactory.makeLevelsFinished(
-            cancelAction: { [weak self] in
-                self?.navigationController?.popViewController(animated: true)
-            }
-        )
-    }
 }
 
 // MARK: - Actions
@@ -86,24 +78,16 @@ extension LevelViewController: LevelViewControllerDelegate {
         title = text
     }
     
-    func levelComplete() {
-        let status = AppStorage.levelUp()
-        AlertsFactory.makeLevelComplete(
-            yesAction: { [weak self] in
-                if status {
-                    self?.viewModel.initialize()
-                } else {
-                    self?.levelsFinished()
-                }
-            },
+    func presentVC(_ viewController: UIViewController) {
+        viewController.modalPresentationStyle = .pageSheet
+        present(viewController, animated: true)
+    }
+    
+    func levelsFinished() {
+        AlertsFactory.makeLevelsFinished(
             cancelAction: { [weak self] in
                 self?.navigationController?.popViewController(animated: true)
             }
         )
-    }
-    
-    func presentVC(_ viewController: UIViewController) {
-        viewController.modalPresentationStyle = .pageSheet
-        present(viewController, animated: true)
     }
 }
