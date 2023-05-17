@@ -1,6 +1,7 @@
 {
     "levelNumber": 10,
     "name": "Yer yemişleri",
+    "nameTranslate": "Ягоды",
     "size": 6,
     "chars": ["a","h","u","d","u","t","q","v","n"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["a","h","u","d","u","t"],
             "x": [0,1,2,3,4,5],
             "y": [1,1,1,1,1,1],
-            "translate": "ахдут",
+            "translate": "малина",
             "voiceoverFile": "ahudut.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["q","a","v","u","n"],
             "x": [0,0,0,0,0],
             "y": [0,1,2,3,4],
-            "translate": "къавун",
+            "translate": "дыня",
             "voiceoverFile": "qavun.wav"
         },
         {
@@ -26,7 +27,7 @@
             "chars": ["d","u","t"],
             "x": [4,4,4],
             "y": [0,1,2],
-            "translate": "дут",
+            "translate": "шелковица",
             "voiceoverFile": "dut.wav"
         }
     ]

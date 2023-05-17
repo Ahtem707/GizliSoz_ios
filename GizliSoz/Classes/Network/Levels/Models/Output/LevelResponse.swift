@@ -11,6 +11,7 @@ struct LevelResponse: Codable {
     enum CodingKeys: String, CodingKey {
         case levelNumber
         case name
+        case nameTranslate
         case size
         case chars
         case words
@@ -19,6 +20,7 @@ struct LevelResponse: Codable {
     
     let levelNumber: Int
     let name: String
+    let nameTranslate: String
     let size: Int
     let chars: [String]
     let words: [Word]

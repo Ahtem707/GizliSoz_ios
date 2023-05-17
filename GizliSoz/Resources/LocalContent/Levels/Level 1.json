@@ -1,6 +1,7 @@
 {
     "levelNumber": 1,
     "name": "Selâmlavlar",
+    "nameTranslate": "Приветствия",
     "size": 6,
     "chars": ["m","e","r","a","b","a","s","l","â"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["m","e","r","a","b","a"],
             "x": [0,1,2,3,4,5],
             "y": [1,1,1,1,1,1],
-            "translate": "Мераба",
+            "translate": "здравствуйте, здравствуй",
             "voiceoverFile": "meraba.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["s","e","l","â","m"],
             "x": [1,1,1,1,1],
             "y": [0,1,2,3,4],
-            "translate": "Селям",
+            "translate": "привет",
             "voiceoverFile": "selam.wav"
         }
     ]

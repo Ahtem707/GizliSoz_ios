@@ -1,6 +1,7 @@
 {
     "levelNumber": 7,
     "name": "Ayvanlar 1",
+    "nameTranslate": "Животные 1",
     "size": 6,
     "chars": ["q","o","y","a","n","t","p","l","a"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["q","a","p","l","a","n"],
             "x": [0,1,2,3,4,5],
             "y": [3,3,3,3,3,3],
-            "translate": "къаплан",
+            "translate": "тигр",
             "voiceoverFile": "qaplan.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["q","o","y"],
             "x": [3,4,5],
             "y": [1,1,1],
-            "translate": "къой",
+            "translate": "овца, баран",
             "voiceoverFile": "qoy.wav"
         },
         {
@@ -26,7 +27,7 @@
             "chars": ["a","t"],
             "x": [1,1],
             "y": [3,4],
-            "translate": "ат",
+            "translate": "лошадь",
             "voiceoverFile": "at.wav"
         },
         {
@@ -34,7 +35,7 @@
             "chars": ["q","o","y","a","n"],
             "x": [4,4,4,4,4],
             "y": [0,1,2,3,4],
-            "translate": "къойан",
+            "translate": "кролик",
             "voiceoverFile": "qoyan.wav"
         }
     ]

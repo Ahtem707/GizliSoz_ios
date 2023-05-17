@@ -1,6 +1,7 @@
 {
     "levelNumber": 3,
     "name": "Renkler 1",
+    "nameTranslate": "Цвета 1",
     "size": 8,
     "chars": ["p","o","r","t","a","q","a","l"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["p","o","r","t","a","q","a","l"],
             "x": [0,1,2,3,4,5,6,7],
             "y": [2,2,2,2,2,2,2,2],
-            "translate": "портакъал",
+            "translate": "оранжевый",
             "voiceoverFile": "portaqal.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["q","a","r","a"],
             "x": [2,2,2,2],
             "y": [0,1,2,3],
-            "translate": "къара",
+            "translate": "черный",
             "voiceoverFile": "qara.wav"
         },
         {
@@ -26,7 +27,7 @@
             "chars": ["a","q"],
             "x": [5,5],
             "y": [1,2],
-            "translate": "акъ",
+            "translate": "белый",
             "voiceoverFile": "aq.wav"
         },
         {
@@ -34,7 +35,7 @@
             "chars": ["a","l"],
             "x": [6,6],
             "y": [2,3],
-            "translate": "ал",
+            "translate": "алый",
             "voiceoverFile": "al.wav"
         }
     ]

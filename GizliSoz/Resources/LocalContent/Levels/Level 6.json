@@ -1,19 +1,20 @@
 {
     "levelNumber": 6,
     "name": "Beden azalari 2",
+    "nameTranslate": "Части тела 2",
     "size": 6,
     "chars": ["t","i","r","n","a","q","ş","u"],
     "bonusWords": [
         {
             "id": 101,
             "word": "qan",
-            "translate": "къан",
+            "translate": "кровь",
             "voiceoverFile": ""
         },
         {
             "id": 102,
             "word": "qaş",
-            "translate": "къаш",
+            "translate": "бровь",
             "voiceoverFile": ""
         }
     ],
@@ -23,7 +24,7 @@
             "chars": ["t","i","r","n","a","q"],
             "x": [0,1,2,3,4,5],
             "y": [2,2,2,2,2,2],
-            "translate": "тырнъакъ",
+            "translate": "ноготь",
             "voiceoverFile": "tirnaq.wav"
         },
         {
@@ -31,7 +32,7 @@
             "chars": ["t","i","ş"],
             "x": [0,0,0],
             "y": [2,3,4],
-            "translate": "тиш",
+            "translate": "зуб",
             "voiceoverFile": "tis.wav"
         },
         {
@@ -39,7 +40,7 @@
             "chars": ["t","u","r","a","q"],
             "x": [2,2,2,2,2],
             "y": [0,1,2,3,4],
-            "translate": "туракъ",
+            "translate": "стопа",
             "voiceoverFile": "turaq.wav"
         }
     ]

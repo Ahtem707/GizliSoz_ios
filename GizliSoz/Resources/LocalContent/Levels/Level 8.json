@@ -1,6 +1,7 @@
 {
     "levelNumber": 8,
     "name": "Ayvanlar 2",
+    "nameTranslate": "Животные 2",
     "size": 6,
     "chars": ["j","i","r","a","f","e","l","d","v","e"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["j","i","r","a","f","e"],
             "x": [0,1,2,3,4,5],
             "y": [1,1,1,1,1,1],
-            "translate": "жирафе",
+            "translate": "жираф",
             "voiceoverFile": "jirafe.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["f","i","l"],
             "x": [1,1,1],
             "y": [0,1,2],
-            "translate": "филь",
+            "translate": "слон",
             "voiceoverFile": "fil.wav"
         },
         {
@@ -26,7 +27,7 @@
             "chars": ["d","e","v","e"],
             "x": [5,5,5,5],
             "y": [0,1,2,3],
-            "translate": "деве",
+            "translate": "верблюд",
             "voiceoverFile": "deve.wav"
         }
     ]

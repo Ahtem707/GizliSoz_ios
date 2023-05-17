@@ -1,6 +1,7 @@
 {
     "levelNumber": 5,
     "name": "Beden azalari 1",
+    "nameTranslate": "Части тела 1",
     "size": 6,
     "chars": ["q","u","r","s","a","q","l","a"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["q","u","r","s","a","q"],
             "x": [0,1,2,3,4,5],
             "y": [0,0,0,0,0,0],
-            "translate": "къурсакъ",
+            "translate": "живот",
             "voiceoverFile": "qursaq.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["s","a","q","a","l"],
             "x": [3,3,3,3,3],
             "y": [0,1,2,3,4],
-            "translate": "сакъал",
+            "translate": "борода",
             "voiceoverFile": "saqal.wav"
         },
         {
@@ -26,7 +27,7 @@
             "chars": ["q","u","l","a","q"],
             "x": [5,5,5,5,5],
             "y": [0,1,2,3,4],
-            "translate": "къулакъ",
+            "translate": "ухо",
             "voiceoverFile": "qulaq.wav"
         }
     ]

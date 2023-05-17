@@ -1,6 +1,7 @@
 {
     "levelNumber": 4,
     "name": "Renkler 2",
+    "nameTranslate": "Цвета 2",
     "size": 5,
     "chars": ["s","a","r","i","m","v","e","ş","l"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["s","a","r","i"],
             "x": [0,1,2,3],
             "y": [2,2,2,2],
-            "translate": "сары",
+            "translate": "желтый",
             "voiceoverFile": "sari.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["m","a","v","i"],
             "x": [1,1,1,1],
             "y": [1,2,3,4],
-            "translate": "мавы",
+            "translate": "голубой",
             "voiceoverFile": "mavi.wav"
         },
         {
@@ -26,7 +27,7 @@
             "chars": ["e","ş","i","l"],
             "x": [3,3,3,3],
             "y": [0,1,2,3],
-            "translate": "ешиль",
+            "translate": "зелёный",
             "voiceoverFile": "esil.wav"
         }
     ]

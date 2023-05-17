@@ -1,6 +1,7 @@
 {
     "levelNumber": 9,
     "name": "Çiçekler",
+    "nameTranslate": "Цветы",
     "size": 6,
     "chars": ["n","a","r","g","ü","z","l","l","â","e"],
     "bonusWords": [],
@@ -10,7 +11,7 @@
             "chars": ["n","a","r","g","ü","z"],
             "x": [0,1,2,3,4,5],
             "y": [0,0,0,0,0,0],
-            "translate": "наргуз",
+            "translate": "нарциссс, календула",
             "voiceoverFile": "narguz.wav"
         },
         {
@@ -18,7 +19,7 @@
             "chars": ["l","â","l","e"],
             "x": [1,2,3,4],
             "y": [2,2,2,2],
-            "translate": "ляле",
+            "translate": "тюльпан",
             "voiceoverFile": "lale.wav"
         },
         {
@@ -26,7 +27,7 @@
             "chars": ["g","ü","l"],
             "x": [3,3,3],
             "y": [0,1,2],
-            "translate": "гуль",
+            "translate": "роза",
             "voiceoverFile": "gul.wav"
         }
     ]
