@@ -73,12 +73,12 @@ extension ActionSheetViewController {
         contentView.addSubview(tableView)
         
         let viewTap = UITapGestureRecognizer(target: self, action: #selector(viewTapAction))
+        viewTap.delegate = self
         view.addGestureRecognizer(viewTap)
         
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ActionSheetCell.self, forCellReuseIdentifier: "cell")
-        tableView.allowsSelection = false
     }
     
     private func setupLayouts() {
@@ -160,5 +160,16 @@ extension ActionSheetViewController: UITableViewDataSource {
 extension ActionSheetViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         dataSource[indexPath.row].action()
+        updateContentHeight(nil)
+    }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension ActionSheetViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+         if touch.view?.isDescendant(of: tableView) == true {
+            return false
+         }
+         return true
     }
 }

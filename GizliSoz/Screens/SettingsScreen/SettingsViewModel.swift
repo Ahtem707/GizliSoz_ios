@@ -51,7 +51,7 @@ extension SettingsViewModel {
             return ActionSheetModel(
                 code: item.code,
                 title: item.value,
-                action: { AppStorage.voiceoverActor =  item.code }
+                action: { AppStorage.voiceoverActor = item.code }
             )
         }
         ActionSheetFactory.makeDinamic(dataSource: dataSource)

@@ -39,10 +39,26 @@ extension AppText {
         "Ihtar tili": "Язык подсказки",
         "Ses": "Голос озвучки",
     ]
+    
+    static let en: [String : String] = [
+        "Seviyeler": "Levels",
+        "Sazlamalar": "Settings",
+        "Başlamaq": "Start",
+        "Devam etem": "I continue",
+        "Sözler": "Words",
+        "Qoşma sözler": "Bonus words",
+        "Ihtar": "Hint",
+        "Ihtar tili": "Hint language",
+        "Ses": "Voice acting",
+    ]
 }
 
 extension String {
     var translate: String? {
-        return AppText.ru[self]
+        switch AppStorage.translationLang {
+        case "ru": return AppText.ru[self]
+        case "en": return AppText.en[self]
+        default: return AppText.en[self]
+        }
     }
 }
