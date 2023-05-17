@@ -23,10 +23,6 @@ final class WordsListViewModel: BaseViewModel {
     }
     
     func initialize() {
-        sections.append(contentsOf: [
-            .init(text: AppText.WordsListScreen.words),
-            .init(text: AppText.WordsListScreen.bonusWords)
-        ])
         
         guard let level = AppStorage.currentLevel else { return }
         
@@ -47,6 +43,13 @@ final class WordsListViewModel: BaseViewModel {
                 isHaveSound: SoundPlayer.share.hasSound(id: $0.id),
                 isMasked: !openBonusWords.contains($0.id)
             )
+        }
+        
+        if !words.isEmpty {
+            sections.append(.init(text: AppText.WordsListScreen.words))
+        }
+        if !bonusWords.isEmpty {
+            sections.append(.init(text: AppText.WordsListScreen.bonusWords))
         }
     }
 }

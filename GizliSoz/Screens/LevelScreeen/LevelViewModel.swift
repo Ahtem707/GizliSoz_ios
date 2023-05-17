@@ -132,10 +132,10 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
             
             if let bonusWord = level.bonusWords.first(where: { $0.word == word }) {
                 openBonusWords.append(bonusWord.id)
+                bonusWordsCount += 1
+                keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWordsCount != 0, counter: "\(bonusWordsCount)")
                 if !AppStorage.bonusWords.contains(where: { $0 == word }) {
                     AppStorage.bonusWords.append(bonusWord.word)
-                    bonusWordsCount += 1
-                    keyboardDelegate?.setAdditionalStatus(type: .bonusWords, isActive: bonusWordsCount != 0, counter: "\(bonusWordsCount)")
                     AppStorage.hammerCount += 1
                     keyboardDelegate?.setAdditionalStatus(type: .hammer, isActive: AppStorage.hammerCount != 0, counter: "\(AppStorage.hammerCount)")
                 }
