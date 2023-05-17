@@ -96,8 +96,8 @@ final class AppStorage {
         API.Levels.getLevel(
             .init(
                 levelNumber: AppStorage.currentLevelIndex,
-                translateLang: AppStorage.translationLang,
-                voiceoverActor: AppStorage.voiceoverActor,
+                translateLang: AppStorage.translationLang.code,
+                voiceoverActor: AppStorage.voiceoverActor.code,
                 characterType: AppStorage.characterType
             )
         ).request(LevelResponse.self) { result in

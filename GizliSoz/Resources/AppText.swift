@@ -55,7 +55,7 @@ extension AppText {
 
 extension String {
     var translate: String? {
-        switch AppStorage.translationLang {
+        switch AppStorage.translationLang.code {
         case "ru": return AppText.ru[self]
         case "en": return AppText.en[self]
         default: return AppText.en[self]

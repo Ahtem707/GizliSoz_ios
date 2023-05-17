@@ -17,4 +17,6 @@ struct Parameter: Codable {
     let code: String
     let value: String
     let isDefault: Bool
+    
+    static let `default` = Parameter(code: "default", value: "Default", isDefault: true)
 }

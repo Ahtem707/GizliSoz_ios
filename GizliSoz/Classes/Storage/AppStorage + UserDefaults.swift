@@ -34,12 +34,12 @@ extension AppStorage {
     static var isActiveVoiceover: Bool
     
     @UserDefault("voiceoverActor", "default")
-    static var voiceoverActor: String {
+    static var _voiceoverActor: String {
         didSet { AppStorage.share.fetchLevel() }
     }
     
     @UserDefault("translationLang", "default")
-    static var translationLang: String {
+    private static var _translationLang: String {
         didSet { AppStorage.share.fetchLevel() }
     }
     
@@ -76,5 +76,35 @@ extension AppStorage {
         currentLevelIndex = value
         AppStorage.share.fetchLevel()
         return true
+    }
+    
+    static var translationLang: Parameter {
+        get {
+            if let value = translationLangs.first(where: { $0.code == _translationLang }) {
+                return value
+            } else if let value = translationLangs.first {
+                return value
+            } else {
+                return Parameter.default
+            }
+        }
+        set {
+            _translationLang = newValue.code
+        }
+    }
+    
+    static var voiceoverActor: Parameter {
+        get {
+            if let value = voiceoverActors.first(where: { $0.code == _voiceoverActor }) {
+                return value
+            } else if let value = voiceoverActors.first {
+                return value
+            } else {
+                return Parameter.default
+            }
+        }
+        set {
+            _voiceoverActor = newValue.code
+        }
     }
 }

@@ -41,7 +41,7 @@ extension SettingsViewController {
         tableView.separatorInset = .zero
         tableView.allowsSelection = false
         tableView.registerCellClass(SettingsSwitchCell.self)
-        tableView.registerCellClass(SettingsMoreCell.self)
+        tableView.registerCellClass(SettingsValueCell.self)
     }
     
     private func setupLayouts() {
@@ -57,7 +57,14 @@ extension SettingsViewController {
 
 // MARK: - SettingsViewControllerDelegate
 extension SettingsViewController: SettingsViewControllerDelegate {
-    
+    func reloadTable(_ indexPath: IndexPath? = nil) {
+        print("myLog: ",AppStorage.translationLang)
+        if let indexPath = indexPath {
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            tableView.reloadData()
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -74,9 +81,10 @@ extension SettingsViewController: UITableViewDataSource {
             cell.isEnable = cellData.isEnable
             cell.action = cellData.action
             return cell
-        } else if let cellData = cellData as? SettingsMoreCellModel {
-            let cell: SettingsMoreCell = tableView.dequeue(cellForRowAt: indexPath)
+        } else if let cellData = cellData as? SettingsValueCellModel {
+            let cell: SettingsValueCell = tableView.dequeue(cellForRowAt: indexPath)
             cell.title = cellData.title
+            cell.value = cellData.value
             cell.action = cellData.action
             return cell
         } else {

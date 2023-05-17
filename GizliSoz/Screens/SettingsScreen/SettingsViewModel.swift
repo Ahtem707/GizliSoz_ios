@@ -22,16 +22,29 @@ final class SettingsViewModel: BaseViewModel {
 extension SettingsViewModel {
     private func makeDataSource() {
         let dataSource = [
-            SettingsSwitchCellModel(title: AppText.SettingsScreen.hint, isEnable: AppStorage.infoMessage, action: { value in
-                AppStorage.infoMessage = value
-            }),
-            SettingsMoreCellModel(title: AppText.SettingsScreen.hintLang, action: { [weak self] in
-                self?.showInfoLanguage()
-            }),
-            SettingsMoreCellModel(title: AppText.SettingsScreen.voiceoverActor, action: { [weak self] in
-                self?.showVoiceActorLanguage()
-            }),
+            SettingsSwitchCellModel(
+                title: AppText.SettingsScreen.hint,
+                isEnable: AppStorage.infoMessage,
+                action: { value in
+                    AppStorage.infoMessage = value
+                }
+            ),
+            SettingsValueCellModel(
+                title: AppText.SettingsScreen.hintLang,
+                value: AppStorage.translationLang.value,
+                action: { [weak self] in
+                    self?.showInfoLanguage()
+                }
+            ),
+            SettingsValueCellModel(
+                title: AppText.SettingsScreen.voiceoverActor,
+                value: AppStorage.voiceoverActor.value,
+                action: { [weak self] in
+                    self?.showVoiceActorLanguage()
+                }
+            ),
         ].compactMap { return $0 as? SettingsCellModel }
+        self.dataSource.removeAll()
         self.dataSource.append(contentsOf: dataSource)
     }
     
@@ -40,7 +53,10 @@ extension SettingsViewModel {
             return ActionSheetModel(
                 code: item.code,
                 title: item.value,
-                action: { AppStorage.translationLang = item.code }
+                action: {
+                    AppStorage.translationLang = item
+                    self.updateDataSource()
+                }
             )
         }
         ActionSheetFactory.makeDinamic(dataSource: dataSource)
@@ -51,10 +67,18 @@ extension SettingsViewModel {
             return ActionSheetModel(
                 code: item.code,
                 title: item.value,
-                action: { AppStorage.voiceoverActor = item.code }
+                action: {
+                    AppStorage.voiceoverActor = item
+                    self.updateDataSource()
+                }
             )
         }
         ActionSheetFactory.makeDinamic(dataSource: dataSource)
+    }
+    
+    private func updateDataSource() {
+        makeDataSource()
+        delegate?.reloadTable(nil)
     }
 }
 

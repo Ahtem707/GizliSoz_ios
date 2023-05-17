@@ -19,3 +19,9 @@ struct SettingsMoreCellModel: SettingsCellModel {
     let title: String
     let action: () -> Void
 }
+
+struct SettingsValueCellModel: SettingsCellModel {
+    let title: String
+    let value: String
+    let action: () -> Void
+}
