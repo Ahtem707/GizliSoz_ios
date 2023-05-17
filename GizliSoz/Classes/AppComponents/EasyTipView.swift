@@ -78,18 +78,12 @@ extension UIButton {
 }
 
 extension UINavigationController {
-    static func swizzle() {
+    static func swizzleNavigationController() {
         let originalSelectorPush = #selector(UINavigationController.pushViewController)
         let swizzledSelectorPush = #selector(UINavigationController._tracked_pushViewController)
         let originalMethodPush = class_getInstanceMethod(self, originalSelectorPush)
         let swizzledMethodPush = class_getInstanceMethod(self, swizzledSelectorPush)
         method_exchangeImplementations(originalMethodPush!, swizzledMethodPush!)
-
-        let originalSelectorPresent = #selector(UINavigationController.present)
-        let swizzledSelectorPresent = #selector(UINavigationController._tracked_present)
-        let originalMethodPresent = class_getInstanceMethod(self, originalSelectorPresent)
-        let swizzledMethodPresent = class_getInstanceMethod(self, swizzledSelectorPresent)
-        method_exchangeImplementations(originalMethodPresent!, swizzledMethodPresent!)
     }
 
     @objc private func _tracked_pushViewController(_ viewController: UIViewController?, animated: Bool) {
@@ -97,7 +91,17 @@ extension UINavigationController {
         UIView.tipView = nil
         _tracked_pushViewController(viewController, animated: animated)
     }
+}
 
+extension UIViewController {
+    static func swizzleViewController() {
+        let originalSelectorPresent = #selector(UIViewController.present)
+        let swizzledSelectorPresent = #selector(UIViewController._tracked_present)
+        let originalMethodPresent = class_getInstanceMethod(self, originalSelectorPresent)
+        let swizzledMethodPresent = class_getInstanceMethod(self, swizzledSelectorPresent)
+        method_exchangeImplementations(originalMethodPresent!, swizzledMethodPresent!)
+    }
+    
     @objc private func _tracked_present(_ viewControllerToPresent: UIViewController?, animated flag: Bool, completion: (() -> Void)? = nil) {
         UIView.tipView?.dismiss()
         UIView.tipView = nil

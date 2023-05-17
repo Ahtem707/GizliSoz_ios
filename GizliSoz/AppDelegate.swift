@@ -15,7 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         UIButton.swizzle()
-        UINavigationController.swizzle()
+        UIViewController.swizzleViewController()
+        UINavigationController.swizzleNavigationController()
         
         AppStorage.appStart()
         AppStorage.userLoginCount += 1
