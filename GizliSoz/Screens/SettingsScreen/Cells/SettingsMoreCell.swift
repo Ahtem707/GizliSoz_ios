@@ -61,6 +61,7 @@ extension SettingsMoreCell {
         contentView.addSubview(label)
         contentView.addSubview(button)
         
+        label.addTipView()
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     

@@ -64,6 +64,7 @@ extension SettingsSwitchCell {
         contentView.addSubview(label)
         contentView.addSubview(switchView)
         
+        label.addTipView()
         switchView.addTarget(self, action: #selector(switchViewAction), for: .valueChanged)
     }
     

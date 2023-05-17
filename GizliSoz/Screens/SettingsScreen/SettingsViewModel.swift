@@ -22,13 +22,13 @@ final class SettingsViewModel: BaseViewModel {
 extension SettingsViewModel {
     private func makeDataSource() {
         let dataSource = [
-            SettingsSwitchCellModel(title: "Inhar", isEnable: AppStorage.infoMessage, action: { value in
+            SettingsSwitchCellModel(title: AppText.SettingsScreen.hint, isEnable: AppStorage.infoMessage, action: { value in
                 AppStorage.infoMessage = value
             }),
-            SettingsMoreCellModel(title: "Inhar tili", action: { [weak self] in
+            SettingsMoreCellModel(title: AppText.SettingsScreen.hintLang, action: { [weak self] in
                 self?.showInfoLanguage()
             }),
-            SettingsMoreCellModel(title: "Ses tili", action: { [weak self] in
+            SettingsMoreCellModel(title: AppText.SettingsScreen.voiceoverActor, action: { [weak self] in
                 self?.showVoiceActorLanguage()
             }),
         ].compactMap { return $0 as? SettingsCellModel }

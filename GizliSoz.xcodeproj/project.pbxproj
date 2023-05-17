@@ -144,6 +144,8 @@
 		187C2C572919792A0036F43A /* AppStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C562919792A0036F43A /* AppStorage.swift */; };
 		187C2C5D29199FBD0036F43A /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2C5C29199FBD0036F43A /* Array.swift */; };
 		18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F5296443EB006F17CD /* SoundPlayer.swift */; };
+		18D943E52A13EE5F000BEF86 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D943E42A13EE5E000BEF86 /* EasyTipView.swift */; };
+		18D943E82A1424F4000BEF86 /* EasyTipView in Frameworks */ = {isa = PBXBuildFile; productRef = 18D943E72A1424F4000BEF86 /* EasyTipView */; };
 		18E34EB229D9882F0094CBBA /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB129D9882F0094CBBA /* AppText.swift */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +287,7 @@
 		18D6880A29D6122900D28216 /* WordsListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListBuilder.swift; sourceTree = "<group>"; };
 		18D6880C29D6123A00D28216 /* WordsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListViewController.swift; sourceTree = "<group>"; };
 		18D6880E29D6124600D28216 /* WordsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListViewModel.swift; sourceTree = "<group>"; };
+		18D943E42A13EE5E000BEF86 /* EasyTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
 		18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableCell.swift; sourceTree = "<group>"; };
 		18E34EB129D9882F0094CBBA /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableHeader.swift; sourceTree = "<group>"; };
@@ -295,6 +298,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D943E82A1424F4000BEF86 /* EasyTipView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +536,7 @@
 		186A2E0429AD4D9C005FF900 /* AppComponents */ = {
 			isa = PBXGroup;
 			children = (
+				18D943E42A13EE5E000BEF86 /* EasyTipView.swift */,
 			);
 			path = AppComponents;
 			sourceTree = "<group>";
@@ -808,6 +813,9 @@
 			dependencies = (
 			);
 			name = GizliSoz;
+			packageProductDependencies = (
+				18D943E72A1424F4000BEF86 /* EasyTipView */,
+			);
 			productName = GizlySoz;
 			productReference = 185B5DA3293C8FDF001B726D /* GizliSoz.app */;
 			productType = "com.apple.product-type.application";
@@ -836,6 +844,9 @@
 				Base,
 			);
 			mainGroup = 187C2BCD291674D40036F43A;
+			packageReferences = (
+				18D943E62A1424F4000BEF86 /* XCRemoteSwiftPackageReference "EasyTipView" */,
+			);
 			productRefGroup = 187C2BCD291674D40036F43A;
 			projectDirPath = "";
 			projectRoot = "";
@@ -976,6 +987,7 @@
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
 				180595FB2A1041F9006A0E2A /* KeyboardGestureRecognizer.swift in Sources */,
 				180595FD2A1041F9006A0E2A /* KeyboardLogic.swift in Sources */,
+				18D943E52A13EE5F000BEF86 /* EasyTipView.swift in Sources */,
 				180595F62A1041F1006A0E2A /* WordTableCell.swift in Sources */,
 				187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */,
 				187C2C282916FBD80036F43A /* AppFont.swift in Sources */,
@@ -1214,6 +1226,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18D943E62A1424F4000BEF86 /* XCRemoteSwiftPackageReference "EasyTipView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/teodorpatras/EasyTipView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18D943E72A1424F4000BEF86 /* EasyTipView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18D943E62A1424F4000BEF86 /* XCRemoteSwiftPackageReference "EasyTipView" */;
+			productName = EasyTipView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 187C2BCE291674D40036F43A /* Project object */;
 }
