@@ -58,7 +58,6 @@ extension SettingsViewController {
 // MARK: - SettingsViewControllerDelegate
 extension SettingsViewController: SettingsViewControllerDelegate {
     func reloadTable(_ indexPath: IndexPath? = nil) {
-        print("myLog: ",AppStorage.translationLang)
         if let indexPath = indexPath {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         } else {
