@@ -147,6 +147,7 @@
 		18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F5296443EB006F17CD /* SoundPlayer.swift */; };
 		18D943E52A13EE5F000BEF86 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D943E42A13EE5E000BEF86 /* EasyTipView.swift */; };
 		18D943E82A1424F4000BEF86 /* EasyTipView in Frameworks */ = {isa = PBXBuildFile; productRef = 18D943E72A1424F4000BEF86 /* EasyTipView */; };
+		18DFF7AA2A17D66600FD7A2E /* AdvancedOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */; };
 		18E34EB229D9882F0094CBBA /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB129D9882F0094CBBA /* AppText.swift */; };
 /* End PBXBuildFile section */
 
@@ -290,6 +291,8 @@
 		18D6880C29D6123A00D28216 /* WordsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListViewController.swift; sourceTree = "<group>"; };
 		18D6880E29D6124600D28216 /* WordsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsListViewModel.swift; sourceTree = "<group>"; };
 		18D943E42A13EE5E000BEF86 /* EasyTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
+		18DFF7A82A17BD2200FD7A2E /* GizliSoz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GizliSoz.entitlements; sourceTree = "<group>"; };
+		18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOperators.swift; sourceTree = "<group>"; };
 		18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableCell.swift; sourceTree = "<group>"; };
 		18E34EB129D9882F0094CBBA /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableHeader.swift; sourceTree = "<group>"; };
@@ -555,6 +558,7 @@
 		187C2BD8291674D40036F43A /* GizliSoz */ = {
 			isa = PBXGroup;
 			children = (
+				18DFF7A82A17BD2200FD7A2E /* GizliSoz.entitlements */,
 				187C2BD9291674D40036F43A /* AppDelegate.swift */,
 				187C2BE4291674D70036F43A /* LaunchScreen.storyboard */,
 				187C2BE7291674D70036F43A /* Info.plist */,
@@ -579,6 +583,7 @@
 				186B681A29C46E1100138526 /* typealias.swift */,
 				1813F3D72A0E94E9001BDBFC /* Codable.swift */,
 				1835AA922A12249000AF3887 /* RunStack.swift */,
+				18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -940,6 +945,7 @@
 				187C2C0D2916F7D50036F43A /* UIColor.swift in Sources */,
 				1805960B2A104211006A0E2A /* LevelsViewController.swift in Sources */,
 				180595F82A1041F6006A0E2A /* LevelViewController.swift in Sources */,
+				18DFF7AA2A17D66600FD7A2E /* AdvancedOperators.swift in Sources */,
 				1819F9032A0CC9F20096BA84 /* AppConstants.swift in Sources */,
 				187C2BFB2916AB860036F43A /* MainViewModel.swift in Sources */,
 				187C2C4C29186EB90036F43A /* AppLogger.swift in Sources */,
@@ -1153,6 +1159,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GizliSoz/GizliSoz.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1183,6 +1190,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GizliSoz/GizliSoz.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

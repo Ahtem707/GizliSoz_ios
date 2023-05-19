@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func applicationWillTerminate(_ application: UIApplication) {
-        AppStorage.appTerminate()
+    func applicationWillResignActive(_ application: UIApplication) {
+        AppStorage.saveData()
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {

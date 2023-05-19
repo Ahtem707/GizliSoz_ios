@@ -17,6 +17,7 @@ final class AppStorage {
     static func appStart() {
         AppStorage.share = AppStorage()
         
+        // Подгружаем уровни из хранилища
         AppStorage.share.levels = AppStorage.levels
         
 //        AppStorage.share.runStack.add { AppStorage.share.checkConnect() }
@@ -24,7 +25,8 @@ final class AppStorage {
         AppStorage.share.runStack.add { AppStorage.share.fetchLevels() }
     }
     
-    static func appTerminate() {
+    static func saveData() {
+        // При закрытии приложения сохраняем все данные в кэш
         AppStorage.levels = AppStorage.share.levels
     }
     
@@ -98,15 +100,26 @@ final class AppStorage {
             $0.characterType != AppStorage.characterType
         }
         
-        // Исключаем загрузку уровней что уже есть в кэше
+        // Уровни которые находятся в кэше
         let levelsInCache = AppStorage.share.levels.map { $0.levelNumber }
+        
+        // Проверяем на минимальный индекс кэша и не отправляем запрос, если он в пределах допустимого
+        let minCacheIndex = AppStorage.currentLevelIndex + AppStorage.levelsCacheCount / 2
+        if levelsInCache.contains(minCacheIndex) { return }
+        
+        // Предварительно определяем уровни которые необходимы
         let startIndex = AppStorage.currentLevelIndex
-        let endIndex = AppStorage.currentLevelIndex + AppStorage.levelsCacheCount
+        var endIndex = AppStorage.currentLevelIndex + AppStorage.levelsCacheCount
+        
+        // Ограничиваем конечный индекс запрашиваемых уровней, границей существующих уровней
+        if endIndex > levelsCount { endIndex = levelsCount }
+        
+        // Создаем диапазон запрашиваемых уровней и исключаем из них, те что уже существуют в кэше
         var loadLevels = [Int](startIndex..<endIndex)
-        loadLevels.removeAll {
-            levelsInCache.contains($0) ||
-            $0 > levelsCount
-        }
+        loadLevels.removeAll { levelsInCache.contains($0) }
+        
+        // Если список запрашиваемых уровней пустой, то не отправляем запрос
+        guard loadLevels.count > 0 else { return }
         
         API.Levels.getLevels(
             .init(

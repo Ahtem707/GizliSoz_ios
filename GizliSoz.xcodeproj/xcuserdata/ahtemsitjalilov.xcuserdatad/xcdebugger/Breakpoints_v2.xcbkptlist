@@ -8,16 +8,63 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C500A7DD-1580-48F3-88C8-3759FDA6C499"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GizliSoz/Classes/Storage/AppStorage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "appTerminate()"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "saveData()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C500A7DD-1580-48F3-88C8-3759FDA6C499 - c1de738862fe37a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GizliSoz.AppStorage.appTerminate() -&gt; ()"
+                  moduleName = "GizliSoz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahtemsitjalilov/Documents/SourceTree/GizliSoz_ios/GizliSoz/Classes/Storage/AppStorage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "295">
+               </Location>
+               <Location
+                  uuid = "C500A7DD-1580-48F3-88C8-3759FDA6C499 - c1de738862fe3749"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GizliSoz.AppStorage.appTerminate() -&gt; ()"
+                  moduleName = "GizliSoz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahtemsitjalilov/Documents/SourceTree/GizliSoz_ios/GizliSoz/Classes/Storage/AppStorage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "37">
+               </Location>
+               <Location
+                  uuid = "C500A7DD-1580-48F3-88C8-3759FDA6C499 - f70a08ba18248904"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static GizliSoz.AppStorage.saveData() -&gt; ()"
+                  moduleName = "GizliSoz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ahtemsitjalilov/Documents/SourceTree/GizliSoz_ios/GizliSoz/Classes/Storage/AppStorage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "37">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

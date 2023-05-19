@@ -50,6 +50,13 @@ extension SettingsViewModel {
                     self?.showCacheCount()
                 }
             ),
+            SettingsValueCellModel(
+                title: AppText.SettingsScreen.alphabet,
+                value: "\(AppStorage.characterType.text)",
+                action: { [weak self] in
+                    self?.showSelectCharType()
+                }
+            ),
         ].compactMap { return $0 as? SettingsCellModel }
         self.dataSource.removeAll()
         self.dataSource.append(contentsOf: dataSource)
@@ -92,6 +99,21 @@ extension SettingsViewModel {
                 title: itemStr,
                 action: {
                     AppStorage.levelsCacheCount = item
+                    self.updateDataSource()
+                }
+            )
+        }
+        ActionSheetFactory.makeDinamic(dataSource: dataSource)
+    }
+    
+    private func showSelectCharType() {
+        let charsType: [CharacterType] = [.latin, .cyrillic]
+        let dataSource = charsType.map { item in
+            return ActionSheetModel(
+                code: item.rawValue,
+                title: item.text,
+                action: {
+                    AppStorage.characterType = item
                     self.updateDataSource()
                 }
             )

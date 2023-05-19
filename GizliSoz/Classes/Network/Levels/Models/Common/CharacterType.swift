@@ -10,4 +10,13 @@ import Foundation
 enum CharacterType: String, Codable {
     case cyrillic
     case latin
+    
+    var text: String {
+        switch self {
+        case .cyrillic:
+            return "cyrillic (АБВ)"
+        case .latin:
+            return "latin (ABC)"
+        }
+    }
 }

@@ -26,6 +26,7 @@ enum AppText {
         static let hintLang = "Terciman tili"
         static let voiceoverActor = "Ses"
         static let levelsCache = "Seviyeler cachi"
+        static let alphabet = "Elifbe"
     }
     
     enum LevelsScreen {
@@ -45,6 +46,7 @@ extension AppText {
         "Terciman tili": "Язык перевода",
         "Ses": "Голос озвучки",
         "Seviyeler cachi": "Уровни кэширования",
+        "Elifbe":"Алфавит",
     ]
     
     static let en: [String : String] = [
@@ -57,7 +59,8 @@ extension AppText {
         "Ihtar": "Hint",
         "Terciman tili": "Translation language",
         "Ses": "Voice acting",
-        "Seviyeler cachi": "Caching Levels"
+        "Seviyeler cachi": "Caching Levels",
+        "Elifbe":"Alphabet",
     ]
 }
 
