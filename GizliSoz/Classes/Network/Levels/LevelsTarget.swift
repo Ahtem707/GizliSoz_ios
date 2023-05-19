@@ -11,7 +11,7 @@ extension API {
     enum Levels: Target {
         
         case checkConnect
-        case appInit
+        case appInit(_ input: AppInitRequest)
         case getLevels(_ input: LevelsRequest)
         
         // MARK: - Internal
@@ -38,7 +38,10 @@ extension API {
         var query: [String : Any] {
             switch self {
             case .checkConnect: return [:]
-            case .appInit: return [:]
+            case .appInit(let input):
+                return [
+                    "appVersion": input.appVersion
+                ]
             case .getLevels(let input):
                 return [
                     "levelsNumber": input.levelsNumber.join(),

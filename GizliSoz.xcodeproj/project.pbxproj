@@ -148,6 +148,7 @@
 		18D943E52A13EE5F000BEF86 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D943E42A13EE5E000BEF86 /* EasyTipView.swift */; };
 		18D943E82A1424F4000BEF86 /* EasyTipView in Frameworks */ = {isa = PBXBuildFile; productRef = 18D943E72A1424F4000BEF86 /* EasyTipView */; };
 		18DFF7AA2A17D66600FD7A2E /* AdvancedOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */; };
+		18DFF7AD2A18043B00FD7A2E /* AppInitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7AC2A18043B00FD7A2E /* AppInitRequest.swift */; };
 		18E34EB229D9882F0094CBBA /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB129D9882F0094CBBA /* AppText.swift */; };
 /* End PBXBuildFile section */
 
@@ -293,6 +294,7 @@
 		18D943E42A13EE5E000BEF86 /* EasyTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyTipView.swift; sourceTree = "<group>"; };
 		18DFF7A82A17BD2200FD7A2E /* GizliSoz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GizliSoz.entitlements; sourceTree = "<group>"; };
 		18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedOperators.swift; sourceTree = "<group>"; };
+		18DFF7AC2A18043B00FD7A2E /* AppInitRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInitRequest.swift; sourceTree = "<group>"; };
 		18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableCell.swift; sourceTree = "<group>"; };
 		18E34EB129D9882F0094CBBA /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableHeader.swift; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 		187C2C432917FF320036F43A /* Input */ = {
 			isa = PBXGroup;
 			children = (
+				18DFF7AC2A18043B00FD7A2E /* AppInitRequest.swift */,
 				187CD5CA2A16BE4A00D6D981 /* LevelsRequest.swift */,
 			);
 			path = Input;
@@ -982,6 +985,7 @@
 				187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */,
 				1835AA932A12249000AF3887 /* RunStack.swift in Sources */,
 				187C2BF22916A7AE0036F43A /* BaseViewController.swift in Sources */,
+				18DFF7AD2A18043B00FD7A2E /* AppInitRequest.swift in Sources */,
 				187C2C572919792A0036F43A /* AppStorage.swift in Sources */,
 				180595F42A1041EE006A0E2A /* WordsListBuilder.swift in Sources */,
 				180596012A1041FD006A0E2A /* CrossCell.swift in Sources */,

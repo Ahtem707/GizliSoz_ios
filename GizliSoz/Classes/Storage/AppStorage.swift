@@ -76,7 +76,11 @@ final class AppStorage {
         // Блокирование запроса, если он уже был загружен ранее
         guard !appInitLoaded else { return }
         
-        API.Levels.appInit.request(AppInitResponse.self) { [weak self] result in
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "None"
+        
+        API.Levels.appInit(
+            .init(appVersion: appVersion)
+        ).request(AppInitResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.voiceoverHost = data.voiceoverHost
