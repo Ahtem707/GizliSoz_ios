@@ -14,22 +14,6 @@ final class AppStorage {
     /// Для последовательного запуска запросов
     private let runStack = RunStack()
     
-    static func appStart() {
-        AppStorage.share = AppStorage()
-        
-        // Подгружаем уровни из хранилища
-        AppStorage.share.levels = AppStorage.levels
-        
-//        AppStorage.share.runStack.add { AppStorage.share.checkConnect() }
-        AppStorage.share.runStack.add { AppStorage.share.fetchAppInit() }
-        AppStorage.share.runStack.add { AppStorage.share.fetchLevels() }
-    }
-    
-    static func saveData() {
-        // При закрытии приложения сохраняем все данные в кэш
-        AppStorage.levels = AppStorage.share.levels
-    }
-    
     var appInitLoaded: Bool = false
     var isServerAvailable: Bool = true
     var voiceoverHost: URL?
@@ -43,9 +27,38 @@ final class AppStorage {
         return levels.first(where: { $0.levelNumber == AppStorage.currentLevelIndex })
     }
     
+    // MARK: - Lifecycle functions
+    func appStart() {
+        // Подгружаем уровни из хранилища
+        levels = AppStorage.levels
+        
+        fetchAppInit()
+        self.fetchLevels()
+    }
+    
+    func saveData() {
+        // При закрытии приложения сохраняем все данные в кэш
+        AppStorage.levels = levels
+    }
+    
     // MARK: - Fetch functions
     
+    // Проверка подключения
     func checkConnect() {
+        runStack.add { self._checkConnect() }
+    }
+    
+    func fetchAppInit() {
+        runStack.add { self._fetchAppInit() }
+    }
+    
+    /// Загрузка данных уровня
+    func fetchLevels() {
+        runStack.add { self._fetchLevels() }
+    }
+    
+    // Проверка подключения
+    private func _checkConnect() {
         API.Levels.checkConnect.request(ApiResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
@@ -59,7 +72,7 @@ final class AppStorage {
     }
     
     /// Получаем базовые  данные для приложения
-    func fetchAppInit() {
+    private func _fetchAppInit() {
         // Блокирование запроса, если он уже был загружен ранее
         guard !appInitLoaded else { return }
         
@@ -70,6 +83,7 @@ final class AppStorage {
                 self?.translationLangs = data.translationLangs
                 self?.voiceoverActors = data.voiceoverActors
                 self?.levelsCount = data.levelsCount
+                self?.appInitLoaded = true
             case .failure(let error):
                 if let data = Data.json(fileName: "AppInit", with: .json).asCodable(AppInitResponse.self) {
                     self?.voiceoverHost = data.voiceoverHost
@@ -85,7 +99,7 @@ final class AppStorage {
     }
     
     /// Загрузка данных уровня
-    func fetchLevels() {
+    private func _fetchLevels() {
         // Понижаем уровень до минимально допустимого, если количество загруженных уровней меньше
         if AppStorage.currentLevelIndex > levelsCount {
             AppStorage.setLevel(levelsCount)

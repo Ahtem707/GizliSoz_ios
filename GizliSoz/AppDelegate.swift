@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIViewController.swizzleViewController()
         UINavigationController.swizzleNavigationController()
         
-        AppStorage.appStart()
+        AppStorage.share = AppStorage()
+        AppStorage.share.appStart()
         AppStorage.userLoginCount += 1
         
         SoundPlayer.appStart()
@@ -33,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        AppStorage.saveData()
+        AppStorage.share.saveData()
     }
     
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
