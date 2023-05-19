@@ -4,6 +4,9 @@
     "nameTranslate": "Цвета 1",
     "size": 8,
     "chars": ["p","o","r","t","a","q","a","l"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [],
     "words": [
         {

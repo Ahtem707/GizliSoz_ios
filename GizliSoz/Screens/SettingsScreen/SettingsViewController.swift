@@ -25,6 +25,7 @@ final class SettingsViewController: BaseViewController {
         setupSubviews()
         setupLayouts()
         setupAppearance()
+        setupContent()
     }
 }
 
@@ -52,6 +53,10 @@ extension SettingsViewController {
     private func setupAppearance() {
         backImage.image = appearance.backImage
         tableView.backgroundColor = .clear
+    }
+    
+    private func setupContent() {
+        title = viewModel.getViewTitle()
     }
 }
 

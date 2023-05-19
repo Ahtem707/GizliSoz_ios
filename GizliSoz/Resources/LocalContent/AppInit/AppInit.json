@@ -6,18 +6,18 @@
         {
             "code": "en",
             "value": "English",
-            "isDefault": true
+            "isDefault": false
         },
         {
             "code": "ru",
             "value": "Русский",
-            "isDefault": false
+            "isDefault": true
         }
     ],
     "voiceoverActors": [
         {
             "code": "ahtemS",
-            "value": "Aхтем",
+            "value": "Ahtem",
             "isDefault": true
         }
     ]

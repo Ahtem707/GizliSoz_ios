@@ -1,0 +1,34 @@
+{
+    "result": 0,
+    "levels": [
+        {
+            "levelNumber": 1,
+            "name": "Selâmlavlar",
+            "nameTranslate": "Приветствия",
+            "size": 6,
+            "chars": ["m","e","r","a","b","a","s","l","â"],
+            "translateLang": "ru",
+            "voiceoverActor": "ahtemS",
+            "characterType": "latin",
+            "bonusWords": [],
+            "words": [
+                {
+                    "id": 0,
+                    "chars": ["m","e","r","a","b","a"],
+                    "x": [0,1,2,3,4,5],
+                    "y": [1,1,1,1,1,1],
+                    "translate": "здравствуйте, здравствуй",
+                    "voiceoverFile": "meraba.wav"
+                },
+                {
+                    "id": 1,
+                    "chars": ["s","e","l","â","m"],
+                    "x": [1,1,1,1,1],
+                    "y": [0,1,2,3,4],
+                    "translate": "привет",
+                    "voiceoverFile": "selam.wav"
+                }
+            ]
+        }
+    ]
+}

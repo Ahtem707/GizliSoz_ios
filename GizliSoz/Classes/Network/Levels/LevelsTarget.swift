@@ -12,7 +12,7 @@ extension API {
         
         case checkConnect
         case appInit
-        case getLevel(_ input: LevelRequest)
+        case getLevels(_ input: LevelsRequest)
         
         // MARK: - Internal
         
@@ -22,8 +22,8 @@ extension API {
                 return "checkConnect"
             case .appInit:
                 return "appInit"
-            case .getLevel:
-                return "getLevel"
+            case .getLevels:
+                return "getLevels"
             }
         }
         
@@ -39,7 +39,13 @@ extension API {
             switch self {
             case .checkConnect: return [:]
             case .appInit: return [:]
-            case .getLevel(let input): return input.asDictionary()
+            case .getLevels(let input):
+                return [
+                    "levelsNumber": input.levelsNumber.join(),
+                    "translateLang": input.translateLang,
+                    "voiceoverActor": input.voiceoverActor,
+                    "characterType": input.characterType
+                ]
             }
         }
         
@@ -50,11 +56,11 @@ extension API {
         var sampleData: Data {
             switch self {
             case .checkConnect:
-                return Data.json(fileName: "", with: .json)
+                return Data.json(fileName: "checkConnect", with: .json)
             case .appInit:
                 return Data.json(fileName: "appInit", with: .json)
-            case .getLevel:
-                return Data.json(fileName: "level", with: .json)
+            case .getLevels:
+                return Data.json(fileName: "levels", with: .json)
             }
         }
     }

@@ -24,11 +24,11 @@ extension LevelsViewModel {
 // MARK: - LevelViewModelProtocol
 extension LevelsViewModel: LevelsViewModelProtocol {
     func getViewTitle() -> String {
-        return "Seviyeler"
+        return AppText.LevelsScreen.levels
     }
     
     func getCollectionCount() -> Int {
-        return AppStorage.levelsCount
+        return AppStorage.share.levelsCount
     }
     
     func getCollectionItem(_ indexPath: IndexPath) -> LevelsCellModel {

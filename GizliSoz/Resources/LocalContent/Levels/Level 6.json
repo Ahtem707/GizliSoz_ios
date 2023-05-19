@@ -4,6 +4,9 @@
     "nameTranslate": "Части тела 2",
     "size": 6,
     "chars": ["t","i","r","n","a","q","ş","u"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [
         {
             "id": 101,

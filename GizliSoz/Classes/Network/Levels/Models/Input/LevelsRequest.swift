@@ -1,22 +1,22 @@
 //
-//  LevelRequest.swift
+//  LevelsRequest.swift
 //  GizliSoz
 //
-//  Created by Ahtem Sitjalilov on 12.05.2023.
+//  Created by Ahtem Sitjalilov on 18.05.2023.
 //
 
 import Foundation
 
-struct LevelRequest: Codable {
+struct LevelsRequest: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case levelNumber
+        case levelsNumber
         case translateLang
         case voiceoverActor
         case characterType
     }
     
-    let levelNumber: Int
+    let levelsNumber: [Int]
     let translateLang: String
     let voiceoverActor: String
     let characterType: CharacterType

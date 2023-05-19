@@ -4,6 +4,9 @@
     "nameTranslate": "Приветствия",
     "size": 6,
     "chars": ["m","e","r","a","b","a","s","l","â"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [],
     "words": [
         {

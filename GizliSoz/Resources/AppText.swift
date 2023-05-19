@@ -21,9 +21,15 @@ enum AppText {
     }
     
     enum SettingsScreen {
+        static let settings = MainScreen.settings
         static let hint = "Ihtar"
-        static let hintLang = "Ihtar tili"
+        static let hintLang = "Terciman tili"
         static let voiceoverActor = "Ses"
+        static let levelsCache = "Seviyeler cachi"
+    }
+    
+    enum LevelsScreen {
+        static let levels = MainScreen.levels
     }
 }
 
@@ -36,8 +42,9 @@ extension AppText {
         "Sözler": "Слова",
         "Qoşma sözler": "Бонусные слова",
         "Ihtar": "Подсказка",
-        "Ihtar tili": "Язык подсказки",
+        "Terciman tili": "Язык перевода",
         "Ses": "Голос озвучки",
+        "Seviyeler cachi": "Уровни кэширования",
     ]
     
     static let en: [String : String] = [
@@ -48,8 +55,9 @@ extension AppText {
         "Sözler": "Words",
         "Qoşma sözler": "Bonus words",
         "Ihtar": "Hint",
-        "Ihtar tili": "Hint language",
+        "Terciman tili": "Translation language",
         "Ses": "Voice acting",
+        "Seviyeler cachi": "Caching Levels"
     ]
 }
 

@@ -24,7 +24,7 @@ final class WordsListViewModel: BaseViewModel {
     
     func initialize() {
         
-        guard let level = AppStorage.currentLevel else { return }
+        guard let level = AppStorage.share.currentLevel else { return }
         
         words = level.words.compactMap {
             return WordCellData(

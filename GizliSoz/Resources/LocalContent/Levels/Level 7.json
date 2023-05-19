@@ -4,6 +4,9 @@
     "nameTranslate": "Животные 1",
     "size": 6,
     "chars": ["q","o","y","a","n","t","p","l","a"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [],
     "words": [
         {

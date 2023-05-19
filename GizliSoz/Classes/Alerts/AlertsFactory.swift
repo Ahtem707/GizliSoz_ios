@@ -47,6 +47,25 @@ class AlertsFactory {
         )
         rootViewController?.present(alert, animated: true)
     }
+    
+    static func makeServerError() {
+        let alert = UIAlertController(
+            title: "Mobil uyğulamada hata oldi",
+            message: nil,
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(
+            UIAlertAction(
+                title: "Yahşı",
+                style: .default,
+                handler: { _ in
+                    alert.dismiss(animated: true)
+                }
+            )
+        )
+        rootViewController?.present(alert, animated: true)
+    }
 }
 
 extension AlertsFactory {

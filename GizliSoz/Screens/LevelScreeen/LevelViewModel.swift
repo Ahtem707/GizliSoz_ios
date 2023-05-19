@@ -20,7 +20,7 @@ final class LevelViewModel: BaseViewModel {
     
     func initialize() {
         
-        guard let level = AppStorage.currentLevel else { return }
+        guard let level = AppStorage.share.currentLevel else { return }
         
         delegate?.setTitle(level.name)
         
@@ -128,7 +128,7 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
             playSound(id: id)
         } else {
             // Получаем текущий уровень
-            guard let level = AppStorage.currentLevel else { return }
+            guard let level = AppStorage.share.currentLevel else { return }
             
             if let bonusWord = level.bonusWords.first(where: { $0.word == word }) {
                 openBonusWords.append(bonusWord.id)

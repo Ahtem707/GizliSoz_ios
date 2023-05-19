@@ -39,12 +39,10 @@ final class API {
 
     func request<T: Codable>(_ type: T.Type, completion: @escaping RequestClosure<T>) {
         if runStack != nil {
-            if runStack != nil {
-                runStack?.add {
-                    API.variableRequest(type, target: self.target) { result in
-                        completion(result)
-                        self.runStack?.next()
-                    }
+            runStack?.add {
+                API.variableRequest(type, target: self.target) { result in
+                    completion(result)
+                    self.runStack?.next()
                 }
             }
         } else {

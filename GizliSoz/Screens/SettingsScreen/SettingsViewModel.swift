@@ -21,7 +21,7 @@ final class SettingsViewModel: BaseViewModel {
 // MARK: - Private functions
 extension SettingsViewModel {
     private func makeDataSource() {
-        let dataSource = [
+        let dataSource: [SettingsCellModel] = [
             SettingsSwitchCellModel(
                 title: AppText.SettingsScreen.hint,
                 isEnable: AppStorage.infoMessage,
@@ -43,13 +43,20 @@ extension SettingsViewModel {
                     self?.showVoiceActorLanguage()
                 }
             ),
+            SettingsValueCellModel(
+                title: AppText.SettingsScreen.levelsCache,
+                value: "\(AppStorage.levelsCacheCount)",
+                action: { [weak self] in
+                    self?.showCacheCount()
+                }
+            ),
         ].compactMap { return $0 as? SettingsCellModel }
         self.dataSource.removeAll()
         self.dataSource.append(contentsOf: dataSource)
     }
     
     private func showInfoLanguage() {
-        let dataSource = AppStorage.translationLangs.map { item in
+        let dataSource = AppStorage.share.translationLangs.map { item in
             return ActionSheetModel(
                 code: item.code,
                 title: item.value,
@@ -63,12 +70,28 @@ extension SettingsViewModel {
     }
     
     private func showVoiceActorLanguage() {
-        let dataSource = AppStorage.voiceoverActors.map { item in
+        let dataSource = AppStorage.share.voiceoverActors.map { item in
             return ActionSheetModel(
                 code: item.code,
                 title: item.value,
                 action: {
                     AppStorage.voiceoverActor = item
+                    self.updateDataSource()
+                }
+            )
+        }
+        ActionSheetFactory.makeDinamic(dataSource: dataSource)
+    }
+    
+    private func showCacheCount() {
+        let cacheVariable = [2, 5, 10, 20, 50]
+        let dataSource = cacheVariable.map { item in
+            let itemStr = String(item)
+            return ActionSheetModel(
+                code: itemStr,
+                title: itemStr,
+                action: {
+                    AppStorage.levelsCacheCount = item
                     self.updateDataSource()
                 }
             )
@@ -85,7 +108,7 @@ extension SettingsViewModel {
 // MARK: - SettingsViewModelProtocol
 extension SettingsViewModel: SettingsViewModelProtocol {
     func getViewTitle() -> String {
-        return "Sazlamalar"
+        return AppText.SettingsScreen.settings
     }
     
     func getTableCount() -> Int {

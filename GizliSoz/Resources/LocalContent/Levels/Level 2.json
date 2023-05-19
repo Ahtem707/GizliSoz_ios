@@ -4,6 +4,9 @@
     "nameTranslate": "Фрукты",
     "size": 5,
     "chars": ["a","y","v","a","l","m","r","u","t"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [],
     "words": [
         {

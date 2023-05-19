@@ -4,6 +4,9 @@
     "nameTranslate": "Цветы",
     "size": 6,
     "chars": ["n","a","r","g","ü","z","l","l","â","e"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [],
     "words": [
         {

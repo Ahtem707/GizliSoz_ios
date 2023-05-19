@@ -21,13 +21,13 @@ final class SoundPlayer {
     private init() {}
     
     func loadLevelSounds() {
-        if AppStorage.isServerAvailable {
+        if AppStorage.share.isServerAvailable {
             DispatchQueue(label: "Media").async { [weak self] in
-                guard let level = AppStorage.currentLevel else { return }
+                guard let level = AppStorage.share.currentLevel else { return }
                 
                 for word in level.words {
                     if let file = word.voiceoverFile,
-                       let url = AppStorage.voiceoverHost?.appendingPathComponent(file),
+                       let url = AppStorage.share.voiceoverHost?.appendingPathComponent(file),
                        let data = try? Data(contentsOf: url) {
                         self?.audioPlayers[word.id] = try? AVAudioPlayer(data: data)
                     }
@@ -35,14 +35,14 @@ final class SoundPlayer {
                 
                 for bonusWord in level.bonusWords {
                     if let file = bonusWord.voiceoverFile,
-                       let url = AppStorage.voiceoverHost?.appendingPathComponent(file),
+                       let url = AppStorage.share.voiceoverHost?.appendingPathComponent(file),
                        let data = try? Data(contentsOf: url) {
                         self?.audioPlayers[bonusWord.id] = try? AVAudioPlayer(data: data)
                     }
                 }
             }
         } else {
-            guard let level = AppStorage.currentLevel else { return }
+            guard let level = AppStorage.share.currentLevel else { return }
             
             for word in level.words {
                 guard let url = Bundle.main.url(forResource: word.voiceoverFile, withExtension: nil) else { return }

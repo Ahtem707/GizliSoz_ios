@@ -12,8 +12,11 @@ extension AppStorage {
     @UserDefault("userLoginCount", 0)
     static var userLoginCount: Int
     
-    @UserDefault("levelsCacheCount", 30)
-    static var  levelsCacheCount: Int
+    @UserDefault("levels", [])
+    static var levels: [Level]
+    
+    @UserDefault("levelsCacheCount", 5)
+    static var levelsCacheCount: Int
     
     @UserDefault("currentLevelIndex", 1)
     private(set) static var currentLevelIndex: Int
@@ -34,30 +37,30 @@ extension AppStorage {
     static var isActiveVoiceover: Bool
     
     @UserDefault("voiceoverActor", "default")
-    static var _voiceoverActor: String {
-        didSet { AppStorage.share.fetchLevel() }
+    private static var _voiceoverActor: String {
+        didSet { AppStorage.share.fetchLevels() }
     }
     
     @UserDefault("translationLang", "default")
     private static var _translationLang: String {
-        didSet { AppStorage.share.fetchLevel() }
+        didSet { AppStorage.share.fetchLevels() }
     }
     
     @UserDefault("characterType", CharacterType.latin)
     static var characterType: CharacterType {
-        didSet { AppStorage.share.fetchLevel() }
+        didSet { AppStorage.share.fetchLevels() }
     }
     
     @UserDefault("infoMessage", true)
     static var infoMessage: Bool
     
     static func levelUp() -> Bool {
-        if currentLevelIndex < levelsCount {
+        if currentLevelIndex < AppStorage.share.levelsCount {
             currentLevelIndex += 1
             if currentLevelIndex > lastOpenedLevelIndex {
                 lastOpenedLevelIndex = currentLevelIndex
             }
-            AppStorage.share.fetchLevel()
+            AppStorage.share.fetchLevels()
             return true
         } else {
             return false
@@ -66,7 +69,7 @@ extension AppStorage {
     
     @discardableResult
     static func setLevel(_ value: Int) -> Bool {
-        guard value <= levelsCount else {
+        guard value <= AppStorage.share.levelsCount else {
             assertionFailure("Неправильная установка уровня")
             return false
         }
@@ -74,15 +77,18 @@ extension AppStorage {
         guard value <= lastOpenedLevelIndex else { return false }
         
         currentLevelIndex = value
-        AppStorage.share.fetchLevel()
+        AppStorage.share.fetchLevels()
         return true
     }
     
     static var translationLang: Parameter {
         get {
-            if let value = translationLangs.first(where: { $0.code == _translationLang }) {
+            let langs = AppStorage.share.translationLangs
+            if let value = langs.first(where: { $0.code == _translationLang }) {
                 return value
-            } else if let value = translationLangs.first {
+            } else if let value = langs.first(where: { $0.isDefault == true }) {
+                return value
+            } else if let value = langs.first {
                 return value
             } else {
                 return Parameter.default
@@ -95,9 +101,12 @@ extension AppStorage {
     
     static var voiceoverActor: Parameter {
         get {
-            if let value = voiceoverActors.first(where: { $0.code == _voiceoverActor }) {
+            let actors = AppStorage.share.voiceoverActors
+            if let value = actors.first(where: { $0.code == _voiceoverActor }) {
                 return value
-            } else if let value = voiceoverActors.first {
+            } else if let value = actors.first(where: { $0.isDefault == true }) {
+                return value
+            } else if let value = actors.first {
                 return value
             } else {
                 return Parameter.default

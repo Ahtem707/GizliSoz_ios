@@ -4,6 +4,9 @@
     "nameTranslate": "Ягоды",
     "size": 6,
     "chars": ["a","h","u","d","u","t","q","v","n"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [],
     "words": [
         {

@@ -4,6 +4,9 @@
     "nameTranslate": "Животные 2",
     "size": 6,
     "chars": ["j","i","r","a","f","e","l","d","v","e"],
+    "translateLang": "ru",
+    "voiceoverActor": "ahtemS",
+    "characterType": "latin",
     "bonusWords": [],
     "words": [
         {
