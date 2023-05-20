@@ -52,6 +52,7 @@ final class KeyboardView: UIView {
     private var additionalPositions: [CGPoint] = []
     private var isSetupLayouts: Bool = false
     private var isShuffleAnimation: Bool = false
+    private var isHammerActive: Bool = false
     
     // MARK: - Lifecycle functions
     override func layoutSubviews() {
@@ -299,8 +300,10 @@ extension KeyboardView {
         }
         
         // Выключить режим молотка
-        if gesture.state == .began {
+        let hammerStatus = additionalButtons.first(where: { $0.type == .hammer })?.isSelected ?? false
+        if gesture.state == .began && hammerStatus {
             viewModel?.turnOffHammerFromKeyboardView()
+            return
         }
         
         // Обработать нажатие для кнопки перемешивания и выйти
