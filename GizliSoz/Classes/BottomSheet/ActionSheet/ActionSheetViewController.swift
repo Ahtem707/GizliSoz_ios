@@ -21,7 +21,7 @@ extension ActionSheetViewController {
         let viewBackground = UIColor.init(white: 255, alpha: 0)
         let contentViewBackground = UIColor(0xFFFFFF)
         let indicatorBackground = UIColor(0xC8CCDB)
-        let tableViewBackground = UIColor(0xFFFFFF)
+        let tableViewBackground = UIColor.init(white: 255, alpha: 0)
         let animationDuration: CGFloat = 0.25
     }
 }
@@ -43,6 +43,7 @@ class ActionSheetViewController: UIViewController {
     private let tableView = UITableView()
     
     private var contentViewHeight: NSLayoutConstraint?
+    private var contentViewBottom: NSLayoutConstraint?
     
     // MARK: View Lifecycle
     override func viewDidLoad() {
@@ -83,11 +84,11 @@ extension ActionSheetViewController {
     
     private func setupLayouts() {
         NSLayoutConstraint.activate([
-            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: view.leftAnchor),
             contentView.rightAnchor.constraint(equalTo: view.rightAnchor),
         ])
         contentViewHeight = contentView.heightAnchor.constraint(equalToConstant: 0).activate()
+        contentViewBottom = contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor).activate()
         
         contentView.setRoundCorners(corners: [.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: layouts.containerViewRadius)
         
@@ -117,20 +118,23 @@ extension ActionSheetViewController {
     
     private func updateContentHeight(_ value: CGFloat?) {
         if let value = value {
+            if view.bounds.height > value {
+                contentViewHeight?.constant = value
+                contentViewBottom?.constant = value
+            } else {
+                contentViewHeight?.constant = view.bounds.height
+                contentViewBottom?.constant = view.bounds.height
+            }
+            view.layoutIfNeeded()
+            
+            contentViewBottom?.constant = .zero
             UIView.animate(withDuration: appearance.animationDuration, animations: { [weak self] in
-                guard let self = self else { return }
-                if self.view.bounds.height > value {
-                    self.contentViewHeight?.constant = value
-                } else {
-                    self.contentViewHeight?.constant = self.view.bounds.height
-                }
-                self.view.layoutIfNeeded()
+                self?.view.layoutIfNeeded()
             })
         } else {
+            contentViewBottom?.constant = contentViewHeight?.constant ?? .zero
             UIView.animate(withDuration: appearance.animationDuration, animations: { [weak self] in
-                guard let self = self else { return }
-                self.contentViewHeight?.constant = 0
-                self.view.layoutIfNeeded()
+                self?.view.layoutIfNeeded()
             },
             completion: { [weak self] _ in
                 self?.dismiss(animated: false)
