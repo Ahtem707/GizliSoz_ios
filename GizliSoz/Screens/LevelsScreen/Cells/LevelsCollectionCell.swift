@@ -70,7 +70,6 @@ class LevelsCollectionCell: UICollectionViewCell {
 // MARK: - Private functions
 extension LevelsCollectionCell {
     private func setupSubviews() {
-        translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
         subIcon.translatesAutoresizingMaskIntoConstraints = false
         
