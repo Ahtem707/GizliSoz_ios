@@ -23,10 +23,11 @@ extension SettingsViewModel {
     private func makeDataSource() {
         let dataSource: [SettingsCellModel] = [
             SettingsSwitchCellModel(
-                title: AppText.SettingsScreen.hint,
+                title: AppText.SettingsScreen.infoMessage,
                 isEnable: AppStorage.infoMessage,
-                action: { value in
+                action: { [weak self] value in
                     AppStorage.infoMessage = value
+                    self?.delegate?.showExampleInfoMessage()
                 }
             ),
             SettingsValueCellModel(

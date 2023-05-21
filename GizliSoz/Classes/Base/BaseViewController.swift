@@ -16,6 +16,23 @@ protocol ViewControllerProtocol: AnyObject {
 
 class ViewControllerImplement: UIViewController {
     
+    private let titleLabel = AppLabel()
+    
+    override var title: String? {
+        didSet {
+            titleLabel.text = title
+            titleLabel.textColor = AppColor.Text.white
+            titleLabel.font = AppFont.font(style: .bold, size: 20)
+            navigationItem.titleView = titleLabel
+        }
+    }
+    
+    var titleTranslate: String? {
+        didSet {
+            titleLabel.tipViewText = titleTranslate
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +44,6 @@ class ViewControllerImplement: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        navigationItem.backButtonTitle = "Artqa"
+        navigationItem.backButtonTitle = AppText.System.back
     }
 }

@@ -19,9 +19,9 @@ final class MainViewController: BaseViewController {
     private let logoImage = UIImageView()
     private let stackContainer = UIView()
     private let stack = UIStackView()
-    private let levelButton = UIButton()
-    private let settingButton = UIButton()
-    private let startButton = UIButton()
+    private let levelButton = AppButton()
+    private let settingButton = AppButton()
+    private let startButton = AppButton()
     
     enum Constraint {
         case logo
@@ -125,6 +125,10 @@ extension MainViewController {
         levelButton.setTitle(AppText.MainScreen.levels, for: .normal)
         settingButton.setTitle(AppText.MainScreen.settings, for: .normal)
         startButton.setTitle(AppText.MainScreen.start, for: .normal)
+        
+        levelButton.tipViewText = levelButton.titleLabel?.text?.translate
+        settingButton.tipViewText = settingButton.titleLabel?.text?.translate
+        startButton.tipViewText = startButton.titleLabel?.text?.translate
     }
     
     private func setupAction() {

@@ -26,13 +26,14 @@ final class SettingsMoreCell: UITableViewCell {
     // MARK: - Private variable
     private let layouts = Layouts()
     private let appearance = Appearance()
-    private let label = UILabel()
+    private let label = AppLabel()
     private let button = UIButton()
     
     // MARK: - Public variable
     var title: String = "" {
         didSet {
             label.text = title
+            label.tipViewText = title.translate
         }
     }
     var action: (()->Void)?
@@ -61,7 +62,6 @@ extension SettingsMoreCell {
         contentView.addSubview(label)
         contentView.addSubview(button)
         
-        label.addTipView()
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     

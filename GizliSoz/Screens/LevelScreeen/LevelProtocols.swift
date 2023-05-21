@@ -17,7 +17,7 @@ protocol LevelViewModelProtocol: AnyObject {
 
 protocol LevelViewControllerDelegate: AnyObject {
     /// Установить название экрана
-    func setTitle(_ text: String)
+    func setTitle(text: String, translate: String?)
     
     /// Навигация к viewController
     func presentVC(_ viewController: UIViewController)

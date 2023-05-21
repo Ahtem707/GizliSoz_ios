@@ -63,6 +63,7 @@ extension LevelsViewController {
     
     private func setupContent() {
         title = viewModel.getViewTitle()
+        titleTranslate = viewModel.getViewTitle().translate
     }
 }
 

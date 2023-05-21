@@ -26,7 +26,7 @@ final class SettingsValueCell: UITableViewCell {
     // MARK: - Private variable
     private let layouts = Layouts()
     private let appearance = Appearance()
-    private let titlelLabel = UILabel()
+    private let titlelLabel = AppLabel()
     private let valueLabel = UILabel()
     private let button = UIButton()
     
@@ -34,6 +34,7 @@ final class SettingsValueCell: UITableViewCell {
     var title: String = "" {
         didSet {
             titlelLabel.text = title
+            titlelLabel.tipViewText = title.translate
         }
     }
     
@@ -71,7 +72,6 @@ extension SettingsValueCell {
         contentView.addSubview(valueLabel)
         contentView.addSubview(button)
         
-        titlelLabel.addTipView()
         button.addTarget(self, action: #selector(valueAction), for: .touchUpInside)
     }
     

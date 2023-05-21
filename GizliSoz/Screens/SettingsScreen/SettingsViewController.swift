@@ -57,6 +57,7 @@ extension SettingsViewController {
     
     private func setupContent() {
         title = viewModel.getViewTitle()
+        titleTranslate = viewModel.getViewTitle().translate
     }
 }
 
@@ -68,6 +69,10 @@ extension SettingsViewController: SettingsViewControllerDelegate {
         } else {
             tableView.reloadData()
         }
+    }
+    
+    func showExampleInfoMessage() {
+        navigationItem.titleView?.showTipView(titleTranslate ?? "")
     }
 }
 

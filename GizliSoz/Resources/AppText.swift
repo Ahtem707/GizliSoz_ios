@@ -8,6 +8,10 @@
 import Foundation
 
 enum AppText {
+    enum System {
+        static let back = "Artqa"
+    }
+    
     enum MainScreen {
         static let levels = "Seviyeler"
         static let settings = "Sazlamalar"
@@ -22,7 +26,7 @@ enum AppText {
     
     enum SettingsScreen {
         static let settings = MainScreen.settings
-        static let hint = "Ihtar"
+        static let infoMessage = "Kenar tarifler"
         static let hintLang = "Terciman tili"
         static let voiceoverActor = "Ses"
         static let levelsCache = "Seviyeler cachi"
@@ -32,35 +36,52 @@ enum AppText {
     enum LevelsScreen {
         static let levels = MainScreen.levels
     }
+    
+    enum LevelScreen {
+        static let hint = "Ihtar: tesaduf santıra açila"
+        static let hammer = "Çöküç ihtari: istegen santırani açmaqa olasiz"
+        static let bonusWords = "Sözler: açqan sözlerni köstere"
+        static let sound = "Söz sesi avuştırıcı"
+    }
 }
 
 extension AppText {
     static let ru: [String : String] = [
+        "Artqa": "Назад",
         "Seviyeler": "Уровни",
         "Sazlamalar": "Настройки",
         "Başlamaq": "Начать",
         "Devam etem": "Продолжаю",
         "Sözler": "Слова",
         "Qoşma sözler": "Бонусные слова",
-        "Ihtar": "Подсказка",
+        "Kenar tarifler": "Описание поля",
         "Terciman tili": "Язык перевода",
         "Ses": "Голос озвучки",
         "Seviyeler cachi": "Уровни кэширования",
         "Elifbe":"Алфавит",
+        "Ihtar: tesaduf santıra açila": "Подсказка: открывается любая ячейка",
+        "Çöküç ihtari: istegen santırani açmaqa olasiz": "Подсказка молотком: открывается ячейка по вашему выбору",
+        "Sözler: açqan sözlerni köstere": "Слова: отображаются открытые слова",
+        "Söz sesi avuştırıcı": "Переключатель озвучки слова"
     ]
     
     static let en: [String : String] = [
+        "Artqa": "Back",
         "Seviyeler": "Levels",
         "Sazlamalar": "Settings",
         "Başlamaq": "Start",
         "Devam etem": "I continue",
         "Sözler": "Words",
         "Qoşma sözler": "Bonus words",
-        "Ihtar": "Hint",
+        "Kenar tarifler": "Description of the field",
         "Terciman tili": "Translation language",
         "Ses": "Voice acting",
         "Seviyeler cachi": "Caching Levels",
         "Elifbe":"Alphabet",
+        "Ihtar: tesaduf santıra açila": "Hint: any cell opens",
+        "Çöküç ihtari: istegen santırani açmaqa olasiz": "Hammer tip: a cell of your choice opens",
+        "Sözler: açqan sözlerni köstere": "Words: Open words are displayed",
+        "Söz sesi avuştırıcı": "Switch for voice-over of a word"
     ]
 }
 

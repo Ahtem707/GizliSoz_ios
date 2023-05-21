@@ -24,13 +24,14 @@ final class SettingsSwitchCell: UITableViewCell {
     // MARK: - Private variable
     private let layouts = Layouts()
     private let appearance = Appearance()
-    private let label = UILabel()
+    private let label = AppLabel()
     private let switchView = UISwitch()
     
     // MARK: - Public variable
     var title: String = "" {
         didSet {
             label.text = title
+            label.tipViewText = title.translate
         }
     }
     var isEnable: Bool = false {
@@ -64,7 +65,6 @@ extension SettingsSwitchCell {
         contentView.addSubview(label)
         contentView.addSubview(switchView)
         
-        label.addTipView()
         switchView.addTarget(self, action: #selector(switchViewAction), for: .valueChanged)
     }
     

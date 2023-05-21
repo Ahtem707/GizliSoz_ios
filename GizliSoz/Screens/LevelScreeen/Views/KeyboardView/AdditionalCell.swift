@@ -38,7 +38,7 @@ class AdditionalCellBuilder {
     }
 }
 
-final class AdditionalCell: UIView {
+final class AdditionalCell: AppView {
     
     typealias B = AdditionalCellBuilder
     
@@ -56,6 +56,7 @@ final class AdditionalCell: UIView {
             switch type {
             case .hint:
                 backImage.image = appearance.hintEnableImage
+                tipViewText = "Ihtar".translate
             case .hammer:
                 backImage.image = appearance.hammerEnableImage
             case .bonusWords:
@@ -65,6 +66,24 @@ final class AdditionalCell: UIView {
             }
         }
     }
+    
+    func longTap() {
+        guard let type = type else { return }
+        let text: String
+        switch type {
+        case .hint: text = AppText.LevelScreen.hint
+        case .hammer: text = AppText.LevelScreen.hammer
+        case .bonusWords: text = AppText.LevelScreen.bonusWords
+        case .sound: text = AppText.LevelScreen.sound
+        }
+        
+        if let translateText = text.translate {
+            showTipView("\(text)\n\(translateText)")
+        } else {
+            showTipView("\(text)")
+        }
+    }
+    
     var counter: String? {
         didSet {
             if let counter = counter, counter != "", counter != "0" {

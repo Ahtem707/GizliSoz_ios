@@ -150,6 +150,9 @@
 		18DFF7AA2A17D66600FD7A2E /* AdvancedOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */; };
 		18DFF7AD2A18043B00FD7A2E /* AppInitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7AC2A18043B00FD7A2E /* AppInitRequest.swift */; };
 		18E34EB229D9882F0094CBBA /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB129D9882F0094CBBA /* AppText.swift */; };
+		18FBB1892A19F9DE00BE1A4C /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBB1882A19F9DE00BE1A4C /* AppLabel.swift */; };
+		18FBB18B2A19FD5500BE1A4C /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBB18A2A19FD5500BE1A4C /* AppButton.swift */; };
+		18FBB18D2A1A048800BE1A4C /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBB18C2A1A048800BE1A4C /* AppView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -298,6 +301,9 @@
 		18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableCell.swift; sourceTree = "<group>"; };
 		18E34EB129D9882F0094CBBA /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableHeader.swift; sourceTree = "<group>"; };
+		18FBB1882A19F9DE00BE1A4C /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
+		18FBB18A2A19FD5500BE1A4C /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		18FBB18C2A1A048800BE1A4C /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,6 +551,9 @@
 			isa = PBXGroup;
 			children = (
 				18D943E42A13EE5E000BEF86 /* EasyTipView.swift */,
+				18FBB1882A19F9DE00BE1A4C /* AppLabel.swift */,
+				18FBB18A2A19FD5500BE1A4C /* AppButton.swift */,
+				18FBB18C2A1A048800BE1A4C /* AppView.swift */,
 			);
 			path = AppComponents;
 			sourceTree = "<group>";
@@ -955,6 +964,7 @@
 				180596052A104205006A0E2A /* SettingsViewModel.swift in Sources */,
 				180596022A104205006A0E2A /* SettingsProtocols.swift in Sources */,
 				180595F92A1041F6006A0E2A /* LevelViewModel.swift in Sources */,
+				18FBB18D2A1A048800BE1A4C /* AppView.swift in Sources */,
 				185D6D6B296866B700B10CD8 /* ActionSheetModel.swift in Sources */,
 				187C2C5D29199FBD0036F43A /* Array.swift in Sources */,
 				187C2C4E29186F280036F43A /* TargetProtocol.swift in Sources */,
@@ -1002,6 +1012,7 @@
 				187C2C3F2917E4D00036F43A /* API.swift in Sources */,
 				180595FB2A1041F9006A0E2A /* KeyboardGestureRecognizer.swift in Sources */,
 				180595FD2A1041F9006A0E2A /* KeyboardLogic.swift in Sources */,
+				18FBB1892A19F9DE00BE1A4C /* AppLabel.swift in Sources */,
 				18D943E52A13EE5F000BEF86 /* EasyTipView.swift in Sources */,
 				180595F62A1041F1006A0E2A /* WordTableCell.swift in Sources */,
 				187C2C49291861C10036F43A /* LevelsTarget.swift in Sources */,
@@ -1016,6 +1027,7 @@
 				180596092A104211006A0E2A /* LevelsBuilder.swift in Sources */,
 				1835AA952A122AB700AF3887 /* checkConnect.json in Sources */,
 				1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */,
+				18FBB18B2A19FD5500BE1A4C /* AppButton.swift in Sources */,
 				187C2C062916EB650036F43A /* AppImage.swift in Sources */,
 				180596072A104208006A0E2A /* SettingsSwitchCell.swift in Sources */,
 				1813F3DC2A0E98BC001BDBFC /* AppInitResponse.swift in Sources */,

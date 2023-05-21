@@ -74,8 +74,9 @@ extension LevelViewController {
 
 // MARK: - LevelViewControllerDelegate
 extension LevelViewController: LevelViewControllerDelegate {
-    func setTitle(_ text: String) {
+    func setTitle(text: String, translate: String?) {
         title = text
+        titleTranslate = translate
     }
     
     func presentVC(_ viewController: UIViewController) {

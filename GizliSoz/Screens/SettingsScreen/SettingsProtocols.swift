@@ -17,4 +17,6 @@ protocol SettingsViewModelProtocol: AnyObject {
 
 protocol SettingsViewControllerDelegate: AnyObject {
     func reloadTable(_ indexPath: IndexPath?)
+    
+    func showExampleInfoMessage()
 }

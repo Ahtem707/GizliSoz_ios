@@ -9,7 +9,7 @@ import UIKit
 import EasyTipView
 
 extension EasyTipView {
-    static let appPreferences: EasyTipView.Preferences = {
+    fileprivate static let appPreferences: EasyTipView.Preferences = {
         var preferences = EasyTipView.globalPreferences
         preferences.drawing.shadowRadius = 2
         preferences.drawing.shadowOpacity = 0.75
@@ -19,13 +19,9 @@ extension EasyTipView {
     }()
 }
 
-extension UIView: EasyTipViewDelegate {
-    fileprivate static var tipView: EasyTipView?
+final private class EasyTipViewDelegateImpl: EasyTipViewDelegate {
     
-    func showTipView(_ text: String) {
-        UIView.tipView = EasyTipView(text: text, preferences: EasyTipView.appPreferences, delegate: self)
-        UIView.tipView?.show(forView: self)
-    }
+    fileprivate static let delegate = EasyTipViewDelegateImpl()
     
     public func easyTipViewDidTap(_ tipView: EasyTipView) {}
     
@@ -34,46 +30,31 @@ extension UIView: EasyTipViewDelegate {
     }
 }
 
-extension UILabel {
-    func addTipView() {
-        let tap = UILongPressGestureRecognizer(target: self, action: #selector(longTapAction))
-        addGestureRecognizer(tap)
+extension UIView {
+    private static var topView: UIView? {
+        return UIApplication.shared.keyWindow?.rootViewController?.view
     }
     
-    @objc private func longTapAction(_ selector: UIView) {
-        if UIView.tipView == nil {
-            guard let text = text?.translate else { return }
-            
-            self.showTipView(text)
+    static var tipView: EasyTipView? {
+        didSet {
+            topView?.gestureRecognizers?.removeAll(where: { $0.name == "tapScreenForTipView" })
         }
     }
-}
-
-extension UIButton {
-    static func swizzle() {
-        let originalSelector = #selector(UIButton.setTitle)
-        let swizzledSelector = #selector(UIButton._tracked_setTitle)
-        let originalMethod = class_getInstanceMethod(self, originalSelector)
-        let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-        method_exchangeImplementations(originalMethod!, swizzledMethod!)
+    
+    func showTipView(_ text: String) {
+        guard AppStorage.infoMessage else { return }
+        guard UIView.tipView == nil else { return }
+        UIView.tipView = EasyTipView(text: text, preferences: EasyTipView.appPreferences, delegate: EasyTipViewDelegateImpl.delegate)
+        UIView.tipView?.show(forView: self)
+        
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(tapScreenAction))
+        tapScreen.name = "tapScreenForTipView"
+        UIView.topView?.addGestureRecognizer(tapScreen)
     }
     
-    @objc private func _tracked_setTitle(_ title: String?, for state: UIControl.State) {
-        setupTooltipView()
-        _tracked_setTitle(title, for: state)
-    }
-    
-    private func setupTooltipView() {
-        let tap = UILongPressGestureRecognizer(target: self, action: #selector(longTapAction))
-        addGestureRecognizer(tap)
-    }
-    
-    @objc private func longTapAction(_ selector: UIView) {
-        if UIView.tipView == nil {
-            guard let text = titleLabel?.text?.translate else { return }
-            
-            self.showTipView(text)
-        }
+    @objc private func tapScreenAction(_ selector: UIView) {
+        UIView.tipView?.dismiss()
+        UIView.tipView = nil
     }
 }
 

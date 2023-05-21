@@ -7,6 +7,12 @@
 
 import UIKit
 
+extension Date {
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+}
+
 class KeyboardViewBuilder {
     
     struct Layouts {
@@ -53,6 +59,7 @@ final class KeyboardView: UIView {
     private var isSetupLayouts: Bool = false
     private var isShuffleAnimation: Bool = false
     private var isHammerActive: Bool = false
+    private var longPointTimerStart: Date?
     
     // MARK: - Lifecycle functions
     override func layoutSubviews() {
@@ -312,12 +319,30 @@ extension KeyboardView {
             return
         }
         
-        // Обработать нажатие для дополнительных кнопок и выйти
-        if gesture.state == .began {
-            for cell in additionalButtons {
-                if KeyboardLogic.hoverZone(view: cell, point: point) {
-                    additionalHandlePan(cell.type)
-                    return
+        // Запуск счетчика долгого нажатия
+        if gesture.state == .began && longPointTimerStart == nil {
+            longPointTimerStart = Date()
+        }
+        
+        // Обработать нажатие для дополнительных кнопок
+        if gesture.state == .ended {
+            if let timeStart = longPointTimerStart {
+                longPointTimerStart = nil
+                let longPointTime = Float(Date() - timeStart)
+                if 0.3 > longPointTime {
+                    for cell in additionalButtons {
+                        if KeyboardLogic.hoverZone(view: cell, point: point) {
+                            additionalTap(cell.type)
+                            return
+                        }
+                    }
+                } else {
+                    for cell in additionalButtons {
+                        if KeyboardLogic.hoverZone(view: cell, point: point) {
+                            additionalLongPress(cell.type)
+                            return
+                        }
+                    }
                 }
             }
         }
@@ -360,6 +385,7 @@ extension KeyboardView {
                 }
             }
         case .ended:
+            longPointTimerStart = nil
             guard lastPoint != nil else { return }
             wordComplete()
             defaultState()
@@ -376,7 +402,7 @@ extension KeyboardView {
         moveCharsCells()
     }
     
-    private func additionalHandlePan(_ type: AdditionalCellBuilder.Types) {
+    private func additionalTap(_ type: AdditionalCellBuilder.Types) {
         switch type {
         case .hint:
             viewModel?.hintHandle()
@@ -387,6 +413,10 @@ extension KeyboardView {
         case .sound:
             viewModel?.soundHandle()
         }
+    }
+    
+    private func additionalLongPress(_ type: AdditionalCellBuilder.Types) {
+        additionalButtons.first(where: { $0.type == type })?.longTap()
     }
     
     /// Завершение составление слова
