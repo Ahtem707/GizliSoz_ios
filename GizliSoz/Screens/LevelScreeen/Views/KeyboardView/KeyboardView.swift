@@ -313,10 +313,16 @@ extension KeyboardView {
             return
         }
         
-        // Обработать нажатие для кнопки перемешивания и выйти
+        // Обработать нажатие для кнопки перемешивания
         if nextButton.superview == nil, gesture.state == .began && KeyboardLogic.hoverZone(view: shuffleCell, point: point) {
             shuffleHandlePan()
             return
+        }
+        
+        // Обработать нажатие для кнопки перехода на следующий уровень
+        if nextButton.superview != nil, gesture.state == .began && KeyboardLogic.hoverZone(view: nextButton, point: point) {
+            let status = AppStorage.levelUp()
+            viewModel?.levelUp(status: status)
         }
         
         // Запуск счетчика долгого нажатия
@@ -345,11 +351,6 @@ extension KeyboardView {
                     }
                 }
             }
-        }
-        
-        if nextButton.superview != nil, gesture.state == .began && KeyboardLogic.hoverZone(view: nextButton, point: point) {
-            let status = AppStorage.levelUp()
-            viewModel?.levelUp(status: status)
         }
         
         // Получить список не выбранных ячеек
@@ -497,6 +498,7 @@ extension KeyboardView: LevelKeyboardViewDelegate {
             additionalButtons.append(cell)
         }
         
+        // Настройка кнопки перехода на следующий уровень
         nextButton.backgroundColor = AppColor.Keyboard.select
         nextButton.setTitle(AppText.MainScreen.nextButton, for: .normal)
         nextButton.titleLabel?.font = AppFont.font(style: .regular, size: 30)
@@ -532,6 +534,7 @@ extension KeyboardView: LevelKeyboardViewDelegate {
         cells.removeAll()
         selectedCells.removeAll()
         additionalButtons.removeAll()
+        gestureRecognizers?.removeAll()
     }
     
     func levelComplete() {
