@@ -74,7 +74,10 @@ final class AppStorage {
     /// Получаем базовые  данные для приложения
     private func _fetchAppInit() {
         // Блокирование запроса, если он уже был загружен ранее
-        guard !appInitLoaded else { return }
+        guard !appInitLoaded else {
+            runStack.next()
+            return
+        }
         
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "None"
         
@@ -121,23 +124,25 @@ final class AppStorage {
         // Уровни которые находятся в кэше
         let levelsInCache = AppStorage.share.levels.map { $0.levelNumber }
         
-        // Проверяем на минимальный индекс кэша и не отправляем запрос, если он в пределах допустимого
+        // Минимальный индекс кэша
         let minCacheIndex = AppStorage.currentLevelIndex + AppStorage.levelsCacheCount / 2
-        if levelsInCache.contains(minCacheIndex) { return }
         
-        // Предварительно определяем уровни которые необходимы
-        let startIndex = AppStorage.currentLevelIndex
-        var endIndex = AppStorage.currentLevelIndex + AppStorage.levelsCacheCount
+        // Предварительно определяем обязательные и необязательные уровни
+        var mandatoryLevels = Array(AppStorage.currentLevelIndex...minCacheIndex)
+        var optionalLevels = Array((minCacheIndex+1)..<AppStorage.currentLevelIndex + AppStorage.levelsCacheCount)
         
-        // Ограничиваем конечный индекс запрашиваемых уровней, границей существующих уровней
-        if endIndex > levelsCount { endIndex = levelsCount }
+        // Исключаем уровни которые уже существуют в кэше и те что за превышают максимальное количество уровней
+        mandatoryLevels.removeAll { levelsInCache.contains($0) || $0 > levelsCount }
+        optionalLevels.removeAll { levelsInCache.contains($0) || $0 > levelsCount }
         
-        // Создаем диапазон запрашиваемых уровней и исключаем из них, те что уже существуют в кэше
-        var loadLevels = [Int](startIndex..<endIndex)
-        loadLevels.removeAll { levelsInCache.contains($0) }
+        // Проверяем на обязательные уровни
+        if mandatoryLevels.isEmpty {
+            runStack.next()
+            return
+        }
         
-        // Если список запрашиваемых уровней пустой, то не отправляем запрос
-        guard loadLevels.count > 0 else { return }
+        // Создаем общий массив запрашиваемых уровней
+        let loadLevels = mandatoryLevels + optionalLevels
         
         API.Levels.getLevels(
             .init(

@@ -19,6 +19,10 @@ class RunStack {
         self.maxRuns = maxRuns
     }
     
+    var count: Int {
+        return runStack.count
+    }
+    
     /// Добавить новую функцию в стек
     func add(completion: @escaping Completion) {
         if let maxRuns = maxRuns, runStack.count >= maxRuns { return }
