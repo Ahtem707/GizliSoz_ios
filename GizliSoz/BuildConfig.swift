@@ -14,8 +14,8 @@ struct BuildConfig {
         #if PRODUCTION
             return "http://82.146.49.164:8005/"
         #elseif DEBUG
-//            return "http://82.146.49.164:8005/"
-            return "http://127.0.0.1:8005/"
+            return "http://82.146.49.164:8005/"
+//            return "http://127.0.0.1:8005/"
         #else
             return "http://127.0.0.1:8005/"
         #endif

@@ -51,13 +51,13 @@ extension SettingsViewModel {
                     self?.showCacheCount()
                 }
             ),
-            SettingsValueCellModel(
-                title: AppText.SettingsScreen.alphabet,
-                value: "\(AppStorage.characterType.text)",
-                action: { [weak self] in
-                    self?.showSelectCharType()
-                }
-            ),
+//            SettingsValueCellModel(
+//                title: AppText.SettingsScreen.alphabet,
+//                value: "\(AppStorage.characterType.text)",
+//                action: { [weak self] in
+//                    self?.showSelectCharType()
+//                }
+//            ),
         ].compactMap { return $0 as? SettingsCellModel }
         self.dataSource.removeAll()
         self.dataSource.append(contentsOf: dataSource)

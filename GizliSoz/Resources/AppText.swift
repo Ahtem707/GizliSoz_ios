@@ -29,7 +29,7 @@ enum AppText {
         static let infoMessage = "Kenar tarifler"
         static let hintLang = "Terciman tili"
         static let voiceoverActor = "Ses"
-        static let levelsCache = "Seviyeler cachi"
+        static let levelsCache = "Cache"
         static let alphabet = "Elifbe"
     }
     
@@ -57,7 +57,7 @@ extension AppText {
         "Kenar tarifler": "Описание поля",
         "Terciman tili": "Язык перевода",
         "Ses": "Голос озвучки",
-        "Seviyeler cachi": "Уровни кэширования",
+        "Cache": "Кэш",
         "Elifbe":"Алфавит",
         "Ihtar: tesaduf santıra açila": "Подсказка: открывается любая ячейка",
         "Çöküç ihtari: istegen santırani açmaqa olasiz": "Подсказка молотком: открывается ячейка по вашему выбору",
@@ -76,7 +76,7 @@ extension AppText {
         "Kenar tarifler": "Description of the field",
         "Terciman tili": "Translation language",
         "Ses": "Voice acting",
-        "Seviyeler cachi": "Caching Levels",
+        "Cache": "Cache",
         "Elifbe":"Alphabet",
         "Ihtar: tesaduf santıra açila": "Hint: any cell opens",
         "Çöküç ihtari: istegen santırani açmaqa olasiz": "Hammer tip: a cell of your choice opens",

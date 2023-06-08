@@ -15,7 +15,7 @@ extension AppStorage {
     @UserDefault("levels", [])
     static var levels: [Level]
     
-    @UserDefault("levelsCacheCount", 5)
+    @UserDefault("levelsCacheCount", 10)
     static var levelsCacheCount: Int
     
     @UserDefault("currentLevelIndex", 1)
