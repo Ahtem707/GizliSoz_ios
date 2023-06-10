@@ -44,7 +44,6 @@
 		1813F3DC2A0E98BC001BDBFC /* AppInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3DB2A0E98BC001BDBFC /* AppInitResponse.swift */; };
 		1813F3DE2A0EDA16001BDBFC /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3DD2A0EDA16001BDBFC /* ApiResponse.swift */; };
 		1819F9032A0CC9F20096BA84 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819F9022A0CC9F20096BA84 /* AppConstants.swift */; };
-		182D93262A120F3900B64C62 /* Level 1.json in Sources */ = {isa = PBXBuildFile; fileRef = 182D93252A120F3900B64C62 /* Level 1.json */; };
 		1835AA382A120FCE00AF3887 /* Level 3.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA2F2A120FCE00AF3887 /* Level 3.json */; };
 		1835AA392A120FCE00AF3887 /* Level 9.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA302A120FCE00AF3887 /* Level 9.json */; };
 		1835AA3A2A120FCE00AF3887 /* Level 6.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA312A120FCE00AF3887 /* Level 6.json */; };
@@ -145,6 +144,7 @@
 		187CD5CB2A16BE4A00D6D981 /* LevelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CD5CA2A16BE4A00D6D981 /* LevelsRequest.swift */; };
 		18A1AD3F2A15607700345121 /* SettingsValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1AD3E2A15607700345121 /* SettingsValueCell.swift */; };
 		18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F5296443EB006F17CD /* SoundPlayer.swift */; };
+		18D90A5F2A33C4180077AB3E /* Level 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 182D93252A120F3900B64C62 /* Level 1.json */; };
 		18D943E52A13EE5F000BEF86 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D943E42A13EE5E000BEF86 /* EasyTipView.swift */; };
 		18D943E82A1424F4000BEF86 /* EasyTipView in Frameworks */ = {isa = PBXBuildFile; productRef = 18D943E72A1424F4000BEF86 /* EasyTipView */; };
 		18DFF7AA2A17D66600FD7A2E /* AdvancedOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */; };
@@ -933,6 +933,7 @@
 				1835AA782A12182D00AF3887 /* qalem.wav in Resources */,
 				187C2C222916FB870036F43A /* SF UI Text Medium.otf in Resources */,
 				187C2C202916FB870036F43A /* SF-Pro-Display-Bold.otf in Resources */,
+				18D90A5F2A33C4180077AB3E /* Level 1.json in Resources */,
 				187C2C232916FB870036F43A /* SF-Pro-Display-Semibold.otf in Resources */,
 				1835AA3A2A120FCE00AF3887 /* Level 6.json in Resources */,
 				187C2C1C2916FB870036F43A /* SF UI Text Bold.otf in Resources */,
@@ -976,7 +977,6 @@
 				186B681B29C46E1100138526 /* typealias.swift in Sources */,
 				18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */,
 				187CD5CB2A16BE4A00D6D981 /* LevelsRequest.swift in Sources */,
-				182D93262A120F3900B64C62 /* Level 1.json in Sources */,
 				187C2BF42916A7C40036F43A /* BaseViewModel.swift in Sources */,
 				185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */,
 				1805960A2A104211006A0E2A /* LevelsViewModel.swift in Sources */,

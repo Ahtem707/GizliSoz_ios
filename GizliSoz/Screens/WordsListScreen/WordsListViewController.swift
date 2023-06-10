@@ -51,6 +51,7 @@ extension WordsListViewController {
     
     private func setupAppearance() {
         view.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.clear
     }
     
     private func setupContents() {

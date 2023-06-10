@@ -38,6 +38,8 @@ final class WordHeader: UIView {
     init() {
         super.init(frame: .zero)
         
+        backgroundColor = .clear
+        
         label.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(label)
