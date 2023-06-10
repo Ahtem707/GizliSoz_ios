@@ -23,8 +23,8 @@ class AdditionalCellBuilder {
         let hammerEnableImage = AppImage.hammerEnable
         let hammerDisableImage = AppImage.hammerDisable
         let wordsImage = AppImage.word
-        let soundEnableImage = AppImage.soundEnable
-        let soundDisableImage = AppImage.soundDisable
+        let soundEnableImage = AppImage.speakerEnable
+        let soundDisableImage = AppImage.speakerDisable
         let counterBackground = AppColor.Keyboard.counter
         let counterLabelFont = AppFont.font(style: .regular, size: 10)
         let counterLabelColor = AppColor.Text.primary
