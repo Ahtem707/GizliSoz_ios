@@ -165,7 +165,8 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     }
     
     func bonusWords() {
-        delegate?.presentVC(WordsListBuilder.start(openWords: openWords, openBonusWords: openBonusWords))
+        let vc = WordsListBuilder.start(openWords: openWords, openBonusWords: openBonusWords)
+        delegate?.presentVC(vc)
     }
     
     func soundHandle() {

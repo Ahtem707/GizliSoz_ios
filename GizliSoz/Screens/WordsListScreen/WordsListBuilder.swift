@@ -16,7 +16,8 @@ final class WordsListBuilder {
         viewModel.initialize()
         viewController.layouts = Layouts()
         viewController.appearance = Appearances()
-        return viewController
+        
+        return BottomSheetContainerViewController(viewController)
     }
     
     struct Layouts {

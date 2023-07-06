@@ -77,6 +77,10 @@ extension ActionSheetViewController {
         viewTap.delegate = self
         view.addGestureRecognizer(viewTap)
         
+        let viewSwipe = UISwipeGestureRecognizer(target: self, action: #selector(viewSwipeAction))
+        viewSwipe.direction = .down
+        view.addGestureRecognizer(viewSwipe)
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ActionSheetCell.self, forCellReuseIdentifier: "cell")
@@ -142,7 +146,11 @@ extension ActionSheetViewController {
         }
     }
     
-    @objc private func viewTapAction(_ sender: UIView) {
+    @objc private func viewTapAction(_ gesture: UIGestureRecognizer) {
+        updateContentHeight(nil)
+    }
+    
+    @objc private func viewSwipeAction(_ gesture: UIGestureRecognizer) {
         updateContentHeight(nil)
     }
 }
