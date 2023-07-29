@@ -59,6 +59,7 @@ final class KeyboardView: UIView {
     private var isSetupLayouts: Bool = false
     private var isShuffleAnimation: Bool = false
     private var isHammerActive: Bool = false
+    private var isNextButtonActive: Bool = true
     private var longPointTimerStart: Date?
     
     // MARK: - Lifecycle functions
@@ -320,7 +321,8 @@ extension KeyboardView {
         }
         
         // Обработать нажатие для кнопки перехода на следующий уровень
-        if nextButton.superview != nil, gesture.state == .began && KeyboardLogic.hoverZone(view: nextButton, point: point) {
+        if nextButton.superview != nil, isNextButtonActive, gesture.state == .began && KeyboardLogic.hoverZone(view: nextButton, point: point) {
+            isNextButtonActive = false
             let status = AppStorage.levelUp()
             viewModel?.levelUp(status: status)
         }
@@ -503,6 +505,7 @@ extension KeyboardView: LevelKeyboardViewDelegate {
         nextButton.setTitle(AppText.MainScreen.nextButton, for: .normal)
         nextButton.titleLabel?.font = AppFont.font(style: .regular, size: 30)
         nextButton.titleLabel?.alpha = 0
+        isNextButtonActive = true
         
         // Добавление ячеек на view
         addSubview(shuffleCell)

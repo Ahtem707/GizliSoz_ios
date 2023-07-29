@@ -48,6 +48,8 @@ final class MainViewController: BaseViewController {
             self.constrainBag[.logo]?()
             self.constrainBag[.stack]?()
         }
+        
+        updateButtonTips()
     }
 }
 
@@ -125,16 +127,18 @@ extension MainViewController {
         levelButton.setTitle(AppText.MainScreen.levels, for: .normal)
         settingButton.setTitle(AppText.MainScreen.settings, for: .normal)
         startButton.setTitle(AppText.MainScreen.start, for: .normal)
-        
-        levelButton.tipViewText = levelButton.titleLabel?.text?.translate
-        settingButton.tipViewText = settingButton.titleLabel?.text?.translate
-        startButton.tipViewText = startButton.titleLabel?.text?.translate
     }
     
     private func setupAction() {
         levelButton.addTarget(self, action: #selector(levelButtonAction), for: .touchUpInside)
         settingButton.addTarget(self, action: #selector(settingsButtonAction), for: .touchUpInside)
         startButton.addTarget(self, action: #selector(startButtonAction), for: .touchUpInside)
+    }
+    
+    private func updateButtonTips() {
+        levelButton.tipViewText = levelButton.titleLabel?.text?.translate
+        settingButton.tipViewText = settingButton.titleLabel?.text?.translate
+        startButton.tipViewText = startButton.titleLabel?.text?.translate
     }
 }
 

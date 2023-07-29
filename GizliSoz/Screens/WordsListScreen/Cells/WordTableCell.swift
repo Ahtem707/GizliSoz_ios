@@ -80,6 +80,7 @@ final class WordCell: UITableViewCell {
         soundButton.pinCenter(to: centerContainer, of: .vertical)
         soundButton.pin(size: layouts.soundButtonSize)
         
+        backgroundColor = .clear
         wordLabel.font = appearance.wordLabelFont
         wordLabel.textColor = appearance.wordLabelColor
         translateLabel.font = appearance.translateLabelFont

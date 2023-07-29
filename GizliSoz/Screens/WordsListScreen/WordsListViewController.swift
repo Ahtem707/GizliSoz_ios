@@ -24,8 +24,6 @@ final class WordsListViewController: BaseViewController {
         setupSubviews()
         setupLayouts()
         setupAppearance()
-        setupContents()
-        setupAction()
     }
 }
 
@@ -51,14 +49,7 @@ extension WordsListViewController {
     
     private func setupAppearance() {
         view.backgroundColor = UIColor.white
-    }
-    
-    private func setupContents() {
-        
-    }
-    
-    private func setupAction() {
-        
+        tableView.backgroundColor = UIColor.clear
     }
 }
 

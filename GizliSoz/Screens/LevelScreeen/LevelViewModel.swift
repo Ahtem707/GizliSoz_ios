@@ -20,12 +20,15 @@ final class LevelViewModel: BaseViewModel {
     
     func initialize() {
         
-        guard let level = AppStorage.share.currentLevel else { return }
-        
-        delegate?.setTitle(text: level.name, translate: level.nameTranslate)
-        
         crossDelegate?.clear()
         keyboardDelegate?.clear()
+        
+        guard let level = AppStorage.share.currentLevel else {
+            AlertsFactory.makeLogicError()
+            return
+        }
+        
+        delegate?.setTitle(text: level.name, translate: level.nameTranslate)
         
         let words: [CrossViewBuilder.Word] = level.words.map { data in
             
@@ -165,7 +168,8 @@ extension LevelViewModel: LevelKeyboardViewModelProtocol {
     }
     
     func bonusWords() {
-        delegate?.presentVC(WordsListBuilder.start(openWords: openWords, openBonusWords: openBonusWords))
+        let vc = WordsListBuilder.start(openWords: openWords, openBonusWords: openBonusWords)
+        delegate?.presentVC(vc)
     }
     
     func soundHandle() {

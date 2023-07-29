@@ -44,7 +44,6 @@
 		1813F3DC2A0E98BC001BDBFC /* AppInitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3DB2A0E98BC001BDBFC /* AppInitResponse.swift */; };
 		1813F3DE2A0EDA16001BDBFC /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1813F3DD2A0EDA16001BDBFC /* ApiResponse.swift */; };
 		1819F9032A0CC9F20096BA84 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1819F9022A0CC9F20096BA84 /* AppConstants.swift */; };
-		182D93262A120F3900B64C62 /* Level 1.json in Sources */ = {isa = PBXBuildFile; fileRef = 182D93252A120F3900B64C62 /* Level 1.json */; };
 		1835AA382A120FCE00AF3887 /* Level 3.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA2F2A120FCE00AF3887 /* Level 3.json */; };
 		1835AA392A120FCE00AF3887 /* Level 9.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA302A120FCE00AF3887 /* Level 9.json */; };
 		1835AA3A2A120FCE00AF3887 /* Level 6.json in Resources */ = {isa = PBXBuildFile; fileRef = 1835AA312A120FCE00AF3887 /* Level 6.json */; };
@@ -98,12 +97,12 @@
 		183B1D59296732B000D80509 /* AlertsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B1D58296732B000D80509 /* AlertsFactory.swift */; };
 		1842E0262963823A000E95F4 /* AppStorageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E0252963823A000E95F4 /* AppStorageExtension.swift */; };
 		1844642B29393AAF00A2C540 /* AnimateStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1844642A29393AAF00A2C540 /* AnimateStack.swift */; };
-		185D6D6529685EAB00B10CD8 /* ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6429685EAB00B10CD8 /* ActionSheetViewController.swift */; };
 		185D6D672968653C00B10CD8 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D662968653C00B10CD8 /* ActionSheetCell.swift */; };
 		185D6D6B296866B700B10CD8 /* ActionSheetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6A296866B700B10CD8 /* ActionSheetModel.swift */; };
 		185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6C2968700A00B10CD8 /* ActionSheetFactory.swift */; };
 		185D6D6F2968AE0100B10CD8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6E2968AE0100B10CD8 /* UIView.swift */; };
 		186B681B29C46E1100138526 /* typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B681A29C46E1100138526 /* typealias.swift */; };
+		1878FC6A2A56AC3C00C178CC /* ActionSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185D6D6429685EAB00B10CD8 /* ActionSheetViewController.swift */; };
 		187C2BDA291674D40036F43A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C2BD9291674D40036F43A /* AppDelegate.swift */; };
 		187C2BE3291674D70036F43A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE2291674D70036F43A /* Assets.xcassets */; };
 		187C2BE6291674D70036F43A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 187C2BE4291674D70036F43A /* LaunchScreen.storyboard */; };
@@ -145,11 +144,13 @@
 		187CD5CB2A16BE4A00D6D981 /* LevelsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CD5CA2A16BE4A00D6D981 /* LevelsRequest.swift */; };
 		18A1AD3F2A15607700345121 /* SettingsValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1AD3E2A15607700345121 /* SettingsValueCell.swift */; };
 		18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC84F5296443EB006F17CD /* SoundPlayer.swift */; };
+		18D90A5F2A33C4180077AB3E /* Level 1.json in Resources */ = {isa = PBXBuildFile; fileRef = 182D93252A120F3900B64C62 /* Level 1.json */; };
 		18D943E52A13EE5F000BEF86 /* EasyTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D943E42A13EE5E000BEF86 /* EasyTipView.swift */; };
 		18D943E82A1424F4000BEF86 /* EasyTipView in Frameworks */ = {isa = PBXBuildFile; productRef = 18D943E72A1424F4000BEF86 /* EasyTipView */; };
 		18DFF7AA2A17D66600FD7A2E /* AdvancedOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7A92A17D66600FD7A2E /* AdvancedOperators.swift */; };
 		18DFF7AD2A18043B00FD7A2E /* AppInitRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFF7AC2A18043B00FD7A2E /* AppInitRequest.swift */; };
 		18E34EB229D9882F0094CBBA /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E34EB129D9882F0094CBBA /* AppText.swift */; };
+		18F2C9682A55C15900D7311B /* BottomSheetContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F2C9672A55C15900D7311B /* BottomSheetContainer.swift */; };
 		18FBB1892A19F9DE00BE1A4C /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBB1882A19F9DE00BE1A4C /* AppLabel.swift */; };
 		18FBB18B2A19FD5500BE1A4C /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBB18A2A19FD5500BE1A4C /* AppButton.swift */; };
 		18FBB18D2A1A048800BE1A4C /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBB18C2A1A048800BE1A4C /* AppView.swift */; };
@@ -301,6 +302,7 @@
 		18E34EAF29D96ECD0094CBBA /* WordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableCell.swift; sourceTree = "<group>"; };
 		18E34EB129D9882F0094CBBA /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		18E34EB329D9D10B0094CBBA /* WordTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableHeader.swift; sourceTree = "<group>"; };
+		18F2C9672A55C15900D7311B /* BottomSheetContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetContainer.swift; sourceTree = "<group>"; };
 		18FBB1882A19F9DE00BE1A4C /* AppLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
 		18FBB18A2A19FD5500BE1A4C /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		18FBB18C2A1A048800BE1A4C /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 		185D6D6229685E8D00B10CD8 /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
+				18F2C9662A55C0F400D7311B /* BottomSheetContainer */,
 				185D6D6329685E9C00B10CD8 /* ActionSheet */,
 			);
 			path = BottomSheet;
@@ -817,6 +820,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		18F2C9662A55C0F400D7311B /* BottomSheetContainer */ = {
+			isa = PBXGroup;
+			children = (
+				18F2C9672A55C15900D7311B /* BottomSheetContainer.swift */,
+			);
+			path = BottomSheetContainer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -933,6 +944,7 @@
 				1835AA782A12182D00AF3887 /* qalem.wav in Resources */,
 				187C2C222916FB870036F43A /* SF UI Text Medium.otf in Resources */,
 				187C2C202916FB870036F43A /* SF-Pro-Display-Bold.otf in Resources */,
+				18D90A5F2A33C4180077AB3E /* Level 1.json in Resources */,
 				187C2C232916FB870036F43A /* SF-Pro-Display-Semibold.otf in Resources */,
 				1835AA3A2A120FCE00AF3887 /* Level 6.json in Resources */,
 				187C2C1C2916FB870036F43A /* SF UI Text Bold.otf in Resources */,
@@ -960,6 +972,7 @@
 				18DFF7AA2A17D66600FD7A2E /* AdvancedOperators.swift in Sources */,
 				1819F9032A0CC9F20096BA84 /* AppConstants.swift in Sources */,
 				187C2BFB2916AB860036F43A /* MainViewModel.swift in Sources */,
+				18F2C9682A55C15900D7311B /* BottomSheetContainer.swift in Sources */,
 				187C2C4C29186EB90036F43A /* AppLogger.swift in Sources */,
 				180596052A104205006A0E2A /* SettingsViewModel.swift in Sources */,
 				180596022A104205006A0E2A /* SettingsProtocols.swift in Sources */,
@@ -973,10 +986,10 @@
 				187C2C52291963730036F43A /* BuildConfig.swift in Sources */,
 				183B1D59296732B000D80509 /* AlertsFactory.swift in Sources */,
 				187C2C5029194E1E0036F43A /* Data.swift in Sources */,
+				1878FC6A2A56AC3C00C178CC /* ActionSheetViewController.swift in Sources */,
 				186B681B29C46E1100138526 /* typealias.swift in Sources */,
 				18BC84F6296443EB006F17CD /* SoundPlayer.swift in Sources */,
 				187CD5CB2A16BE4A00D6D981 /* LevelsRequest.swift in Sources */,
-				182D93262A120F3900B64C62 /* Level 1.json in Sources */,
 				187C2BF42916A7C40036F43A /* BaseViewModel.swift in Sources */,
 				185D6D6D2968700A00B10CD8 /* ActionSheetFactory.swift in Sources */,
 				1805960A2A104211006A0E2A /* LevelsViewModel.swift in Sources */,
@@ -987,7 +1000,6 @@
 				187C2C0B2916F74E0036F43A /* AppColor.swift in Sources */,
 				187C2C012916B3910036F43A /* UIView + Autolayout.swift in Sources */,
 				183B1D552966D7E800D80509 /* AppError.swift in Sources */,
-				185D6D6529685EAB00B10CD8 /* ActionSheetViewController.swift in Sources */,
 				180595FC2A1041F9006A0E2A /* AdditionalCell.swift in Sources */,
 				180595F12A1041EE006A0E2A /* WordsListViewModel.swift in Sources */,
 				1805960D2A104213006A0E2A /* LevelsCollectionCell.swift in Sources */,
@@ -1177,7 +1189,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GizliSoz/GizliSoz.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N29SZ25DF4;
@@ -1193,7 +1205,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ahtem.GizliSoz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1227,7 +1239,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yuzum.gizlisoz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

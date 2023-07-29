@@ -23,7 +23,8 @@ class ViewControllerImplement: UIViewController {
             titleLabel.text = title
             titleLabel.textColor = AppColor.Text.white
             titleLabel.font = AppFont.font(style: .bold, size: 20)
-            titleLabel.frame.size.width = 100
+            titleLabel.frame.size.width = 250
+            titleLabel.textAlignment = .center
             navigationItem.titleView = titleLabel
         }
     }

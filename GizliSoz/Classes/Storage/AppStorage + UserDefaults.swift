@@ -36,13 +36,13 @@ extension AppStorage {
     @UserDefault("IsActiveVoiceover", true)
     static var isActiveVoiceover: Bool
     
-    @UserDefault("voiceoverActor", "default")
-    private static var _voiceoverActor: String {
+    @UserDefault("voiceoverActor", Parameter.default)
+    private static var _voiceoverActor: Parameter {
         didSet { AppStorage.share.fetchLevels() }
     }
     
-    @UserDefault("translationLang", "default")
-    private static var _translationLang: String {
+    @UserDefault("translationLang", Parameter.default)
+    private static var _translationLang: Parameter {
         didSet { AppStorage.share.fetchLevels() }
     }
     
@@ -84,36 +84,36 @@ extension AppStorage {
     static var translationLang: Parameter {
         get {
             let langs = AppStorage.share.translationLangs
-            if let value = langs.first(where: { $0.code == _translationLang }) {
+            if let value = langs.first(where: { $0.code == _translationLang.code }) {
                 return value
             } else if let value = langs.first(where: { $0.isDefault == true }) {
                 return value
             } else if let value = langs.first {
                 return value
             } else {
-                return Parameter.default
+                return _translationLang
             }
         }
         set {
-            _translationLang = newValue.code
+            _translationLang = newValue
         }
     }
     
     static var voiceoverActor: Parameter {
         get {
             let actors = AppStorage.share.voiceoverActors
-            if let value = actors.first(where: { $0.code == _voiceoverActor }) {
+            if let value = actors.first(where: { $0.code == _voiceoverActor.code }) {
                 return value
             } else if let value = actors.first(where: { $0.isDefault == true }) {
                 return value
             } else if let value = actors.first {
                 return value
             } else {
-                return Parameter.default
+                return _voiceoverActor
             }
         }
         set {
-            _voiceoverActor = newValue.code
+            _voiceoverActor = newValue
         }
     }
 }
