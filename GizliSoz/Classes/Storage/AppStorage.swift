@@ -24,7 +24,18 @@ final class AppStorage {
     var levels: [Level] = []
     
     var currentLevel: Level? {
-        return levels.first(where: { $0.levelNumber == AppStorage.currentLevelIndex })
+        // Получаем кэшированные данные
+        if let cacheLevel = levels.first(where: { $0.levelNumber == AppStorage.currentLevelIndex }) {
+            return cacheLevel
+        }
+        
+        // Если уровня в кэше нет, используем хардкодные уровни
+        let index = AppStorage.currentLevelIndex
+        if let storageLevel = Data.json(fileName: "Level \(index)", with: .json).asCodable(Level.self) {
+            return storageLevel
+        }
+        
+        return nil
     }
     
     // MARK: - Lifecycle functions
@@ -160,12 +171,7 @@ final class AppStorage {
                     AlertsFactory.makeServerError()
                 }
             case .failure(let error):
-                let index = AppStorage.currentLevelIndex
-                if let data = Data.json(fileName: "Level \(index)", with: .json).asCodable(Level.self) {
-                    AppStorage.share.levels.append(data)
-                } else {
-                    AppLogger.log(.storage, error.localizedDescription)
-                }
+                AppLogger.log(.storage, error.localizedDescription)
             }
             self?.runStack.next()
         }

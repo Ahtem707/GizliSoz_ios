@@ -20,12 +20,15 @@ final class LevelViewModel: BaseViewModel {
     
     func initialize() {
         
-        guard let level = AppStorage.share.currentLevel else { return }
-        
-        delegate?.setTitle(text: level.name, translate: level.nameTranslate)
-        
         crossDelegate?.clear()
         keyboardDelegate?.clear()
+        
+        guard let level = AppStorage.share.currentLevel else {
+            AlertsFactory.makeLogicError()
+            return
+        }
+        
+        delegate?.setTitle(text: level.name, translate: level.nameTranslate)
         
         let words: [CrossViewBuilder.Word] = level.words.map { data in
             

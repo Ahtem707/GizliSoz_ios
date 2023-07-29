@@ -31,7 +31,7 @@ class AlertsFactory {
     
     static func makeLogicError() {
         let alert = UIAlertController(
-            title: "Mobil uyğulamada hata oldi",
+            title: "Bağışlañız, bir hata oldi",
             message: nil,
             preferredStyle: .alert
         )
